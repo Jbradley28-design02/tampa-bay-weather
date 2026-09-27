@@ -722,20 +722,20 @@ This unified graph tracks all 5 meteorological measurements for KTPA from Januar
 
 ```{r}
 #| label: live-stream-2025-graph
-recent_weather <- read_csv("data/ktpa_2025_present.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
+recent_hourly <- read_csv("data/ktpa_2025_present.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
   mutate(
+    time = as.POSIXct(DATE, format = "%Y-%m-%dT%H:%M:%S"),
     date = as.Date(DATE),
     temp = parse_number(HourlyDryBulbTemperature),
     dew = parse_number(HourlyDewPointTemperature),
     press = parse_number(HourlyStationPressure),
     wind = parse_number(HourlyWindSpeed),
     precip = replace_na(parse_number(na_if(HourlyPrecipitation, "T")), 0)
-  ) |>
+  )
+
+recent_daily <- recent_hourly |>
   group_by(date) |>
   summarize(
-    temp = round(mean(temp, na.rm = TRUE), 1),
-    dew = round(mean(dew, na.rm = TRUE), 1),
-    press = round(mean(press, na.rm = TRUE), 2),
     wind = suppressWarnings(max(wind, na.rm = TRUE)),
     precip = round(sum(precip, na.rm = TRUE), 2),
     .groups = "drop"
@@ -744,46 +744,46 @@ recent_weather <- read_csv("data/ktpa_2025_present.csv", col_types = cols(.defau
 plot_ly(elementId = "ktpa-2025-live-chart") |>
   # 1. Temperature (Trace 0)
   add_lines(
-    data = recent_weather, x = ~date, y = ~temp,
-    name = "Daily Avg Temp (°F)",
+    data = recent_hourly, x = ~time, y = ~temp,
+    name = "Hourly Temp (°F)",
     visible = TRUE,
     line = list(color = "#D84315", width = 1.3),
     hoverinfo = "text",
     text = ~paste0(
       "<b style=\"font-size:13px; color:#c2410c;\">🌡️ Temperature</b><br>",
-      "<b>Date:</b> ", format(date, "%B %d, %Y"), "<br>",
-      "<b>Avg Temp:</b> ", temp, " °F"
+      "<b>Time:</b> ", format(time, "%B %d, %Y %I:%M %p"), "<br>",
+      "<b>Temp:</b> ", temp, " °F"
     )
   ) |>
   # 2. Dew Point (Trace 1)
   add_lines(
-    data = recent_weather, x = ~date, y = ~dew,
-    name = "Daily Avg Dew Point (°F)",
+    data = recent_hourly, x = ~time, y = ~dew,
+    name = "Hourly Dew Point (°F)",
     visible = FALSE,
     line = list(color = "#00695C", width = 1.3),
     hoverinfo = "text",
     text = ~paste0(
       "<b style=\"font-size:13px; color:#047857;\">💧 Dew Point</b><br>",
-      "<b>Date:</b> ", format(date, "%B %d, %Y"), "<br>",
-      "<b>Avg Dew Point:</b> ", dew, " °F"
+      "<b>Time:</b> ", format(time, "%B %d, %Y %I:%M %p"), "<br>",
+      "<b>Dew Point:</b> ", dew, " °F"
     )
   ) |>
   # 3. Barometric Pressure (Trace 2)
   add_lines(
-    data = recent_weather, x = ~date, y = ~press,
-    name = "Daily Avg Pressure (inHg)",
+    data = recent_hourly, x = ~time, y = ~press,
+    name = "Hourly Pressure (inHg)",
     visible = FALSE,
     line = list(color = "#1565C0", width = 1.3),
     hoverinfo = "text",
     text = ~paste0(
       "<b style=\"font-size:13px; color:#1d4ed8;\">🌪️ Barometric Pressure</b><br>",
-      "<b>Date:</b> ", format(date, "%B %d, %Y"), "<br>",
-      "<b>Avg Pressure:</b> ", press, " inHg"
+      "<b>Time:</b> ", format(time, "%B %d, %Y %I:%M %p"), "<br>",
+      "<b>Pressure:</b> ", press, " inHg"
     )
   ) |>
   # 4. Wind Speed (Trace 3)
   add_lines(
-    data = recent_weather, x = ~date, y = ~wind,
+    data = recent_daily, x = ~date, y = ~wind,
     name = "Daily Max Wind (mph)",
     visible = FALSE,
     line = list(color = "#6A1B9A", width = 1.3),
@@ -796,7 +796,7 @@ plot_ly(elementId = "ktpa-2025-live-chart") |>
   ) |>
   # 5. Precipitation (Trace 4)
   add_lines(
-    data = recent_weather, x = ~date, y = ~precip,
+    data = recent_daily, x = ~date, y = ~precip,
     name = "Daily Precip Total (in)",
     visible = FALSE,
     line = list(color = "#0288D1", width = 1.3),
