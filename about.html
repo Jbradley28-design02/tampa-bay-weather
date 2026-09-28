@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jason Bloxsom">
+<meta name="author" content="Bradley Bloxsom">
 
-<title>Tampa Bay Weather Analysis – Tampa Bay Weather</title>
+<title>About the Project &amp; Author – Tampa Bay Weather</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,17 +74,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
-<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="site_libs/leaflet-binding-2.2.3/leaflet.js"></script>
-<script src="site_libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
-<script src="site_libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -108,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -120,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Story</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -140,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tampa Bay Weather Analysis</h1>
+<h1 class="title">About the Project &amp; Author</h1>
 </div>
 
 
@@ -150,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Jason Bloxsom </p>
+             <p>Bradley Bloxsom </p>
           </div>
   </div>
     
@@ -163,65 +152,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="real-time-telemetry-feed-ktpa" class="level2">
-<h2 class="anchored" data-anchor-id="real-time-telemetry-feed-ktpa">Real-Time Telemetry Feed (KTPA)</h2>
-<p>Live observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.</p>
-<div class="live-telemetry-box">
-  <div class="live-telemetry-header">
-    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
-      <span class="live-pill"><span class="live-pulse-dot"></span> LIVE NWS BROADCAST</span>
-      <span style="font-size: 1.15rem; font-weight: 700; color: #ffffff;">KTPA — Tampa International Airport Telemetry</span>
-      <span id="live-time-str" style="color: #94a3b8; font-size: 0.85rem; font-weight: 500;">Observed Live</span>
-    </div>
-    <div style="display: flex; gap: 8px; align-items: center;">
-      <span id="live-condition-badge" style="background: rgba(59, 130, 246, 0.2); border: 1px solid #3b82f6; color: #93c5fd; padding: 0.35rem 0.75rem; border-radius: 6px; font-size: 0.85rem; font-weight: 700;">Loading...</span>
-      <button id="live-refresh-btn" class="live-refresh-btn" onclick="fetchLiveKTPAWeather()">🔄 Refresh</button>
-    </div>
-  </div>
-
-  <div class="live-grid">
-    <div class="live-card">
-      <div class="live-card-icon">🌡️</div>
-      <div id="live-temp-val" class="live-card-val">--.-°F</div>
-      <div class="live-card-label">Live Temperature</div>
-      <div class="live-card-sub">Measures ambient air warmth in the shade.</div>
-    </div>
-    <div class="live-card">
-      <div class="live-card-icon">💧</div>
-      <div id="live-dew-val" class="live-card-val">--.-°F</div>
-      <div class="live-card-label">Live Dew Point</div>
-      <div class="live-card-sub">Measures air moisture; higher values feel muggy.</div>
-    </div>
-    <div class="live-card">
-      <div class="live-card-icon">🌪️</div>
-      <div id="live-press-val" class="live-card-val">--.-- inHg</div>
-      <div class="live-card-label">Live Pressure</div>
-      <div class="live-card-sub">Barometric weight; falling pressure signals storms.</div>
-    </div>
-    <div class="live-card">
-      <div class="live-card-icon">💨</div>
-      <div id="live-wind-val" class="live-card-val">-- mph</div>
-      <div class="live-card-label">Live Wind Speed</div>
-      <div class="live-card-sub">Sustained horizontal airflow across airport runways.</div>
-    </div>
-    <div class="live-card">
-      <div class="live-card-icon">🌧️</div>
-      <div id="live-precip-val" class="live-card-val">-- in</div>
-      <div class="live-card-label">Live Rain (1-Hr)</div>
-      <div class="live-card-sub">Liquid rainfall accumulated over the past 60 minutes.</div>
-    </div>
-  </div>
+<div class="news-header">
+<span class="news-badge">PROJECT BACKGROUND &amp; AUTHOR</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">
+About Tampa Bay Weather
+</h1>
+<div class="news-station-tag">
+AUTHOR: BRADLEY BLOXSOM • STATION: KTPA ARCHIVE (2015–2024)
 </div>
+<div style="margin-top: 0.85rem; font-size: 0.95rem; color: #cbd5e1; display: flex; flex-wrap: wrap; gap: 15px;">
+<p><span>✉️ <strong>Contact:</strong> <a href="mailto:j.bloxsom28@ncf.edu" style="color: #93c5fd; text-decoration: underline;">j.bloxsom28@ncf.edu</a></span> <span>💻 <strong>Repository:</strong> <a href="https://github.com/Jbradley28-design02/tampa-bay-weather" target="_blank" style="color: #93c5fd; text-decoration: underline;">Behind-the-Scenes Data &amp; Code</a></span></p>
+</div>
+</div>
+<section id="the-spark-a-lifelong-fascination-with-weather" class="level2">
+<h2 class="anchored" data-anchor-id="the-spark-a-lifelong-fascination-with-weather">The Spark: A Lifelong Fascination with Weather</h2>
+<p>Ever since I was little, my parents would constantly find me sitting in front of the TV, completely captivated by weather reports. While other kids were watching cartoons, I was drawn to the radar loops, the satellite views, and the meteorologists tracking cold fronts, squall lines, and tropical systems.</p>
+<p>That fascination naturally followed me into the classroom. Throughout science classes in late elementary and early middle school, I was always asking <em>why</em>—trying to understand what drove high and low pressure, what created thunderstorms, and how the atmosphere operated. Outside of class, I dove into independent research and study, reading whatever I could find about atmospheric science and meteorology.</p>
+<p>When the opportunity came to build this final project, choosing Tampa Bay’s weather was a natural extension of a lifelong passion that started in my childhood living room.</p>
+<hr>
 </section>
-<section id="tampa-bay-regional-weather-station-network" class="level2">
-<h2 class="anchored" data-anchor-id="tampa-bay-regional-weather-station-network">Tampa Bay Regional Weather Station Network</h2>
-<p>Click or hover on any station to view its elevation, telemetry type, and role in monitoring Tampa Bay’s coastal weather extremes. The red marker highlights <strong>KTPA</strong>, the primary anchor station.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-8ce5847f5f3ce41ff619" style="width:100%;height:483px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8ce5847f5f3ce41ff619">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[27.9755,27.9108,27.7651,27.8494,28.0142,27.9889,28.4736,27.3956],[-82.53319999999999,-82.6874,-82.627,-82.5211,-82.34529999999999,-82.01860000000001,-82.45529999999999,-82.5544],[11,8,8,8,8,8,8,8],null,null,{"interactive":true,"className":"","stroke":true,"color":["#dc2626","#2563eb","#2563eb","#2563eb","#2563eb","#2563eb","#2563eb","#2563eb"],"weight":2,"opacity":0.5,"fill":true,"fillColor":["#ef4444","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6","#3b82f6"],"fillOpacity":0.85},null,null,["<div style=\"min-width:240px; font-family: system-ui, sans-serif;\"><h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>KTPA<\/b> — Tampa International Airport<\/h4><b>Network Type:<\/b> Primary ASOS (Study Anchor)<br><b>County:<\/b> Hillsborough<br><b>Elevation:<\/b> 19 ft<br><b>Coordinates:<\/b> 27.9755° N, 82.5332° W<br><hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\"><p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">Central anchor station for this 10-year investigation. Recorded the 98.0°F record high and 16.14-inch Debby deluge.<\/p><div style=\"background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; margin-top:8px;\"><span style=\"color:#dc2626; font-weight:700; font-size:11px;\">● LIVE STATION TELEMETRY<\/span><br><b>Temp:<\/b> 80.6°F | <b>Dew:<\/b> 66.2°F<br><b>Pressure:<\/b> 29.98 inHg | <b>Wind:<\/b> 5.7 mph<br><b>Condition:<\/b> Clear<\/div><\/div>","<div style=\"min-width:240px; font-family: system-ui, sans-serif;\"><h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>KPIE<\/b> — St. Pete–Clearwater International<\/h4><b>Network Type:<\/b> Primary ASOS<br><b>County:<\/b> Pinellas<br><b>Elevation:<\/b> 11 ft<br><b>Coordinates:<\/b> 27.9108° N, 82.6874° W<br><hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\"><p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">Key coastal Pinellas station exposed directly to Old Tampa Bay marine breezes and tropical storm surge threats.<\/p><div style=\"background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; margin-top:8px;\"><span style=\"color:#2563eb; font-weight:700; font-size:11px;\">● LIVE STATION TELEMETRY<\/span><br><b>Temp:<\/b> 80.6°F | <b>Dew:<\/b> 66.2°F<br><b>Pressure:<\/b> 29.97 inHg | <b>Wind:<\/b> 4.6 mph<br><b>Condition:<\/b> Clear<\/div><\/div>","<div style=\"min-width:240px; font-family: system-ui, sans-serif;\"><h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>KSPG<\/b> — Albert Whitted Airport<\/h4><b>Network Type:<\/b> ASOS<br><b>County:<\/b> Pinellas<br><b>Elevation:<\/b> 7 ft<br><b>Coordinates:<\/b> 27.7651° N, 82.627° W<br><hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\"><p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">Downtown St. Petersburg waterfront station; its low 7-foot elevation makes it critical for measuring bay water rise.<\/p><div style=\"background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; margin-top:8px;\"><span style=\"color:#2563eb; font-weight:700; font-size:11px;\">● LIVE STATION TELEMETRY<\/span><br><b>Temp:<\/b> 78.8°F | <b>Dew:<\/b> 68°F<br><b>Pressure:<\/b> 29.96 inHg | <b>Wind:<\/b> 6.9 mph<br><b>Condition:<\/b> Clear<\/div><\/div>","<div style=\"min-width:240px; font-family: system-ui, sans-serif;\"><h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>KMCF<\/b> — MacDill Air Force Base<\/h4><b>Network Type:<\/b> Military Aerodrome<br><b>County:<\/b> Hillsborough<br><b>Elevation:<\/b> 14 ft<br><b>Coordinates:<\/b> 27.8494° N, 82.5211° W<br><hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\"><p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">Located at the tip of the South Tampa peninsula between Hillsborough Bay and Old Tampa Bay.<\/p><div style=\"background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; margin-top:8px;\"><span style=\"color:#2563eb; font-weight:700; font-size:11px;\">● LIVE STATION TELEMETRY<\/span><br><b>Temp:<\/b> N/A | <b>Dew:<\/b> N/A<br><b>Pressure:<\/b> N/A | <b>Wind:<\/b> N/A<br><b>Condition:<\/b> Clear<\/div><\/div>","<div style=\"min-width:240px; font-family: system-ui, sans-serif;\"><h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>KVDF<\/b> — Tampa Executive Airport<\/h4><b>Network Type:<\/b> AWOS-3<br><b>County:<\/b> East Hillsborough<br><b>Elevation:<\/b> 22 ft<br><b>Coordinates:<\/b> 28.0142° N, 82.3453° W<br><hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\"><p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">Inland Hillsborough station northeast of downtown Tampa; captures continental temperature swings away from water.<\/p><div style=\"background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; margin-top:8px;\"><span style=\"color:#2563eb; font-weight:700; font-size:11px;\">● LIVE STATION TELEMETRY<\/span><br><b>Temp:<\/b> 78.1°F | <b>Dew:<\/b> 67.5°F<br><b>Pressure:<\/b> 29.97 inHg | <b>Wind:<\/b> Calm<br><b>Condition:<\/b> Clear<\/div><\/div>","<div style=\"min-width:240px; font-family: system-ui, sans-serif;\"><h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>KLAL<\/b> — Lakeland Linder International<\/h4><b>Network Type:<\/b> ASOS<br><b>County:<\/b> Polk<br><b>Elevation:<\/b> 142 ft<br><b>Coordinates:<\/b> 27.9889° N, 82.0186° W<br><hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\"><p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">Inland station east of Tampa Bay and home base to the world-renowned NOAA Hurricane Hunters flight operations.<\/p><div style=\"background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; margin-top:8px;\"><span style=\"color:#2563eb; font-weight:700; font-size:11px;\">● LIVE STATION TELEMETRY<\/span><br><b>Temp:<\/b> 77°F | <b>Dew:<\/b> N/A<br><b>Pressure:<\/b> N/A | <b>Wind:<\/b> Calm<br><b>Condition:<\/b> Mostly Clear<\/div><\/div>","<div style=\"min-width:240px; font-family: system-ui, sans-serif;\"><h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>KBKV<\/b> — Brooksville-Tampa Bay Regional<\/h4><b>Network Type:<\/b> AWOS-3<br><b>County:<\/b> Hernando<br><b>Elevation:<\/b> 77 ft<br><b>Coordinates:<\/b> 28.4736° N, 82.4553° W<br><hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\"><p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">Northern perimeter station representing the Nature Coast boundary of the greater Tampa Bay region.<\/p><div style=\"background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; margin-top:8px;\"><span style=\"color:#2563eb; font-weight:700; font-size:11px;\">● LIVE STATION TELEMETRY<\/span><br><b>Temp:<\/b> 78.8°F | <b>Dew:<\/b> 69.8°F<br><b>Pressure:<\/b> 29.98 inHg | <b>Wind:<\/b> 5.7 mph<br><b>Condition:<\/b> Clear<\/div><\/div>","<div style=\"min-width:240px; font-family: system-ui, sans-serif;\"><h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>KSRQ<\/b> — Sarasota Bradenton International<\/h4><b>Network Type:<\/b> Primary ASOS<br><b>County:<\/b> Manatee / Sarasota<br><b>Elevation:<\/b> 30 ft<br><b>Coordinates:<\/b> 27.3956° N, 82.5544° W<br><hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\"><p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">Southern gateway station near the landfall impact zone of Hurricane Milton (2024).<\/p><div style=\"background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:6px 8px; margin-top:8px;\"><span style=\"color:#2563eb; font-weight:700; font-size:11px;\">● LIVE STATION TELEMETRY<\/span><br><b>Temp:<\/b> 82.4°F | <b>Dew:<\/b> 64.4°F<br><b>Pressure:<\/b> 29.98 inHg | <b>Wind:<\/b> 3.4 mph<br><b>Condition:<\/b> Clear<\/div><\/div>"],null,["KTPA — Tampa International Airport (80.6°F, Clear)","KPIE — St. Pete–Clearwater International (80.6°F, Clear)","KSPG — Albert Whitted Airport (78.8°F, Clear)","KMCF — MacDill Air Force Base (N/A, Clear)","KVDF — Tampa Executive Airport (78.1°F, Clear)","KLAL — Lakeland Linder International (77°F, Mostly Clear)","KBKV — Brooksville-Tampa Bay Regional (78.8°F, Clear)","KSRQ — Sarasota Bradenton International (82.4°F, Clear)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[27.3956,28.4736],"lng":[-82.6874,-82.01860000000001]}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
+<section id="data-methods" class="level2">
+<h2 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h2>
+<ul>
+<li><strong>Primary Historical Dataset:</strong> 10 years (2015–2024) of hourly surface meteorological records from the automated station at Tampa International Airport (KTPA), sourced via NOAA’s National Centers for Environmental Information (NCEI) Local Climatological Data (LCD).</li>
+<li><strong>Real-Time Data:</strong> Live telemetry fetched dynamically from the National Weather Service (NWS) API.</li>
+<li><strong>Technology Stack:</strong> Built using <strong>R</strong>, <strong>Quarto</strong>, and the <strong>tidyverse</strong> (<code>dplyr</code>, <code>ggplot2</code>, <code>patchwork</code>, <code>plotly</code>, <code>leaflet</code>).</li>
+</ul>
 
 
 </section>
