@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Tampa Bay Weather"
+  site-url: "https://jbradley28-design02.github.io/tampa-bay-weather"
   navbar:
     left:
       - href: index.qmd
