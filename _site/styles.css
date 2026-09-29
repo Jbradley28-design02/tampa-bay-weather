@@ -420,4 +420,29 @@ body {
   opacity: 0;
 }
 
+/* ==========================================================================
+   Leaflet Map Styling & Hover Tooltip Clarity
+   ========================================================================== */
+.leaflet-container {
+  font-family: inherit;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  border: 1px solid #cbd5e1;
+}
+
+.leaflet-tile {
+  filter: none !important;
+}
+
+.leaflet-tooltip {
+  font-size: 13px !important;
+  color: #1e293b !important;
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 10px 14px !important;
+  line-height: 1.45 !important;
+}
+
 

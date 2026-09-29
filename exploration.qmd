@@ -15,6 +15,7 @@ library(tidyverse)
 library(plotly)
 library(leaflet)
 library(jsonlite)
+library(htmltools)
 
 # Fetch initial real-time telemetry from NWS API for KTPA
 live_init <- tryCatch({
@@ -638,8 +639,25 @@ stations <- stations_raw |>
     )
   )
 
+station_popups <- paste0(
+  "<div style=\"min-width:240px; font-family: system-ui, -apple-system, sans-serif;\">",
+  "<h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>", stations$id, "</b> — ", stations$name, "</h4>",
+  "<b>Network Type:</b> ", stations$type, "<br>",
+  "<b>County:</b> ", stations$county, "<br>",
+  "<b>Elevation:</b> ", stations$elev_ft, " ft<br>",
+  "<b>Coordinates:</b> ", stations$lat, "° N, ", abs(stations$lon), "° W<br>",
+  "<hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\">",
+  "<p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">", stations$description, "</p>",
+  stations$live_snippet,
+  "</div>"
+)
+
 leaflet(stations, height = 500) |>
   addProviderTiles(providers$Esri.WorldStreetMap) |>
+  fitBounds(
+    lng1 = min(stations$lon) - 0.14, lat1 = min(stations$lat) - 0.08,
+    lng2 = max(stations$lon) + 0.14, lat2 = max(stations$lat) + 0.08
+  ) |>
   addCircleMarkers(
     lng = ~lon, lat = ~lat,
     radius = ~radius_val,
@@ -647,18 +665,11 @@ leaflet(stations, height = 500) |>
     fillColor = ~fill_color,
     fillOpacity = 0.85,
     weight = 2,
-    label = ~paste0(id, " — ", name, " (", live_temp, ", ", live_cond, ")"),
-    popup = ~paste0(
-      "<div style=\"min-width:240px; font-family: system-ui, sans-serif;\">",
-      "<h4 style=\"margin:0 0 6px 0; color:#1e3a8a; font-size:15px;\"><b>", id, "</b> — ", name, "</h4>",
-      "<b>Network Type:</b> ", type, "<br>",
-      "<b>County:</b> ", county, "<br>",
-      "<b>Elevation:</b> ", elev_ft, " ft<br>",
-      "<b>Coordinates:</b> ", lat, "° N, ", abs(lon), "° W<br>",
-      "<hr style=\"margin:8px 0; border:0; border-top:1px solid #cbd5e1;\">",
-      "<p style=\"margin:0 0 4px 0; font-size:12.5px; color:#334155; line-height:1.4;\">", description, "</p>",
-      live_snippet,
-      "</div>"
+    popup = station_popups,
+    label = lapply(station_popups, htmltools::HTML),
+    labelOptions = labelOptions(
+      style = list("white-space" = "normal", "max-width" = "280px"),
+      direction = "auto"
     )
   )
 ```

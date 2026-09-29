@@ -366,11 +366,12 @@ function initPlotlyScrollAnimations() {
   });
 }
 
-// Story page figure scroll-in animation
+// Story page figure scroll-in animation (ignores leaflet map tiles and widgets)
 function initStoryFigureAnimation() {
   const figures = document.querySelectorAll("figure img, .cell-output-display img");
   if (!figures.length) return;
   figures.forEach(function (img) {
+    if (img.closest(".leaflet, .leaflet-container, .html-widget")) return;
     img.style.opacity = "0";
     img.style.transform = "translateY(24px) scale(0.98)";
     img.style.transition = "opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
@@ -387,6 +388,13 @@ function initStoryFigureAnimation() {
     obs.observe(img);
   });
 }
+
+// Invalidate Leaflet map layout on page load to guarantee crisp tile alignment
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    window.dispatchEvent(new Event("resize"));
+  }, 250);
+});
 
 // Meteorological Dynamic Atmospheric Background Animation
 function initMeteorologyBackground() {
