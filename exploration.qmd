@@ -639,7 +639,7 @@ stations <- stations_raw |>
   )
 
 leaflet(stations, height = 500) |>
-  addProviderTiles(providers$CartoDB.Positron) |>
+  addProviderTiles(providers$Esri.WorldStreetMap) |>
   addCircleMarkers(
     lng = ~lon, lat = ~lat,
     radius = ~radius_val,
