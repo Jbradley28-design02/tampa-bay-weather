@@ -10,6 +10,8 @@ website:
         text: Home
       - href: exploration.qmd
         text: Exploration
+      - href: records.qmd
+        text: Records
       - href: story.qmd
         text: Story
       - href: about.qmd

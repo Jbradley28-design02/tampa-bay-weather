@@ -487,17 +487,6 @@ plot_ly() |>
   )
 ```
 
-### 10-Year Record Extremes Reference
-
-| Measurement | All-Time 10-Year Record | Date & Significance |
-|:------------|:------------------------|:--------------------|
-| **Temperature High** | **98.0°F** | August 11, 2023 (Summer Heat Dome Peak) |
-| **Temperature Low** | **29.0°F** | December 24, 2022 (Christmas Arctic Freeze) |
-| **Dew Point Peak** | **82.0°F** | August 7, 2024 (Extreme Tropical Moisture) |
-| **Barometric Pressure Low** | **28.69 inHg** | September 10, 2017 (Eye of Hurricane Irma) |
-| **Max Sustained Wind** | **47.0 mph** | September 10, 2017 (Hurricane Irma Tropical Gale; gusts to 66 mph) |
-| **Wettest Single Day** | **16.14 in** | August 4, 2024 (Hurricane Debby Deluge) |
-
 ### Tracked Natural Disasters
 
 | Date | Storm / Event | Observed Impact at KTPA |

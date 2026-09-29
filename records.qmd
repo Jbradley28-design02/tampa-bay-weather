@@ -1,0 +1,109 @@
+---
+title: "Records"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.news-header}
+<span class="news-badge">DECADE RECORD TELEMETRY (2015–2024)</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">10-Year Record Extremes Reference</h1>
+<div class="news-station-tag">STATION: TAMPA INTERNATIONAL AIRPORT (KTPA) &bull; OFFICIAL NCEI / NOAA ARCHIVE</div>
+:::
+
+Explore the official meteorological all-time high and low records established across 3,651 consecutive days (2015–2024) of continuous hourly observations at Tampa International Airport.
+
+## 10-Year Record Extremes Reference
+
+| Measurement | All-Time 10-Year Record | Date & Significance |
+|:------------|:------------------------|:--------------------|
+| **Temperature High** | **98.0°F** | August 11, 2023 (Summer Heat Dome Peak) |
+| **Temperature Low** | **29.0°F** | December 24, 2022 (Christmas Arctic Freeze) |
+| **Dew Point Peak** | **82.0°F** | August 7, 2024 (Extreme Tropical Moisture) |
+| **Barometric Pressure Low** | **28.69 inHg** | September 10, 2017 (Eye of Hurricane Irma) |
+| **Max Sustained Wind** | **47.0 mph** | September 10, 2017 (Hurricane Irma Tropical Gale; gusts to 66 mph) |
+| **Wettest Single Day** | **16.14 in** | August 4, 2024 (Hurricane Debby Deluge) |
+
+---
+
+## Detailed Profiles of Each Record Extreme
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #c2410c;">🌡️ All-Time High Temperature: 98.0°F</h4>
+<h6 class="card-subtitle mb-2 text-muted">August 11, 2023 &bull; Summer Heat Dome</h6>
+<p class="card-text">
+During the peak of the 2023 persistent subtropical ridge, temperatures at Tampa International Airport climbed to 98.0°F, marking the hottest single reading across the entire 10-year observational period. Combined with a dew point near 80°F, heat index values exceeded 115°F.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #0284c7;">❄️ All-Time Low Temperature: 29.0°F</h4>
+<h6 class="card-subtitle mb-2 text-muted">December 24, 2022 &bull; Christmas Arctic Polar Plunge</h6>
+<p class="card-text">
+A historic arctic outbreak drove sub-freezing polar air deep into peninsular Florida on Christmas Eve 2022. KTPA bottomed out at 29.0°F, recording a hard freeze and setting the coldest temperature of the 2015–2024 decade.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #047857;">💧 Peak Atmospheric Dew Point: 82.0°F</h4>
+<h6 class="card-subtitle mb-2 text-muted">August 7, 2024 &bull; Oppressive Tropical Moisture</h6>
+<p class="card-text">
+Dew points exceeding 75°F are considered oppressive; on August 7, 2024, deep tropical moisture over Tampa Bay surged the dew point to 82.0°F. This saturated atmosphere trapped heat at ground level and delivered record atmospheric moisture content.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #1d4ed8;">🌪️ Lowest Barometric Pressure: 28.69 inHg</h4>
+<h6 class="card-subtitle mb-2 text-muted">September 10, 2017 &bull; Eye of Hurricane Irma</h6>
+<p class="card-text">
+As Hurricane Irma tracked northward through the Florida peninsula, its central core induced a dramatic atmospheric pressure collapse. KTPA's barometer plummeted to 28.69 inHg (971.5 hPa), the lowest barometric pressure recorded in the 10-year period.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #7e22ce;">💨 Peak Sustained Wind: 47.0 mph</h4>
+<h6 class="card-subtitle mb-2 text-muted">September 10, 2017 &bull; Hurricane Irma Tropical Gale</h6>
+<p class="card-text">
+The strongest 2-minute sustained wind speed recorded across the 10-year period reached 47.0 mph during Hurricane Irma's closest approach, accompanied by peak instantaneous wind gusts of 66 mph at airport anemometers.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #0369a1;">🌧️ All-Time Wettest Day: 16.14 Inches</h4>
+<h6 class="card-subtitle mb-2 text-muted">August 4, 2024 &bull; Hurricane Debby Deluge</h6>
+<p class="card-text">
+Slow-moving tropical moisture feeder bands associated with Hurricane Debby dropped an astounding 16.14 inches of rain in a single 24-hour observational cycle at KTPA, shattering all previous 10-year daily rainfall records.
+</p>
+:::
+:::
+:::
+
+:::
