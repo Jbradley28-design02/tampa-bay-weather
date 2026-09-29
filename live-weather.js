@@ -642,32 +642,56 @@ function initNavbarRadar() {
 
   let sweepAngle = 0;
   let time = 0;
+  let systemDrift = 0; // Eastward advection
 
-  // Simulated Doppler precipitation storm clusters
-  const stormCells = [];
-  const numCells = 24;
-  for (let i = 0; i < numCells; i++) {
-    stormCells.push({
-      relX: Math.random(),
-      relY: 0.15 + Math.random() * 0.7,
-      radius: 14 + Math.random() * 20,
-      dbz: 25 + Math.random() * 38,
-      glow: 0.35,
-      driftSpeed: 0.00004 + Math.random() * 0.00005
-    });
-  }
-
-  function getDbzColor(dbz, alpha) {
-    if (dbz < 35) {
-      return `rgba(34, 197, 94, ${alpha})`;  // Emerald green (light rain)
-    } else if (dbz < 45) {
-      return `rgba(234, 179, 8, ${alpha})`;  // Bright yellow (moderate)
-    } else if (dbz < 55) {
-      return `rgba(249, 115, 22, ${alpha})`; // Vibrant orange (heavy)
-    } else {
-      return `rgba(239, 68, 68, ${alpha})`;  // Severe red convection core
+  // Realistic Doppler weather radar rain band definitions
+  // (Curving squall lines, feeder bands, and stratiform precipitation shields)
+  const bandConfigs = [
+    {
+      name: "Frontal Squall Line",
+      relX0: 0.06, relY0: 0.88,
+      relX1: 0.42, relY1: 0.12,
+      arc: -18,
+      maxDbz: 58,
+      wobbleFreq: 2.2,
+      numPoints: 36
+    },
+    {
+      name: "Convective Feeder Band",
+      relX0: 0.36, relY0: 0.94,
+      relX1: 0.72, relY1: 0.18,
+      arc: -22,
+      maxDbz: 62,
+      wobbleFreq: 1.8,
+      numPoints: 36
+    },
+    {
+      name: "Stratiform Coastal Shield",
+      relX0: 0.66, relY0: 0.88,
+      relX1: 1.05, relY1: 0.26,
+      arc: -14,
+      maxDbz: 42,
+      wobbleFreq: 1.5,
+      numPoints: 32
+    },
+    {
+      name: "Offshore Approach Band",
+      relX0: -0.25, relY0: 0.84,
+      relX1: 0.12, relY1: 0.16,
+      arc: -20,
+      maxDbz: 52,
+      wobbleFreq: 2.0,
+      numPoints: 32
     }
-  }
+  ];
+
+  const rainBands = bandConfigs.map(cfg => {
+    const segments = [];
+    for (let i = 0; i <= cfg.numPoints; i++) {
+      segments.push({ glow: 0.35 });
+    }
+    return { ...cfg, segments };
+  });
 
   let animId = null;
 
@@ -680,27 +704,26 @@ function initNavbarRadar() {
       }
     }
 
-    // 1. Clear with deep radar console backdrop
     ctx.clearRect(0, 0, width, height);
 
+    // 1. Deep Meteorology Console Backdrop
     const bgGrad = ctx.createLinearGradient(0, 0, width, 0);
-    bgGrad.addColorStop(0, "rgba(2, 12, 22, 0.96)");
-    bgGrad.addColorStop(0.5, "rgba(4, 20, 36, 0.94)");
-    bgGrad.addColorStop(1, "rgba(2, 14, 26, 0.96)");
+    bgGrad.addColorStop(0, "rgba(2, 10, 20, 0.96)");
+    bgGrad.addColorStop(0.5, "rgba(4, 18, 32, 0.94)");
+    bgGrad.addColorStop(1, "rgba(2, 12, 24, 0.96)");
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
-    // Radar origin center (anchored near the Tampa Bay weather title area)
+    // Radar Center Anchor (station location near Tampa Bay title)
     const cx = Math.max(140, width * 0.16);
     const cy = height * 0.5;
     const maxRadius = Math.hypot(width - cx, height);
 
-    // 2. Faint Concentric Range Rings
+    // 2. Faint Range Rings (NEXRAD Distance Calibration Arcs)
     ctx.save();
     ctx.strokeStyle = "rgba(16, 185, 129, 0.12)";
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 6]);
-
     const ringStep = 90;
     for (let r = ringStep; r < maxRadius; r += ringStep) {
       ctx.beginPath();
@@ -708,7 +731,7 @@ function initNavbarRadar() {
       ctx.stroke();
     }
 
-    // 3. Azimuth Crosshair Radials
+    // 3. Azimuth Radial Spokes
     ctx.strokeStyle = "rgba(16, 185, 129, 0.08)";
     ctx.setLineDash([2, 5]);
     for (let a = 0; a < Math.PI * 2; a += Math.PI / 4) {
@@ -719,52 +742,160 @@ function initNavbarRadar() {
     }
     ctx.restore();
 
-    // 4. Update and Draw Precipitation Storm Echoes
-    time += 0.01;
-    for (let i = 0; i < stormCells.length; i++) {
-      const cell = stormCells[i];
-      cell.relX += cell.driftSpeed;
-      if (cell.relX > 1.1) cell.relX = -0.1;
+    // 4. Update and Draw Realistic Doppler Radar Rain Patterns
+    time += 0.012;
+    systemDrift += 0.14;
+    if (systemDrift > width * 0.35) systemDrift = 0;
 
-      const cellX = cell.relX * width;
-      const cellY = cell.relY * height;
-
-      const angle = Math.atan2(cellY - cy, cellX - cx);
-      let diff = (sweepAngle - angle) % (Math.PI * 2);
-      if (diff < 0) diff += Math.PI * 2;
-
-      // Glow excitation when the radar sweep beam hits the storm cell
-      if (diff < 0.18) {
-        cell.glow = 1.0;
-      } else {
-        cell.glow = Math.max(0.25, cell.glow * 0.985);
-      }
-
-      const effectiveAlpha = 0.2 + cell.glow * 0.65;
-      const rad = cell.radius * (0.9 + 0.1 * Math.sin(time + i));
-
-      const grad = ctx.createRadialGradient(cellX, cellY, 0, cellX, cellY, rad);
-      grad.addColorStop(0, getDbzColor(cell.dbz, effectiveAlpha));
-      grad.addColorStop(0.55, getDbzColor(Math.max(20, cell.dbz - 12), effectiveAlpha * 0.7));
-      grad.addColorStop(1, "rgba(34, 197, 94, 0)");
-
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.arc(cellX, cellY, rad, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Bright convection core
-      if (cell.dbz > 48) {
-        ctx.fillStyle = `rgba(255, 255, 255, ${effectiveAlpha * 0.45})`;
-        ctx.beginPath();
-        ctx.arc(cellX, cellY, rad * 0.28, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    // 5. Rotating Radar Sweep Beam & Phosphor Trail
     sweepAngle = (sweepAngle + 0.024) % (Math.PI * 2);
 
+    for (const band of rainBands) {
+      const pts = [];
+      const N = band.numPoints;
+      const driftX = systemDrift;
+
+      for (let i = 0; i <= N; i++) {
+        const t = i / N;
+        let x = band.relX0 * width + (band.relX1 - band.relX0) * width * t + driftX;
+        if (x > width * 1.15) x -= width * 1.35;
+
+        const arcY = Math.sin(t * Math.PI) * band.arc;
+        const waveY = Math.sin(t * band.wobbleFreq * Math.PI + time) * 4;
+        const y = band.relY0 * height + (band.relY1 - band.relY0) * height * t + arcY + waveY;
+
+        const angle = Math.atan2(y - cy, x - cx);
+        let diff = (sweepAngle - angle) % (Math.PI * 2);
+        if (diff < 0) diff += Math.PI * 2;
+
+        const seg = band.segments[i];
+        if (diff < 0.18) {
+          seg.glow = 1.0;
+        } else {
+          seg.glow = Math.max(0.28, seg.glow * 0.985);
+        }
+
+        const profile = Math.sin(t * Math.PI);
+        pts.push({ x, y, intensity: profile, glow: seg.glow });
+      }
+
+      ctx.save();
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+
+      // --- Layer A: Wide Outer Light Rain Shield (Greens, ~20–30 dBZ) ---
+      for (let i = 0; i < N; i++) {
+        const p1 = pts[i];
+        const p2 = pts[i + 1];
+        if (p1.x < -60 && p2.x < -60) continue;
+        if (p1.x > width + 60 && p2.x > width + 60) continue;
+
+        const avgGlow = (p1.glow + p2.glow) * 0.5;
+        const avgInt = (p1.intensity + p2.intensity) * 0.5;
+        const alpha = (0.2 + avgGlow * 0.65) * 0.75;
+        const w = (18 + avgInt * 16);
+
+        ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`;
+        ctx.lineWidth = w;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+
+        // Feathered lateral wisps (radar cloud fringe scatter)
+        if (i % 3 === 0 && avgInt > 0.3) {
+          const normalX = -(p2.y - p1.y);
+          const normalY = p2.x - p1.x;
+          const len = Math.hypot(normalX, normalY) || 1;
+          const wispLen = (8 + 10 * Math.sin(i * 1.7 + time)) * avgInt;
+          ctx.strokeStyle = `rgba(34, 197, 94, ${alpha * 0.5})`;
+          ctx.lineWidth = w * 0.45;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p1.x + (normalX / len) * wispLen, p1.y + (normalY / len) * wispLen);
+          ctx.stroke();
+        }
+      }
+
+      // --- Layer B: Intermediate Moderate Rain Band (Yellows, ~35–42 dBZ) ---
+      for (let i = 0; i < N; i++) {
+        const p1 = pts[i];
+        const p2 = pts[i + 1];
+        const avgInt = (p1.intensity + p2.intensity) * 0.5;
+        if (avgInt < 0.25) continue;
+        if (p1.x < -50 && p2.x < -50) continue;
+        if (p1.x > width + 50 && p2.x > width + 50) continue;
+
+        const avgGlow = (p1.glow + p2.glow) * 0.5;
+        const alpha = (0.25 + avgGlow * 0.7) * 0.85;
+        const w = (10 + avgInt * 10);
+
+        ctx.strokeStyle = `rgba(234, 179, 8, ${alpha})`;
+        ctx.lineWidth = w;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+      }
+
+      // --- Layer C: Heavy Precipitation Ribbons (Oranges, ~45–52 dBZ) ---
+      if (band.maxDbz >= 48) {
+        for (let i = 0; i < N; i++) {
+          const p1 = pts[i];
+          const p2 = pts[i + 1];
+          const avgInt = (p1.intensity + p2.intensity) * 0.5;
+          if (avgInt < 0.45) continue;
+          if (p1.x < -40 && p2.x < -40) continue;
+          if (p1.x > width + 40 && p2.x > width + 40) continue;
+
+          const avgGlow = (p1.glow + p2.glow) * 0.5;
+          const alpha = (0.3 + avgGlow * 0.7) * 0.9;
+          const w = (5 + avgInt * 6);
+
+          ctx.strokeStyle = `rgba(249, 115, 22, ${alpha})`;
+          ctx.lineWidth = w;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+
+      // --- Layer D: Severe Convective Cores (Crimson Red & Magenta >55 dBZ) ---
+      if (band.maxDbz >= 55) {
+        for (let i = 0; i < N; i++) {
+          const p1 = pts[i];
+          const p2 = pts[i + 1];
+          const avgInt = (p1.intensity + p2.intensity) * 0.5;
+          if (avgInt < 0.65) continue;
+          if (p1.x < -30 && p2.x < -30) continue;
+          if (p1.x > width + 30 && p2.x > width + 30) continue;
+
+          const avgGlow = (p1.glow + p2.glow) * 0.5;
+          const alpha = (0.35 + avgGlow * 0.65) * 0.95;
+
+          ctx.strokeStyle = `rgba(239, 68, 68, ${alpha})`;
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+
+          // Embedded hail / lightning core hotspot
+          if (avgInt > 0.85 && band.maxDbz > 60) {
+            ctx.strokeStyle = `rgba(244, 114, 182, ${alpha})`;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      ctx.restore();
+    }
+
+    // 5. Rotating Doppler Radar Sweep Beam & Phosphor Trailing Cone
     const trailSegments = 24;
     const trailSpan = 0.65; // ~37 degrees
     for (let s = 0; s < trailSegments; s++) {
@@ -781,7 +912,7 @@ function initNavbarRadar() {
       ctx.fill();
     }
 
-    // Leading Sweep Beam Line
+    // Leading Sweep Beam Ray
     const beamX = cx + Math.cos(sweepAngle) * maxRadius;
     const beamY = cy + Math.sin(sweepAngle) * maxRadius;
 
@@ -796,7 +927,7 @@ function initNavbarRadar() {
     ctx.stroke();
     ctx.restore();
 
-    // Radar Center Station Blip
+    // Radar Center Station Blip (KTPA WSR-88D Anchor)
     ctx.fillStyle = "#22c55e";
     ctx.beginPath();
     ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
@@ -805,11 +936,11 @@ function initNavbarRadar() {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    // Subtle Live Radar Badge in lower right of navbar
+    // Corner Telemetry Stamp
     ctx.fillStyle = "rgba(74, 222, 128, 0.45)";
     ctx.font = "600 9px monospace";
     ctx.textAlign = "right";
-    ctx.fillText("📡 KTPA WSR-88D DOPPLER RADAR • REAL-TIME SWEEP", width - 15, height - 8);
+    ctx.fillText("📡 KTPA WSR-88D DOPPLER RADAR • BASE REFLECTIVITY", width - 15, height - 8);
 
     if (!document.hidden) {
       animId = requestAnimationFrame(renderRadar);
