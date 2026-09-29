@@ -2,18 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jbradley28-design02.github.io/tampa-bay-weather/index.html</loc>
-    <lastmod>2026-09-25T16:42:08.863Z</lastmod>
+    <lastmod>2026-09-29T17:18:25.808Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jbradley28-design02.github.io/tampa-bay-weather/story.html</loc>
+    <lastmod>2026-09-21T03:10:01.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jbradley28-design02.github.io/tampa-bay-weather/records.html</loc>
+    <lastmod>2026-09-29T18:21:57.122Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jbradley28-design02.github.io/tampa-bay-weather/exploration.html</loc>
+    <lastmod>2026-09-29T18:54:45.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jbradley28-design02.github.io/tampa-bay-weather/recent.html</loc>
+    <lastmod>2026-09-29T18:35:25.102Z</lastmod>
   </url>
   <url>
     <loc>https://jbradley28-design02.github.io/tampa-bay-weather/about.html</loc>
     <lastmod>2026-09-27T03:14:34.103Z</lastmod>
   </url>
   <url>
-    <loc>https://jbradley28-design02.github.io/tampa-bay-weather/exploration.html</loc>
-    <lastmod>2026-09-26T23:16:33.202Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jbradley28-design02.github.io/tampa-bay-weather/story.html</loc>
-    <lastmod>2026-09-21T03:10:01.609Z</lastmod>
+    <loc>https://jbradley28-design02.github.io/tampa-bay-weather/disasters.html</loc>
+    <lastmod>2026-09-29T18:25:13.171Z</lastmod>
   </url>
 </urlset>
