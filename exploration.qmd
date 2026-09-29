@@ -1,5 +1,5 @@
 ---
-title: "Interactive Weather Explorer"
+title: "10-Year Weather History"
 format:
   html:
     css: styles.css

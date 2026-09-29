@@ -9,7 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - href: exploration.qmd
-        text: Exploration
+        text: 10-Year History
       - href: records.qmd
         text: Records
       - href: disasters.qmd

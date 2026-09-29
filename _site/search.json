@@ -51,21 +51,21 @@
   {
     "objectID": "exploration.html",
     "href": "exploration.html",
-    "title": "Interactive Weather Explorer",
+    "title": "10-Year Weather History",
     "section": "",
     "text": "Explore all five core meteorological measurements across the full 10-year observational record (2015–2024) at Tampa International Airport (KTPA). Use the dropdown menu in the upper-right corner of the graph to transition between each measurement, and use the range selector or bottom slider to zoom into any time period:\n\nRed Diamond Markers (♦) and dashed vertical guidelines: Mark when major hurricanes and tropical natural disasters struck.\nGold Star Markers (⭐): Highlight all-time 10-year record highs and record lows.\n\n\n\n\n\n\n\n\n\nFigure 1"
   },
   {
     "objectID": "exploration.html#year-weather-telemetry-explorer-20152024",
     "href": "exploration.html#year-weather-telemetry-explorer-20152024",
-    "title": "Interactive Weather Explorer",
+    "title": "10-Year Weather History",
     "section": "",
     "text": "Explore all five core meteorological measurements across the full 10-year observational record (2015–2024) at Tampa International Airport (KTPA). Use the dropdown menu in the upper-right corner of the graph to transition between each measurement, and use the range selector or bottom slider to zoom into any time period:\n\nRed Diamond Markers (♦) and dashed vertical guidelines: Mark when major hurricanes and tropical natural disasters struck.\nGold Star Markers (⭐): Highlight all-time 10-year record highs and record lows.\n\n\n\n\n\n\n\n\n\nFigure 1"
   },
   {
     "objectID": "exploration.html#tampa-bay-regional-weather-station-network",
     "href": "exploration.html#tampa-bay-regional-weather-station-network",
-    "title": "Interactive Weather Explorer",
+    "title": "10-Year Weather History",
     "section": "2. Tampa Bay Regional Weather Station Network",
     "text": "2. Tampa Bay Regional Weather Station Network\nClick or hover on any station to view its elevation, telemetry type, and role in monitoring Tampa Bay’s coastal weather extremes. The red marker highlights KTPA, the primary anchor station used in the 10-year analysis above."
   },
