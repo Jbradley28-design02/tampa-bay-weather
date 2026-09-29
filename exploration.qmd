@@ -157,6 +157,12 @@ ann_precip <- list(
 )
 ```
 
+::: {.news-header}
+<span class="news-badge">10-YEAR HISTORICAL ARCHIVE (2015–2024)</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">10-Year Weather History</h1>
+<div class="news-station-tag">STATION: TAMPA INTERNATIONAL AIRPORT (KTPA) &bull; NOAA / NCEI LOCAL CLIMATOLOGICAL DATA</div>
+:::
+
 ## 10-Year Weather Telemetry (2015–2024)
 
 Explore all five core meteorological measurements across the full 10-year observational record (2015–2024) at Tampa International Airport (KTPA). Use the dropdown menu in the upper-right corner of the graph to transition between each measurement, and use the range selector or bottom slider to zoom into any time period:
