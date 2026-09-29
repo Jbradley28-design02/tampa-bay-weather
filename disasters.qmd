@@ -1,0 +1,148 @@
+---
+title: "Natural Disasters"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.news-header}
+<span class="news-badge">CHRONOLOGICAL DISASTER CHRONICLE (2015–2024)</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Tracked Natural Disasters</h1>
+<div class="news-station-tag">STATION: TAMPA INTERNATIONAL AIRPORT (KTPA) &bull; 9 MAJOR FLORIDA WEATHER CRISES</div>
+:::
+
+Across the 2015–2024 decade, peninsular Florida and the greater Tampa Bay metropolitan area experienced nine major severe meteorological crises—ranging from catastrophic Category 4 and 5 hurricanes to unprecedented rain deluges and historic polar freezes. 
+
+## Tracked Natural Disasters Reference
+
+| Date | Storm / Event | Observed Impact at KTPA |
+|:-----|:--------------|:------------------------|
+| Sep 2, 2016 | **Hurricane Hermine** | Tropical gale gusts and coastal surge across Tampa Bay |
+| Sep 10, 2017 | **Hurricane Irma** | Pressure collapsed to decade-low 28.69 inHg; 46 mph winds and 11.7 in rain |
+| Oct 10, 2018 | **Hurricane Michael** | Category 5 Gulf transit drained Hillsborough Bay through negative surge |
+| Sep 28, 2022 | **Hurricane Ian** | Category 4/5 system caused massive negative surge followed by gale winds |
+| Dec 24, 2022 | **Christmas Arctic Freeze** | Severe hard freeze; temperature plunged to decade-low 29.0°F |
+| Aug 30, 2023 | **Hurricane Idalia** | Record high-tide coastal surge inundated Bayshore Boulevard |
+| Aug 4, 2024 | **Hurricane Debby** | Wettest single day in modern record: 16.14 inches of rain in 24 hours |
+| Sep 26, 2024 | **Hurricane Helene** | Massive storm generated catastrophic 6–7 ft storm surge along the coast |
+| Oct 9, 2024 | **Hurricane Milton** | Direct strike on Tampa Bay: 16.03 inches of deluge and eyewall pressure dip |
+
+---
+
+## Chronological Disaster Profiles
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #c2410c;">🌀 Hurricane Hermine</h4>
+<h6 class="card-subtitle mb-2 text-muted">September 2, 2016 &bull; Category 1 Hurricane</h6>
+<p class="card-text">
+Hermine ended an 11-year hurricane landfall drought in Florida. Its outer circulation drove persistent tropical gale gusts and significant coastal inundation across southern Tampa Bay and coastal Pinellas County.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #b91c1c;">🌪️ Hurricane Irma</h4>
+<h6 class="card-subtitle mb-2 text-muted">September 10, 2017 &bull; Category 4 Hurricane</h6>
+<p class="card-text">
+Irma tracked directly up the spine of the Florida peninsula, triggering the lowest barometric pressure reading of the entire 10-year period (28.69 inHg), sustained winds of 47 mph with gusts to 66 mph, and 11.7 inches of rain.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #0369a1;">🌊 Hurricane Michael</h4>
+<h6 class="card-subtitle mb-2 text-muted">October 10, 2018 &bull; Category 5 Hurricane</h6>
+<p class="card-text">
+While Michael made landfall in the Florida Panhandle as a monstrous Category 5 storm, its massive counter-clockwise wind field pulled water straight out of Tampa Bay and Hillsborough Bay, creating a rare "reverse negative storm surge."
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #7e22ce;">💨 Hurricane Ian</h4>
+<h6 class="card-subtitle mb-2 text-muted">September 28, 2022 &bull; Category 4/5 Hurricane</h6>
+<p class="card-text">
+Ian initially headed toward Tampa before turning into Cayo Costa. Powerful offshore winds completely drained Tampa Bay’s seabed hours before shifting winds brought dangerous tropical storm-force gusts across the bay area.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #0284c7;">❄️ Christmas Arctic Freeze</h4>
+<h6 class="card-subtitle mb-2 text-muted">December 24, 2022 &bull; Historic Polar Outbreak</h6>
+<p class="card-text">
+A historic continent-wide polar blast surged sub-freezing arctic air across peninsular Florida on Christmas Eve. KTPA recorded a decade-record low of 29.0°F, bringing a prolonged hard freeze to agricultural and coastal zones.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #047857;">🌊 Hurricane Idalia</h4>
+<h6 class="card-subtitle mb-2 text-muted">August 30, 2023 &bull; Category 3 Hurricane</h6>
+<p class="card-text">
+Passing offshore through the eastern Gulf, Idalia's storm surge coincided precisely with astronomical high tide, driving unprecedented coastal flooding along Bayshore Boulevard, Davis Islands, and Gulf beaches.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #0284c7;">🌧️ Hurricane Debby</h4>
+<h6 class="card-subtitle mb-2 text-muted">August 4, 2024 &bull; Category 1 / Tropical Deluge</h6>
+<p class="card-text">
+Debby produced the wettest 24 hours in modern Tampa history. Slow-moving moisture conveyor bands dumped 16.14 inches of rain at KTPA in a single day, causing extensive metropolitan and river basin flooding.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #dc2626;">🌊 Hurricane Helene</h4>
+<h6 class="card-subtitle mb-2 text-muted">September 26, 2024 &bull; Category 4 Hurricane</h6>
+<p class="card-text">
+Despite tracking over 100 miles offshore, Helene’s immense wind field produced a historic, catastrophic 6–7 ft storm surge that submerged coastal Tampa Bay barrier islands and low-lying coastal neighborhoods.
+</p>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .mb-3 .shadow-sm}
+::: {.card-body}
+<h4 class="card-title" style="color: #991b1b;">🌀 Hurricane Milton</h4>
+<h6 class="card-subtitle mb-2 text-muted">October 9, 2024 &bull; Category 3 Direct Strike</h6>
+<p class="card-text">
+Just two weeks after Helene, Hurricane Milton made direct landfall near Siesta Key/Tampa Bay. It delivered a 16.03-inch extreme rainfall deluge, an eyewall barometric pressure dip, and hurricane-force wind gusts that tore the roof off Tropicana Field.
+</p>
+:::
+:::
+:::
+
+:::

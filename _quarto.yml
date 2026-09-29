@@ -12,6 +12,8 @@ website:
         text: Exploration
       - href: records.qmd
         text: Records
+      - href: disasters.qmd
+        text: Natural Disasters
       - href: story.qmd
         text: Story
       - href: about.qmd

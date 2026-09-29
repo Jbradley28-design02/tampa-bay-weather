@@ -487,20 +487,6 @@ plot_ly() |>
   )
 ```
 
-### Tracked Natural Disasters
-
-| Date | Storm / Event | Observed Impact at KTPA |
-|:-----|:--------------|:------------------------|
-| Sep 2, 2016 | **Hurricane Hermine** | Tropical gale gusts and coastal surge across Tampa Bay |
-| Sep 10, 2017 | **Hurricane Irma** | Pressure collapsed to decade-low 28.69 inHg; 46 mph winds and 11.7 in rain |
-| Oct 10, 2018 | **Hurricane Michael** | Category 5 Gulf transit drained Hillsborough Bay through negative surge |
-| Sep 28, 2022 | **Hurricane Ian** | Category 4/5 system caused massive negative surge followed by gale winds |
-| Dec 24, 2022 | **Christmas Arctic Freeze** | Severe hard freeze; temperature plunged to decade-low 29.0°F |
-| Aug 30, 2023 | **Hurricane Idalia** | Record high-tide coastal surge inundated Bayshore Boulevard |
-| Aug 4, 2024 | **Hurricane Debby** | Wettest single day in modern record: 16.14 inches of rain in 24 hours |
-| Sep 26, 2024 | **Hurricane Helene** | Massive storm generated catastrophic 6–7 ft storm surge along the coast |
-| Oct 9, 2024 | **Hurricane Milton** | Direct strike on Tampa Bay: 16.03 inches of deluge and eyewall pressure dip |
-
 ## 2. Tampa Bay Regional Weather Station Network
 
 Click or hover on any station to view its elevation, telemetry type, and role in monitoring Tampa Bay's coastal weather extremes. The red marker highlights **KTPA**, the primary anchor station used in the 10-year analysis above.
