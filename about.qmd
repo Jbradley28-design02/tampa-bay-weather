@@ -13,8 +13,9 @@ execute:
 ::: {.news-header}
 <span class="news-badge">PROJECT BACKGROUND & AUTHOR</span>
 <h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">About Tampa Bay Weather</h1>
-<div class="news-station-tag">AUTHOR: BRADLEY BLOXSOM &bull; STATION: KTPA ARCHIVE (2015–2024)</div>
+<div class="news-station-tag">AUTHOR: BRADLEY BLOXSOM &bull; JUNIOR AT NEW COLLEGE OF FLORIDA &bull; STATION: KTPA ARCHIVE (2015–2024)</div>
 <div style="margin-top: 0.85rem; font-size: 0.95rem; color: #cbd5e1; display: flex; flex-wrap: wrap; gap: 15px;">
+  <span>🎓 <strong>Student:</strong> Junior at New College of Florida</span>
   <span>✉️ <strong>Contact:</strong> <a href="mailto:j.bloxsom28@ncf.edu" style="color: #93c5fd; text-decoration: underline;">j.bloxsom28@ncf.edu</a></span>
   <span>💻 <strong>Repository:</strong> <a href="https://github.com/Jbradley28-design02/tampa-bay-weather" target="_blank" style="color: #93c5fd; text-decoration: underline;">Behind-the-Scenes Data &amp; Code</a></span>
 </div>
@@ -26,7 +27,7 @@ Ever since I was little, my parents would constantly find me sitting in front of
 
 That fascination naturally followed me into the classroom. Throughout science classes in late elementary and early middle school, I was always asking *why*—trying to understand what drove high and low pressure, what created thunderstorms, and how the atmosphere operated. Outside of class, I dove into independent research and study, reading whatever I could find about atmospheric science and meteorology. 
 
-When the opportunity came to build this final project, choosing Tampa Bay's weather was a natural extension of a lifelong passion that started in my childhood living room.
+When the opportunity came to build this final project as a Junior at New College of Florida, choosing Tampa Bay's weather was a natural extension of a lifelong passion that started in my childhood living room.
 
 ---
 
