@@ -70,11 +70,25 @@
     "text": "2. Tampa Bay Regional Weather Station Network\nClick or hover on any station to view its elevation, telemetry type, and role in monitoring Tampa Bay’s coastal weather extremes. The red marker highlights KTPA, the primary anchor station used in the 10-year analysis above."
   },
   {
-    "objectID": "exploration.html#real-time-telemetry-feed-ktpa",
-    "href": "exploration.html#real-time-telemetry-feed-ktpa",
-    "title": "Interactive Weather Explorer",
-    "section": "3. Real-Time Telemetry Feed (KTPA)",
-    "text": "3. Real-Time Telemetry Feed (KTPA)\nLive observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes.\n    \n  \n\n\n3.1 Continuous KTPA Telemetry & Trend Stream (2025 – Present)\nThis unified graph tracks all 5 meteorological measurements for KTPA from January 1, 2025 to the present. Use the dropdown menu below to switch between measurements, and the range selector (24h, 7d, 1m, 6m, 1y, All) or bottom slider to zoom into any time window."
+    "objectID": "recent.html",
+    "href": "recent.html",
+    "title": "Recent Data",
+    "section": "",
+    "text": "CONTINUOUS TELEMETRY STREAM (2025 – PRESENT)\n\n\nSTATION: TAMPA INTERNATIONAL AIRPORT (KTPA) • 2025 OBSERVATIONS & LIVE STREAM"
+  },
+  {
+    "objectID": "recent.html#real-time-telemetry-feed-ktpa",
+    "href": "recent.html#real-time-telemetry-feed-ktpa",
+    "title": "Recent Data",
+    "section": "Real-Time Telemetry Feed (KTPA)",
+    "text": "Real-Time Telemetry Feed (KTPA)\nLive surface meteorological observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
+  },
+  {
+    "objectID": "recent.html#continuous-ktpa-telemetry-trend-stream-2025-present",
+    "href": "recent.html#continuous-ktpa-telemetry-trend-stream-2025-present",
+    "title": "Recent Data",
+    "section": "Continuous KTPA Telemetry & Trend Stream (2025 – Present)",
+    "text": "Continuous KTPA Telemetry & Trend Stream (2025 – Present)\nThis unified graph tracks all 5 meteorological measurements for KTPA from January 1, 2025 to the present. Use the dropdown menu below to switch between measurements, and the range selector (24h, 7d, 1m, 6m, 1y, All) or bottom slider to zoom into any time window."
   },
   {
     "objectID": "about.html",
