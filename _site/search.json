@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Bay Area Weather Analysis",
     "section": "",
-    "text": "Live observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
+    "text": "METEOROLOGICAL OBSERVATORY & ARCHIVE\n\n\nSTATION: KTPA • REAL-TIME TELEMETRY & 10-YEAR HISTORICAL CLIMATE ARCHIVE"
   },
   {
     "objectID": "index.html#real-time-telemetry-feed-ktpa",
     "href": "index.html#real-time-telemetry-feed-ktpa",
     "title": "Bay Area Weather Analysis",
-    "section": "",
-    "text": "Live observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
+    "section": "Real-Time Telemetry Feed (KTPA)",
+    "text": "Real-Time Telemetry Feed (KTPA)\nLive observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
   },
   {
     "objectID": "index.html#tampa-bay-regional-weather-station-network",
