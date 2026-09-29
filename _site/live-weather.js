@@ -72,7 +72,7 @@ async function syncChartWithLatestTelemetry() {
   if (!chartDiv || !window.Plotly || !chartDiv.data || chartDiv.data.length < 5) return;
 
   try {
-    const resp = await fetch("https://api.weather.gov/stations/KTPA/observations?limit=48", {
+    const resp = await fetch("https://api.weather.gov/stations/KTPA/observations?limit=120", {
       headers: { "Accept": "application/geo+json" }
     });
     if (!resp.ok) return;
