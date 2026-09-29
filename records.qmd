@@ -19,14 +19,16 @@ Explore the official meteorological all-time high and low records established ac
 
 ## 10-Year Record Extremes Reference
 
-| Measurement | All-Time 10-Year Record | Date & Significance |
-|:------------|:------------------------|:--------------------|
-| **Temperature High** | **98.0°F** | August 11, 2023 (Summer Heat Dome Peak) |
-| **Temperature Low** | **29.0°F** | December 24, 2022 (Christmas Arctic Freeze) |
-| **Dew Point Peak** | **82.0°F** | August 7, 2024 (Extreme Tropical Moisture) |
-| **Barometric Pressure Low** | **28.69 inHg** | September 10, 2017 (Eye of Hurricane Irma) |
-| **Max Sustained Wind** | **47.0 mph** | September 10, 2017 (Hurricane Irma Tropical Gale; gusts to 66 mph) |
-| **Wettest Single Day** | **16.14 in** | August 4, 2024 (Hurricane Debby Deluge) |
+| Measurement | Average | All-Time 10-Year Record | Date & Significance |
+|:------------|:--------|:------------------------|:--------------------|
+| **Temperature High** | **83.2°F** | **98.0°F** | August 11, 2023 (Summer Heat Dome Peak) |
+| **Temperature Low** | **68.3°F** | **29.0°F** | December 24, 2022 (Christmas Arctic Freeze) |
+| **Dew Point Peak** | **64.2°F** | **82.0°F** | August 7, 2024 (Extreme Tropical Moisture) |
+| **Barometric Pressure Low** | **30.04 inHg** | **28.69 inHg** | September 10, 2017 (Eye of Hurricane Irma) |
+| **Max Sustained Wind** | **13.5 mph** | **47.0 mph** | September 10, 2017 (Hurricane Irma Tropical Gale; gusts to 66 mph) |
+| **Wettest Single Day** | **0.36 in** | **16.14 in** | August 4, 2024 (Hurricane Debby Deluge) |
+
+*Note: Averages are calculated across all 3,651 observational days from 2015 through 2024 at Tampa International Airport (KTPA).*
 
 ---
 
@@ -38,9 +40,9 @@ Explore the official meteorological all-time high and low records established ac
 ::: {.card .mb-3 .shadow-sm}
 ::: {.card-body}
 <h4 class="card-title" style="color: #c2410c;">🌡️ All-Time High Temperature: 98.0°F</h4>
-<h6 class="card-subtitle mb-2 text-muted">August 11, 2023 &bull; Summer Heat Dome</h6>
+<h6 class="card-subtitle mb-2 text-muted">August 11, 2023 &bull; 10-Year Average High: 83.2°F</h6>
 <p class="card-text">
-During the peak of the 2023 persistent subtropical ridge, temperatures at Tampa International Airport climbed to 98.0°F, marking the hottest single reading across the entire 10-year observational period. Combined with a dew point near 80°F, heat index values exceeded 115°F.
+During the peak of the 2023 persistent subtropical ridge, temperatures at Tampa International Airport climbed to 98.0°F—nearly 15°F above the 10-year average daily high (83.2°F) and marking the hottest single reading across the entire 10-year observational period. Combined with a dew point near 80°F, heat index values exceeded 115°F.
 </p>
 :::
 :::
@@ -50,9 +52,9 @@ During the peak of the 2023 persistent subtropical ridge, temperatures at Tampa 
 ::: {.card .mb-3 .shadow-sm}
 ::: {.card-body}
 <h4 class="card-title" style="color: #0284c7;">❄️ All-Time Low Temperature: 29.0°F</h4>
-<h6 class="card-subtitle mb-2 text-muted">December 24, 2022 &bull; Christmas Arctic Polar Plunge</h6>
+<h6 class="card-subtitle mb-2 text-muted">December 24, 2022 &bull; 10-Year Average Low: 68.3°F</h6>
 <p class="card-text">
-A historic arctic outbreak drove sub-freezing polar air deep into peninsular Florida on Christmas Eve 2022. KTPA bottomed out at 29.0°F, recording a hard freeze and setting the coldest temperature of the 2015–2024 decade.
+A historic arctic outbreak drove sub-freezing polar air deep into peninsular Florida on Christmas Eve 2022. KTPA bottomed out at 29.0°F—almost 40°F colder than the typical 10-year average low (68.3°F), recording a hard freeze and setting the coldest temperature of the 2015–2024 decade.
 </p>
 :::
 :::
@@ -62,9 +64,9 @@ A historic arctic outbreak drove sub-freezing polar air deep into peninsular Flo
 ::: {.card .mb-3 .shadow-sm}
 ::: {.card-body}
 <h4 class="card-title" style="color: #047857;">💧 Peak Atmospheric Dew Point: 82.0°F</h4>
-<h6 class="card-subtitle mb-2 text-muted">August 7, 2024 &bull; Oppressive Tropical Moisture</h6>
+<h6 class="card-subtitle mb-2 text-muted">August 7, 2024 &bull; 10-Year Average Dew Point: 64.2°F</h6>
 <p class="card-text">
-Dew points exceeding 75°F are considered oppressive; on August 7, 2024, deep tropical moisture over Tampa Bay surged the dew point to 82.0°F. This saturated atmosphere trapped heat at ground level and delivered record atmospheric moisture content.
+Dew points exceeding 75°F are considered oppressive; on August 7, 2024, deep tropical moisture over Tampa Bay surged the dew point to 82.0°F, nearly 18°F above the 10-year baseline average (64.2°F). This saturated atmosphere trapped heat at ground level and delivered record atmospheric moisture content.
 </p>
 :::
 :::
@@ -74,9 +76,9 @@ Dew points exceeding 75°F are considered oppressive; on August 7, 2024, deep tr
 ::: {.card .mb-3 .shadow-sm}
 ::: {.card-body}
 <h4 class="card-title" style="color: #1d4ed8;">🌪️ Lowest Barometric Pressure: 28.69 inHg</h4>
-<h6 class="card-subtitle mb-2 text-muted">September 10, 2017 &bull; Eye of Hurricane Irma</h6>
+<h6 class="card-subtitle mb-2 text-muted">September 10, 2017 &bull; 10-Year Average Pressure: 30.04 inHg</h6>
 <p class="card-text">
-As Hurricane Irma tracked northward through the Florida peninsula, its central core induced a dramatic atmospheric pressure collapse. KTPA's barometer plummeted to 28.69 inHg (971.5 hPa), the lowest barometric pressure recorded in the 10-year period.
+As Hurricane Irma tracked northward through the Florida peninsula, its central core induced a dramatic atmospheric pressure collapse. KTPA's barometer plummeted from its typical 30.04 inHg baseline down to 28.69 inHg (971.5 hPa), the lowest barometric pressure recorded in the 10-year period.
 </p>
 :::
 :::
@@ -86,9 +88,9 @@ As Hurricane Irma tracked northward through the Florida peninsula, its central c
 ::: {.card .mb-3 .shadow-sm}
 ::: {.card-body}
 <h4 class="card-title" style="color: #7e22ce;">💨 Peak Sustained Wind: 47.0 mph</h4>
-<h6 class="card-subtitle mb-2 text-muted">September 10, 2017 &bull; Hurricane Irma Tropical Gale</h6>
+<h6 class="card-subtitle mb-2 text-muted">September 10, 2017 &bull; 10-Year Average Peak Wind: 13.5 mph</h6>
 <p class="card-text">
-The strongest 2-minute sustained wind speed recorded across the 10-year period reached 47.0 mph during Hurricane Irma's closest approach, accompanied by peak instantaneous wind gusts of 66 mph at airport anemometers.
+The strongest 2-minute sustained wind speed recorded across the 10-year period reached 47.0 mph during Hurricane Irma's closest approach—more than triple the typical daily peak sustained wind (13.5 mph), accompanied by peak instantaneous wind gusts of 66 mph at airport anemometers.
 </p>
 :::
 :::
@@ -98,9 +100,9 @@ The strongest 2-minute sustained wind speed recorded across the 10-year period r
 ::: {.card .mb-3 .shadow-sm}
 ::: {.card-body}
 <h4 class="card-title" style="color: #0369a1;">🌧️ All-Time Wettest Day: 16.14 Inches</h4>
-<h6 class="card-subtitle mb-2 text-muted">August 4, 2024 &bull; Hurricane Debby Deluge</h6>
+<h6 class="card-subtitle mb-2 text-muted">August 4, 2024 &bull; 10-Year Average Daily Rain: 0.36 in</h6>
 <p class="card-text">
-Slow-moving tropical moisture feeder bands associated with Hurricane Debby dropped an astounding 16.14 inches of rain in a single 24-hour observational cycle at KTPA, shattering all previous 10-year daily rainfall records.
+Slow-moving tropical moisture feeder bands associated with Hurricane Debby dropped an astounding 16.14 inches of rain in a single 24-hour observational cycle at KTPA—nearly 45 times the typical daily rainfall (0.36 in), shattering all previous 10-year daily rainfall records.
 </p>
 :::
 :::
