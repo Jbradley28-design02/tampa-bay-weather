@@ -1,6 +1,5 @@
 ---
-title: "Tampa Bay Weather Analysis"
-author: "Jason Bloxsom"
+title: "Bay Area Weather Analysis"
 format:
   html:
     css: styles.css

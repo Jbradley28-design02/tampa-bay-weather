@@ -2,21 +2,21 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Tampa Bay Weather Analysis",
+    "title": "Bay Area Weather Analysis",
     "section": "",
     "text": "Live observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
   },
   {
     "objectID": "index.html#real-time-telemetry-feed-ktpa",
     "href": "index.html#real-time-telemetry-feed-ktpa",
-    "title": "Tampa Bay Weather Analysis",
+    "title": "Bay Area Weather Analysis",
     "section": "",
     "text": "Live observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
   },
   {
     "objectID": "index.html#tampa-bay-regional-weather-station-network",
     "href": "index.html#tampa-bay-regional-weather-station-network",
-    "title": "Tampa Bay Weather Analysis",
+    "title": "Bay Area Weather Analysis",
     "section": "Tampa Bay Regional Weather Station Network",
     "text": "Tampa Bay Regional Weather Station Network\nClick or hover on any station to view its elevation, telemetry type, and role in monitoring Tampa Bay’s coastal weather extremes. The red marker highlights KTPA, the primary anchor station."
   },
