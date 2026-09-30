@@ -23,6 +23,11 @@ body {
   display: block;
 }
 
+/* Hide default Quarto title block in favor of custom encased masthead */
+#title-block-header {
+  display: none !important;
+}
+
 /* News Masthead Banner */
 .news-header {
   background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
