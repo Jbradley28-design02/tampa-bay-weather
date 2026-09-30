@@ -140,7 +140,26 @@ By contrast, when **Hurricane Helene** (September 2024) passed offshore in the G
 
 ## Hurricane Irma Landfall: Shape, Rotation & Wind Circulation
 
-The map below illustrates Hurricane Irma at the precise moment of its mainland Florida landfall at **Marco Island** (September 10, 2017 at 3:35 PM EDT as a Category 3 hurricane with 115 mph winds). It reveals the storm's characteristic cyclonic shape, counter-clockwise rotation, and the resulting surface wind directions that siphoned water away from Tampa Bay.
+The visualization below illustrates Hurricane Irma at the precise moment of its mainland Florida landfall at **Marco Island** (September 10, 2017 at 3:35 PM EDT as a Category 3 hurricane with 115 mph winds). It reveals the storm's characteristic cyclonic shape, counter-clockwise rotation, and the resulting surface wind directions that siphoned water away from Tampa Bay.
+
+```{=html}
+<div class="news-chart-card" style="margin-bottom: 2rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 8px;">
+    <div>
+      <span class="live-pill" style="background: rgba(220, 38, 38, 0.2); color: #f87171; border: 1px solid #ef4444;"><span class="live-pulse-dot" style="background-color: #ef4444;"></span> REAL-TIME ROTATION SIMULATOR</span>
+      <h3 style="color: #ffffff; margin: 0.35rem 0 0 0; font-size: 1.25rem; font-weight: 700;">Hurricane Irma: Animated Cloud Formation & Cyclonic Wind Field</h3>
+      <p style="color: #94a3b8; font-size: 0.85rem; margin: 2px 0 0 0;">Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.</p>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <button id="irma-toggle-spin" class="live-refresh-btn" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;">⏸ Pause</button>
+      <button id="irma-speed-spin" class="live-refresh-btn" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;">⚡ 2x Speed</button>
+    </div>
+  </div>
+  <div style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; background: #0b1320; border: 1px solid #334155;">
+    <canvas id="irma-cyclone-canvas" style="width: 100%; height: 560px; display: block;"></canvas>
+  </div>
+</div>
+```
 
 ```{r}
 #| label: fig-irma-landfall-map
@@ -197,6 +216,17 @@ spiral_bands <- purrr::map(c(0, pi/2, pi, 3*pi/2), \(offset) {
   )
 }) |> list_rbind()
 
+# Irma Convective Cloud Puffs along spiral arms
+cloud_puffs <- purrr::map(c(0, pi/2, pi, 3*pi/2), \(offset) {
+  theta <- seq(0.35, 4.2, length.out = 50)
+  r <- 0.25 * exp(0.56 * theta)
+  tibble(
+    lon = landfall_lon + r * cos(-theta + offset) * 1.15,
+    lat = landfall_lat + r * sin(-theta + offset),
+    size = seq(4, 13, length.out = 50)
+  )
+}) |> list_rbind()
+
 # Cyclonic Wind Vector Grid across Florida
 grid_pts <- expand_grid(
   lon = seq(-85.4, -79.2, by = 0.50),
@@ -231,6 +261,13 @@ ggplot() +
                fill = "#1e293b", color = "#475569", linewidth = 0.45) +
   geom_polygon(data = fl_counties, aes(x = long, y = lat, group = group),
                fill = NA, color = "#334155", linewidth = 0.25) +
+  # Irma Central Dense Overcast (CDO) Cloud Shield
+  geom_point(aes(x = landfall_lon, y = landfall_lat), size = 30, color = "#f8fafc", alpha = 0.20) +
+  geom_point(aes(x = landfall_lon, y = landfall_lat), size = 18, color = "#ffffff", alpha = 0.28) +
+  # Spiral Convective Cloud Puffs
+  geom_point(data = cloud_puffs, aes(x = lon, y = lat, size = size),
+             color = "#f8fafc", alpha = 0.16) +
+  scale_size_identity() +
   # Tropical Storm & Hurricane Wind Radii
   geom_polygon(data = filter(radii_df, zone == "Tropical Storm Force (39+ mph)"),
                aes(x = lon, y = lat), fill = "#f59e0b", alpha = 0.12, color = "#f59e0b", linetype = "dotted") +

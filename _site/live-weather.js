@@ -957,9 +957,586 @@ function initNavbarRadar() {
   renderRadar();
 }
 
+// Interactive Real-Time Hurricane Irma Cyclone Simulator (Spinning Clouds & Wind Field Points)
+function initIrmaCycloneAnimation() {
+  const canvas = document.getElementById("irma-cyclone-canvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  let isPaused = false;
+  let speedMultiplier = 1.0;
+
+  const pauseBtn = document.getElementById("irma-toggle-spin");
+  if (pauseBtn) {
+    pauseBtn.addEventListener("click", function () {
+      isPaused = !isPaused;
+      pauseBtn.textContent = isPaused ? "▶ Resume" : "⏸ Pause";
+    });
+  }
+
+  const speedBtn = document.getElementById("irma-speed-spin");
+  if (speedBtn) {
+    speedBtn.addEventListener("click", function () {
+      if (speedMultiplier === 1.0) {
+        speedMultiplier = 2.0;
+        speedBtn.textContent = "⚡ 2x Speed";
+      } else if (speedMultiplier === 2.0) {
+        speedMultiplier = 0.5;
+        speedBtn.textContent = "🐢 0.5x Speed";
+      } else {
+        speedMultiplier = 1.0;
+        speedBtn.textContent = "⚡ 1x Speed";
+      }
+    });
+  }
+
+  let width = 0;
+  let height = 0;
+  let dpr = window.devicePixelRatio || 1;
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    width = rect.width || 800;
+    height = 560;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  resize();
+  window.addEventListener("resize", resize);
+
+  // Geographic domain bounds matching the ggplot map
+  const minLon = -85.8, maxLon = -79.2;
+  const minLat = 23.8, maxLat = 30.4;
+  const landfallLon = -81.72, landfallLat = 25.94; // Marco Island
+  const tampaLon = -82.53, tampaLat = 27.98;       // Tampa Bay (KTPA)
+  const cudjoeLon = -81.38, cudjoeLat = 24.70;     // Cudjoe Key
+
+  function toX(lon) {
+    return ((lon - minLon) / (maxLon - minLon)) * width;
+  }
+  function toY(lat) {
+    return ((maxLat - lat) / (maxLat - minLat)) * height;
+  }
+
+  // Florida coastline polygon coordinates
+  const flCoords = [
+    [-85.02,31],[-84.98,30.92],[-84.94,30.89],[-84.94,30.79],[-84.88,30.73],[-84.37,30.69],[-84.09,30.68],
+    [-83.76,30.66],[-83.38,30.63],[-83.12,30.62],[-82.6,30.58],[-82.21,30.56],[-82.24,30.53],[-82.21,30.49],
+    [-82.21,30.4],[-82.16,30.36],[-82.09,30.36],[-82.05,30.38],[-82.03,30.52],[-82.03,30.58],[-82.05,30.7],
+    [-82.05,30.75],[-82.02,30.79],[-81.98,30.79],[-81.96,30.81],[-81.93,30.83],[-81.88,30.81],[-81.8,30.79],
+    [-81.75,30.77],[-81.69,30.73],[-81.65,30.74],[-81.6,30.72],[-81.54,30.69],[-81.51,30.68],[-81.48,30.68],
+    [-81.45,30.68],[-81.46,30.64],[-81.47,30.6],[-81.46,30.56],[-81.45,30.52],[-81.43,30.46],[-81.46,30.39],
+    [-81.44,30.37],[-81.4,30.39],[-81.37,30.32],[-81.35,30.19],[-81.29,29.97],[-81.29,29.88],[-81.25,29.83],
+    [-81.25,29.73],[-81.21,29.69],[-81.2,29.64],[-81.11,29.43],[-81.08,29.36],[-80.97,29.16],[-80.96,29.06],
+    [-80.93,29.05],[-80.9,29.01],[-80.86,28.89],[-80.76,28.76],[-80.78,28.75],[-80.84,28.79],[-80.82,28.65],
+    [-80.72,28.34],[-80.59,28.07],[-80.48,27.85],[-80.41,27.72],[-80.36,27.61],[-80.33,27.51],[-80.31,27.43],
+    [-80.24,27.3],[-80.2,27.2],[-80.21,27.15],[-80.15,27.14],[-80.12,27.08],[-80.08,26.96],[-80.05,26.83],
+    [-80.04,26.68],[-80.06,26.52],[-80.09,26.32],[-80.1,26.17],[-80.12,26.09],[-80.13,26.01],[-80.14,25.9],
+    [-80.13,25.82],[-80.13,25.78],[-80.16,25.78],[-80.17,25.82],[-80.17,25.86],[-80.2,25.83],[-80.21,25.75],
+    [-80.25,25.72],[-80.28,25.64],[-80.31,25.62],[-80.32,25.57],[-80.33,25.53],[-80.36,25.46],[-80.33,25.39],
+    [-80.33,25.35],[-80.39,25.3],[-80.43,25.27],[-80.44,25.22],[-80.49,25.23],[-80.52,25.2],[-80.59,25.24],
+    [-80.59,25.2],[-80.63,25.19],[-80.71,25.16],[-80.83,25.18],[-80.9,25.18],[-80.96,25.14],[-81.04,25.14],
+    [-81.11,25.14],[-81.17,25.2],[-81.18,25.27],[-81.17,25.32],[-81.12,25.32],[-81.08,25.27],[-81.02,25.23],
+    [-80.96,25.23],[-80.92,25.26],[-80.92,25.3],[-80.92,25.32],[-80.96,25.32],[-80.99,25.33],[-81.02,25.36],
+    [-81.06,25.38],[-81.1,25.38],[-81.15,25.4],[-81.18,25.47],[-81.22,25.51],[-81.21,25.55],[-81.25,25.57],
+    [-81.29,25.66],[-81.33,25.7],[-81.38,25.8],[-81.46,25.86],[-81.53,25.89],[-81.57,25.91],[-81.61,25.91],
+    [-81.65,25.91],[-81.69,25.91],[-81.72,25.92],[-81.78,26],[-81.85,26.24],[-81.85,26.33],[-81.85,26.4],
+    [-81.88,26.43],[-81.89,26.45],[-81.93,26.45],[-81.99,26.49],[-82.01,26.52],[-81.99,26.55],[-82.05,26.55],
+    [-82.06,26.59],[-82.08,26.65],[-82.1,26.69],[-82.08,26.76],[-82.08,26.86],[-82.11,26.91],[-82.09,26.93],
+    [-82.04,26.96],[-82.05,26.98],[-82.1,26.96],[-82.13,26.96],[-82.17,26.96],[-82.25,27],[-82.26,26.97],
+    [-82.17,26.88],[-82.16,26.82],[-82.2,26.82],[-82.24,26.83],[-82.27,26.84],[-82.29,26.85],[-82.35,26.94],
+    [-82.39,26.97],[-82.43,27.03],[-82.48,27.1],[-82.47,27.15],[-82.52,27.23],[-82.56,27.35],[-82.57,27.41],
+    [-82.63,27.45],[-82.68,27.47],[-82.66,27.53],[-82.63,27.53],[-82.58,27.54],[-82.59,27.58],[-82.59,27.61],
+    [-82.56,27.65],[-82.56,27.67],[-82.52,27.69],[-82.48,27.71],[-82.48,27.75],[-82.47,27.77],[-82.39,27.85],
+    [-82.4,27.87],[-82.41,27.91],[-82.43,27.95],[-82.45,27.96],[-82.47,27.93],[-82.48,27.87],[-82.49,27.84],
+    [-82.52,27.85],[-82.54,27.9],[-82.54,27.96],[-82.6,27.99],[-82.64,28.02],[-82.66,28.01],[-82.68,28.04],
+    [-82.7,28.04],[-82.71,27.98],[-82.73,27.96],[-82.72,27.93],[-82.65,27.89],[-82.63,27.87],[-82.64,27.86],
+    [-82.63,27.81],[-82.64,27.78],[-82.64,27.73],[-82.68,27.72],[-82.7,27.74],[-82.74,27.75],[-82.76,27.78],
+    [-82.78,27.85],[-82.8,27.85],[-82.82,27.83],[-82.84,27.87],[-82.85,27.93],[-82.8,28.01],[-82.79,28.09],
+    [-82.8,28.17],[-82.78,28.21],[-82.74,28.28],[-82.73,28.34],[-82.71,28.4],[-82.68,28.44],[-82.69,28.48],
+    [-82.67,28.53],[-82.66,28.58],[-82.67,28.64],[-82.65,28.67],[-82.64,28.72],[-82.65,28.76],[-82.64,28.79],
+    [-82.67,28.81],[-82.69,28.83],[-82.69,28.84],[-82.68,28.87],[-82.64,28.87],[-82.62,28.89],[-82.65,28.92],
+    [-82.71,28.96],[-82.72,29],[-82.75,29.03],[-82.74,29.07],[-82.76,29.08],[-82.8,29.09],[-82.8,29.14],
+    [-82.81,29.17],[-82.88,29.18],[-83.01,29.19],[-83.07,29.21],[-83.07,29.24],[-83.09,29.29],[-83.14,29.3],
+    [-83.16,29.34],[-83.19,29.4],[-83.23,29.44],[-83.27,29.44],[-83.3,29.44],[-83.31,29.47],[-83.35,29.5],
+    [-83.39,29.52],[-83.39,29.58],[-83.41,29.63],[-83.45,29.68],[-83.49,29.73],[-83.53,29.73],[-83.57,29.77],
+    [-83.6,29.79],[-83.58,29.82],[-83.59,29.85],[-83.66,29.9],[-83.74,29.96],[-83.81,29.99],[-83.94,30.08],
+    [-84.03,30.11],[-84.1,30.1],[-84.16,30.09],[-84.21,30.11],[-84.25,30.11],[-84.28,30.09],[-84.31,30.07],
+    [-84.36,30.07],[-84.39,30.02],[-84.37,29.99],[-84.42,29.99],[-84.41,29.97],[-84.35,29.95],[-84.36,29.92],
+    [-84.37,29.91],[-84.44,29.93],[-84.47,29.94],[-84.5,29.92],[-84.53,29.93],[-84.63,29.88],[-84.81,29.8],
+    [-84.88,29.76],[-84.9,29.77],[-84.88,29.81],[-84.92,29.82],[-84.95,29.79],[-84.99,29.78],[-85.01,29.74],
+    [-85.06,29.74],[-85.17,29.74],[-85.22,29.73],[-85.26,29.71],[-85.32,29.71],[-85.36,29.68],[-85.4,29.69],
+    [-85.45,29.78],[-85.45,29.85],[-85.44,29.88],[-85.41,29.9],[-85.41,29.82],[-85.41,29.75],[-85.36,29.71],
+    [-85.33,29.76],[-85.33,29.85],[-85.38,29.9],[-85.39,29.95],[-85.45,29.97],[-85.51,29.99],[-85.53,30.03],
+    [-85.69,30.13],[-85.67,30.14],[-85.52,30.07],[-85.5,30.09],[-85.53,30.15],[-85.57,30.15],[-85.62,30.15],
+    [-85.68,30.17],[-85.73,30.21],[-85.7,30.25],[-85.69,30.28],[-85.72,30.27],[-85.74,30.28],[-85.78,30.33],
+    [-85.82,30.3],[-85.87,30.28],[-85.85,30.25],[-85.8,30.27],[-85.78,30.25],[-85.75,30.24],[-85.75,30.21],
+    [-85.75,30.15],[-85.87,30.22],[-85.99,30.29]
+  ];
+
+  // Historical Irma Track fixes
+  const trackCoords = [
+    { lon: -81.38, lat: 24.70, label: "Cudjoe Key (Cat 4, 130 mph)" },
+    { lon: -81.72, lat: 25.94, label: "Marco Island Landfall (Cat 3, 115 mph)" },
+    { lon: -81.82, lat: 26.50, label: "Naples" },
+    { lon: -81.88, lat: 27.10, label: "Hardee County" },
+    { lon: -82.02, lat: 27.75, label: "East of Tampa (~25 mi)" },
+    { lon: -82.18, lat: 28.35, label: "Pasco County" },
+    { lon: -82.35, lat: 29.20, label: "North Florida" }
+  ];
+
+  // 1. Logarithmic Spiral Cloud Formation System
+  const armOffsets = [0, Math.PI * 0.5, Math.PI, Math.PI * 1.5];
+  const cloudArms = armOffsets.map(offset => {
+    const puffs = [];
+    const count = 48;
+    for (let i = 0; i < count; i++) {
+      const theta = 0.35 + (i / count) * 3.85;
+      const baseR = 0.25 * Math.exp(0.56 * theta);
+      puffs.push({
+        theta: theta,
+        offset: offset,
+        r: baseR,
+        radius: 12 + (i / count) * 24 + Math.random() * 6,
+        alpha: Math.max(0.08, 0.32 - (i / count) * 0.20),
+        pulseSeed: Math.random() * 10
+      });
+    }
+    return puffs;
+  });
+
+  // Central Dense Overcast (CDO) Eyewall Cloud Deck
+  const cdoPuffs = [];
+  for (let i = 0; i < 16; i++) {
+    cdoPuffs.push({
+      angle: (i / 16) * Math.PI * 2,
+      dist: 0.15 + Math.random() * 0.24,
+      radius: 20 + Math.random() * 18,
+      alpha: 0.22 + Math.random() * 0.18,
+      seed: Math.random() * 10
+    });
+  }
+
+  // 2. Cyclonic Wind Field Points & Streamlines
+  const particleCount = 135;
+  const particles = [];
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      r: 0.40 + Math.random() * 3.6,
+      phi: Math.random() * Math.PI * 2,
+      trail: [],
+      maxTrail: 6 + Math.floor(Math.random() * 6),
+      alpha: 0.3 + Math.random() * 0.5,
+      speedVariance: 0.85 + Math.random() * 0.3
+    });
+  }
+
+  let spinAngle = 0;
+  let time = 0;
+  let animId = null;
+
+  function renderIrma() {
+    if (width === 0 || height === 0) {
+      resize();
+      if (width === 0 || height === 0) {
+        animId = requestAnimationFrame(renderIrma);
+        return;
+      }
+    }
+
+    if (!isPaused) {
+      time += 0.016 * speedMultiplier;
+      spinAngle = (spinAngle + 0.012 * speedMultiplier) % (Math.PI * 2);
+    }
+
+    // 1. Dark oceanic canvas backdrop
+    ctx.fillStyle = "#09101d";
+    ctx.fillRect(0, 0, width, height);
+
+    // Subtle geographic lat/lon gridlines
+    ctx.save();
+    ctx.strokeStyle = "rgba(51, 65, 85, 0.45)";
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 5]);
+    for (let lon = -85; lon <= -80; lon += 1) {
+      const gx = toX(lon);
+      ctx.beginPath();
+      ctx.moveTo(gx, 0);
+      ctx.lineTo(gx, height);
+      ctx.stroke();
+      ctx.fillStyle = "#64748b";
+      ctx.font = "10px monospace";
+      ctx.fillText(lon + "°W", gx + 4, height - 10);
+    }
+    for (let lat = 24; lat <= 30; lat += 2) {
+      const gy = toY(lat);
+      ctx.beginPath();
+      ctx.moveTo(0, gy);
+      ctx.lineTo(width, gy);
+      ctx.stroke();
+      ctx.fillStyle = "#64748b";
+      ctx.font = "10px monospace";
+      ctx.fillText(lat + "°N", 8, gy - 4);
+    }
+    ctx.restore();
+
+    // 2. Florida Coastline & Landmass
+    ctx.save();
+    ctx.fillStyle = "#1e293b";
+    ctx.strokeStyle = "#475569";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    flCoords.forEach((pt, idx) => {
+      const px = toX(pt[0]);
+      const py = toY(pt[1]);
+      if (idx === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    });
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+
+    // Center coordinates for storm
+    const cx = toX(landfallLon);
+    const cy = toY(landfallLat);
+    const pxPerDegX = width / (maxLon - minLon);
+    const pxPerDegY = height / (maxLat - minLat);
+
+    // 3. Concentric Wind Intensity Radii
+    const radiiZones = [
+      { r: 2.35, color: "rgba(245, 158, 11, 0.12)", stroke: "rgba(245, 158, 11, 0.65)", dash: [4, 4] }, // Tropical Storm
+      { r: 0.95, color: "rgba(239, 68, 68, 0.15)", stroke: "rgba(239, 68, 68, 0.75)", dash: [6, 4] },  // Hurricane Force
+      { r: 0.38, color: "rgba(153, 27, 27, 0.30)", stroke: "rgba(220, 38, 38, 0.95)", dash: [] }       // Eyewall
+    ];
+
+    radiiZones.forEach(z => {
+      ctx.save();
+      ctx.fillStyle = z.color;
+      ctx.strokeStyle = z.stroke;
+      ctx.lineWidth = 1.3;
+      if (z.dash.length) ctx.setLineDash(z.dash);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, z.r * pxPerDegX * 1.15, z.r * pxPerDegY, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+    });
+
+    // 4. Historical Track Line
+    ctx.save();
+    ctx.strokeStyle = "rgba(248, 250, 252, 0.55)";
+    ctx.lineWidth = 2;
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath();
+    trackCoords.forEach((pt, i) => {
+      const tx = toX(pt.lon);
+      const ty = toY(pt.lat);
+      if (i === 0) ctx.moveTo(tx, ty);
+      else ctx.lineTo(tx, ty);
+    });
+    ctx.stroke();
+    trackCoords.forEach(pt => {
+      const tx = toX(pt.lon);
+      const ty = toY(pt.lat);
+      ctx.fillStyle = "rgba(248, 250, 252, 0.85)";
+      ctx.beginPath();
+      ctx.arc(tx, ty, 3, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.restore();
+
+    // 5. ANIMATED HURRICANE CLOUD FORMATION (Logarithmic Spiral Rainbands + CDO)
+    // Central Dense Overcast (CDO) Eyewall Rotation (Counter-Clockwise)
+    cdoPuffs.forEach(puff => {
+      const curAngle = puff.angle + spinAngle * 1.25;
+      const curDist = puff.dist * (1 + 0.05 * Math.sin(time * 2 + puff.seed));
+      const lon = landfallLon + curDist * Math.cos(curAngle) * 1.15;
+      const lat = landfallLat + curDist * Math.sin(curAngle);
+      const px = toX(lon);
+      const py = toY(lat);
+
+      const grad = ctx.createRadialGradient(px, py, puff.radius * 0.15, px, py, puff.radius);
+      grad.addColorStop(0, `rgba(255, 255, 255, ${puff.alpha})`);
+      grad.addColorStop(0.65, `rgba(224, 242, 254, ${puff.alpha * 0.55})`);
+      grad.addColorStop(1, "rgba(224, 242, 254, 0)");
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(px, py, puff.radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // Spinning Spiral Rainband Cloud Arms (Counter-Clockwise)
+    cloudArms.forEach(arm => {
+      arm.forEach(p => {
+        // Strict counter-clockwise angular advancement
+        const curAngle = (-p.theta + p.offset) + spinAngle * 0.85;
+        const lon = landfallLon + p.r * Math.cos(curAngle) * 1.15;
+        const lat = landfallLat + p.r * Math.sin(curAngle);
+        const px = toX(lon);
+        const py = toY(lat);
+
+        const curRadius = p.radius * (0.95 + 0.1 * Math.sin(time + p.pulseSeed));
+        const grad = ctx.createRadialGradient(px, py, curRadius * 0.12, px, py, curRadius);
+        grad.addColorStop(0, `rgba(255, 255, 255, ${p.alpha})`);
+        grad.addColorStop(0.6, `rgba(224, 242, 254, ${p.alpha * 0.65})`);
+        grad.addColorStop(1, "rgba(224, 242, 254, 0)");
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(px, py, curRadius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    });
+
+    // 6. ANIMATED CYCLONIC WIND FIELD POINTS & STREAMLINES
+    particles.forEach(p => {
+      if (!isPaused) {
+        // Tangential angular velocity (faster near eyewall)
+        const omega = (0.024 * (1.15 / Math.pow(Math.max(0.4, p.r), 0.55))) * p.speedVariance * speedMultiplier;
+        p.phi += omega; // Counter-clockwise cyclonic rotation
+
+        // ~20 degree inward surface friction inflow
+        const vr = (-omega * 0.18) * speedMultiplier;
+        p.r += vr;
+
+        // Reset if spiraled into the eye or out of map bounds
+        if (p.r < 0.36 || p.r > 4.2) {
+          p.r = 2.6 + Math.random() * 1.4;
+          p.phi = Math.random() * Math.PI * 2;
+          p.trail = [];
+          p.alpha = 0.1;
+        } else {
+          p.alpha = Math.min(0.85, p.alpha + 0.02);
+        }
+      }
+
+      const lon = landfallLon + p.r * Math.cos(p.phi) * 1.15;
+      const lat = landfallLat + p.r * Math.sin(p.phi);
+      const px = toX(lon);
+      const py = toY(lat);
+
+      if (!isPaused) {
+        p.trail.push({ x: px, y: py });
+        if (p.trail.length > p.maxTrail) p.trail.shift();
+      }
+
+      // Wind direction vector angle (~20 deg inward inflow)
+      const windAngle = p.phi + Math.PI / 2 + 0.35;
+      const arrowLen = p.r < 0.95 ? 12 : (p.r < 2.35 ? 9 : 7);
+      const vx = Math.cos(windAngle) * arrowLen;
+      const vy = -Math.sin(windAngle) * arrowLen; // Invert for canvas screen coordinates
+
+      // Color classification based on distance/intensity
+      let strokeColor, fillColor;
+      if (p.r < 0.95) {
+        strokeColor = `rgba(239, 68, 68, ${p.alpha})`;  // Hurricane Force (74+ mph)
+        fillColor = "#ef4444";
+      } else if (p.r < 2.35) {
+        strokeColor = `rgba(56, 189, 248, ${p.alpha})`;  // Tropical Storm Force (39-73 mph)
+        fillColor = "#38bdf8";
+      } else {
+        strokeColor = `rgba(148, 163, 184, ${p.alpha * 0.75})`; // Outer Gale (< 39 mph)
+        fillColor = "#94a3b8";
+      }
+
+      // Draw particle trail streak
+      if (p.trail.length > 1) {
+        ctx.save();
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = p.r < 0.95 ? 1.6 : 1.2;
+        ctx.beginPath();
+        p.trail.forEach((t, idx) => {
+          if (idx === 0) ctx.moveTo(t.x, t.y);
+          else ctx.lineTo(t.x, t.y);
+        });
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Draw wind vector directional arrow
+      ctx.save();
+      ctx.strokeStyle = strokeColor;
+      ctx.lineWidth = 1.3;
+      ctx.beginPath();
+      ctx.moveTo(px, py);
+      ctx.lineTo(px + vx, py + vy);
+      ctx.stroke();
+      ctx.restore();
+
+      // Draw the wind field point dot
+      ctx.fillStyle = fillColor;
+      ctx.beginPath();
+      ctx.arc(px, py, p.r < 0.95 ? 2.4 : 1.8, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // 7. KEY LANDMARKS & ANNOTATIONS
+    // Cudjoe Key 1st FL Landfall
+    const kx = toX(cudjoeLon);
+    const ky = toY(cudjoeLat);
+    ctx.fillStyle = "#e11d48";
+    ctx.beginPath();
+    ctx.arc(kx, ky, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.fillStyle = "rgba(30, 27, 75, 0.88)";
+    ctx.strokeStyle = "#f43f5e";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(kx - 105, ky + 10, 210, 22, 4);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = "#f43f5e";
+    ctx.font = "bold 10px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("1st FL Landfall: Cudjoe Key (Cat 4, 130 mph)", kx, ky + 25);
+
+    // Tampa Bay (KTPA) Station & Offshore Wind Callout
+    const tpx = toX(tampaLon);
+    const tpy = toY(tampaLat);
+    ctx.fillStyle = "#0284c7";
+    ctx.beginPath();
+    ctx.arc(tpx, tpy, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Pulse ring around Tampa
+    const tPulse = (Math.sin(time * 3) + 1) * 0.5;
+    ctx.strokeStyle = `rgba(56, 189, 248, ${0.4 + 0.4 * (1 - tPulse)})`;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(tpx, tpy, 8 + tPulse * 8, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = "rgba(8, 47, 73, 0.92)";
+    ctx.strokeStyle = "#38bdf8";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.roundRect(tpx - 145, tpy - 54, 290, 44, 5);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = "#38bdf8";
+    ctx.font = "bold 11px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("TAMPA BAY (KTPA) • OFFSHORE NE GALES", tpx, tpy - 38);
+    ctx.fillStyle = "#cbd5e1";
+    ctx.font = "10px sans-serif";
+    ctx.fillText("Negative Surge Drained Bay Bed • Gusts 66 mph", tpx, tpy - 22);
+
+    // Marco Island Mainland Landfall Marker (Eye)
+    ctx.fillStyle = "#dc2626";
+    ctx.beginPath();
+    ctx.arc(cx, cy, 7, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Eye pulse ring
+    const eyePulse = (Math.sin(time * 4) + 1) * 0.5;
+    ctx.strokeStyle = `rgba(239, 68, 68, ${0.3 + 0.5 * (1 - eyePulse)})`;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 10 + eyePulse * 12, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = "rgba(127, 29, 29, 0.92)";
+    ctx.strokeStyle = "#ef4444";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.roundRect(cx + 14, cy - 20, 245, 42, 5);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 11px sans-serif";
+    ctx.textAlign = "left";
+    ctx.fillText("MAINLAND LANDFALL: Marco Island", cx + 22, cy - 5);
+    ctx.fillStyle = "#fca5a5";
+    ctx.font = "10px sans-serif";
+    ctx.fillText("Cat 3 (115 mph) • Sep 10, 2017 • 3:35 PM EDT", cx + 22, cy + 12);
+
+    // 8. On-Canvas Legend & Dynamic HUD Telemetry
+    ctx.save();
+    ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+    ctx.strokeStyle = "#334155";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(width - 235, 14, 220, 105, 6);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 11px sans-serif";
+    ctx.textAlign = "left";
+    ctx.fillText("CYCLONIC WIND FIELD", width - 222, 32);
+
+    const legendItems = [
+      { color: "#ef4444", text: "Hurricane Force (74+ mph)" },
+      { color: "#38bdf8", text: "Tropical Storm (39-73 mph)" },
+      { color: "#94a3b8", text: "Outer Gale (< 39 mph)" },
+      { color: "rgba(255, 255, 255, 0.75)", text: "Convective Cloud Rainbands" }
+    ];
+    legendItems.forEach((item, idx) => {
+      const ly = 50 + idx * 16;
+      ctx.fillStyle = item.color;
+      ctx.beginPath();
+      ctx.arc(width - 216, ly - 3, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "#cbd5e1";
+      ctx.font = "10px sans-serif";
+      ctx.fillText(item.text, width - 204, ly);
+    });
+    ctx.restore();
+
+    // Circulation Dynamics Callout (Bottom Left)
+    ctx.save();
+    ctx.fillStyle = "rgba(3, 13, 23, 0.90)";
+    ctx.strokeStyle = "#1e293b";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(14, height - 68, 250, 52, 6);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = "#e2e8f0";
+    ctx.font = "bold 10px sans-serif";
+    ctx.textAlign = "left";
+    ctx.fillText("⟲ COUNTER-CLOCKWISE VORTEX", 24, height - 52);
+    ctx.fillStyle = "#94a3b8";
+    ctx.font = "9.5px sans-serif";
+    ctx.fillText("• Inward Surface Inflow: ~20° friction deflection", 24, height - 37);
+    ctx.fillText("• Status: Live Continuous Simulation", 24, height - 23);
+    ctx.restore();
+
+    if (!document.hidden) {
+      animId = requestAnimationFrame(renderIrma);
+    }
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) {
+      cancelAnimationFrame(animId);
+      animId = requestAnimationFrame(renderIrma);
+    }
+  });
+
+  renderIrma();
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   initNavbarRadar();
   initMeteorologyBackground();
+  initIrmaCycloneAnimation();
   fetchLiveKTPAWeather();
   initLiveCardScrollAnimation();
   initPlotlyScrollAnimations();

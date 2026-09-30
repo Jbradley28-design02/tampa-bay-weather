@@ -293,7 +293,23 @@ Figure&nbsp;1: Hourly meteorological telemetry recorded at Tampa International A
 </section>
 <section id="hurricane-irma-landfall-shape-rotation-wind-circulation" class="level2">
 <h2 class="anchored" data-anchor-id="hurricane-irma-landfall-shape-rotation-wind-circulation">Hurricane Irma Landfall: Shape, Rotation &amp; Wind Circulation</h2>
-<p>The map below illustrates Hurricane Irma at the precise moment of its mainland Florida landfall at <strong>Marco Island</strong> (September 10, 2017 at 3:35 PM EDT as a Category 3 hurricane with 115 mph winds). It reveals the storm’s characteristic cyclonic shape, counter-clockwise rotation, and the resulting surface wind directions that siphoned water away from Tampa Bay.</p>
+<p>The visualization below illustrates Hurricane Irma at the precise moment of its mainland Florida landfall at <strong>Marco Island</strong> (September 10, 2017 at 3:35 PM EDT as a Category 3 hurricane with 115 mph winds). It reveals the storm’s characteristic cyclonic shape, counter-clockwise rotation, and the resulting surface wind directions that siphoned water away from Tampa Bay.</p>
+<div class="news-chart-card" style="margin-bottom: 2rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 8px;">
+    <div>
+      <span class="live-pill" style="background: rgba(220, 38, 38, 0.2); color: #f87171; border: 1px solid #ef4444;"><span class="live-pulse-dot" style="background-color: #ef4444;"></span> REAL-TIME ROTATION SIMULATOR</span>
+      <h3 style="color: #ffffff; margin: 0.35rem 0 0 0; font-size: 1.25rem; font-weight: 700;" class="anchored">Hurricane Irma: Animated Cloud Formation &amp; Cyclonic Wind Field</h3>
+      <p style="color: #94a3b8; font-size: 0.85rem; margin: 2px 0 0 0;">Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.</p>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <button id="irma-toggle-spin" class="live-refresh-btn" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;">⏸ Pause</button>
+      <button id="irma-speed-spin" class="live-refresh-btn" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;">⚡ 2x Speed</button>
+    </div>
+  </div>
+  <div style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; background: #0b1320; border: 1px solid #334155;">
+    <canvas id="irma-cyclone-canvas" style="width: 100%; height: 560px; display: block;"></canvas>
+  </div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-irma-landfall-map" class="quarto-float quarto-figure quarto-figure-center anchored">
