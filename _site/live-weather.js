@@ -610,7 +610,7 @@ function initNavbarRadar() {
   if (!nav) return;
 
   nav.style.position = "relative";
-  nav.style.overflow = "hidden";
+  nav.style.overflow = "visible";
 
   let canvas = document.getElementById("navbar-radar-canvas");
   if (!canvas) {
