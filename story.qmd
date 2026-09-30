@@ -135,3 +135,196 @@ By contrast, when **Hurricane Helene** (September 2024) passed offshore in the G
 | **Hurricane Irma** (Sep 2017) | **28.69 inHg** (10-Yr Record Low) | 46.0 mph | 66.0 mph | 4.57 in | Negative Surge (Bay drained) |
 | **Hurricane Helene** (Sep 2024) | 29.56 inHg | 38.0 mph | 55.0 mph | 2.14 in | Record Coastal Surge (6–7 ft flood) |
 | **Hurricane Milton** (Oct 2024) | 29.18 inHg | 30.0+ mph | 60.0+ mph | **16.03 in** | Severe Inland Flooding & Eyewall Rain |
+
+---
+
+## Hurricane Irma Landfall: Shape, Rotation & Wind Circulation
+
+The map below illustrates Hurricane Irma at the precise moment of its mainland Florida landfall at **Marco Island** (September 10, 2017 at 3:35 PM EDT as a Category 3 hurricane with 115 mph winds). It reveals the storm's characteristic cyclonic shape, counter-clockwise rotation, and the resulting surface wind directions that siphoned water away from Tampa Bay.
+
+```{r}
+#| label: fig-irma-landfall-map
+#| fig-cap: "Meteorological reconstruction of Hurricane Irma at mainland landfall (Marco Island, FL). Vectors illustrate the counter-clockwise surface wind field (with a ~20° inward inflow angle), highlighting how offshore northeasterly gales over Tampa Bay generated an historic negative surge while driving severe onshore flooding into Southwest Florida."
+#| fig-width: 9.5
+#| fig-height: 7.5
+#| dpi: 180
+
+# Load Florida coastline and county outlines
+fl_states <- ggplot2::map_data("state") |> filter(region %in% c("florida", "georgia", "alabama"))
+fl_counties <- ggplot2::map_data("county") |> filter(region == "florida")
+
+# Fixed Landfall Center: Marco Island, FL
+landfall_lon <- -81.72
+landfall_lat <- 25.94
+
+# 1st Florida Landfall: Cudjoe Key
+cudjoe_lon <- -81.38
+cudjoe_lat <- 24.70
+
+# Station Location: Tampa International Airport (KTPA)
+tampa_lon <- -82.53
+tampa_lat <- 27.98
+
+# Historical Track Points
+track_df <- tibble(
+  lon = c(-81.38, -81.72, -81.82, -81.88, -82.02, -82.18, -82.35),
+  lat = c(24.70, 25.94, 26.50, 27.10, 27.75, 28.35, 29.20)
+)
+
+# Concentric Wind Radii (Eyewall, Hurricane-Force 74+ mph, Tropical Storm 39+ mph)
+radii_df <- tibble(
+  radius_deg = c(0.38, 0.95, 2.35),
+  zone = factor(c("Eyewall (115 mph)", "Hurricane-Force (74+ mph)", "Tropical Storm Force (39+ mph)"),
+                levels = c("Eyewall (115 mph)", "Hurricane-Force (74+ mph)", "Tropical Storm Force (39+ mph)"))
+) |>
+  reframe(
+    tibble(
+      angle = seq(0, 2 * pi, length.out = 150),
+      lon = landfall_lon + radius_deg * cos(angle) * 1.15,
+      lat = landfall_lat + radius_deg * sin(angle)
+    ),
+    .by = c(zone, radius_deg)
+  )
+
+# Spiral Rainband Arms (Logarithmic spiral geometry)
+spiral_bands <- purrr::map(c(0, pi/2, pi, 3*pi/2), \(offset) {
+  theta <- seq(0.35, 4.3, length.out = 100)
+  r <- 0.25 * exp(0.56 * theta)
+  tibble(
+    lon = landfall_lon + r * cos(-theta + offset) * 1.15,
+    lat = landfall_lat + r * sin(-theta + offset),
+    arm = as.character(offset)
+  )
+}) |> list_rbind()
+
+# Cyclonic Wind Vector Grid across Florida
+grid_pts <- expand_grid(
+  lon = seq(-85.4, -79.2, by = 0.50),
+  lat = seq(24.2, 30.4, by = 0.50)
+) |>
+  mutate(
+    dx = (lon - landfall_lon) / 1.15,
+    dy = lat - landfall_lat,
+    dist = sqrt(dx^2 + dy^2)
+  ) |>
+  filter(dist >= 0.35 & dist <= 3.9) |>
+  mutate(
+    phi = atan2(dy, dx),
+    wind_dir = phi + pi/2 + 0.36, # Counter-clockwise tangential + 20 deg surface friction inflow
+    arrow_len = case_when(
+      dist < 0.95 ~ 0.32,
+      dist < 2.35 ~ 0.27,
+      TRUE ~ 0.21
+    ),
+    u = arrow_len * cos(wind_dir) * 1.15,
+    v = arrow_len * sin(wind_dir),
+    wind_intensity = case_when(
+      dist < 0.95 ~ "Hurricane Force (74+ mph)",
+      dist < 2.35 ~ "Tropical Storm Force (39-73 mph)",
+      TRUE ~ "Outer Gale (< 39 mph)"
+    )
+  )
+
+ggplot() +
+  # Regional land geography
+  geom_polygon(data = fl_states, aes(x = long, y = lat, group = group),
+               fill = "#1e293b", color = "#475569", linewidth = 0.45) +
+  geom_polygon(data = fl_counties, aes(x = long, y = lat, group = group),
+               fill = NA, color = "#334155", linewidth = 0.25) +
+  # Tropical Storm & Hurricane Wind Radii
+  geom_polygon(data = filter(radii_df, zone == "Tropical Storm Force (39+ mph)"),
+               aes(x = lon, y = lat), fill = "#f59e0b", alpha = 0.12, color = "#f59e0b", linetype = "dotted") +
+  geom_polygon(data = filter(radii_df, zone == "Hurricane-Force (74+ mph)"),
+               aes(x = lon, y = lat), fill = "#ef4444", alpha = 0.18, color = "#ef4444", linetype = "dashed") +
+  geom_polygon(data = filter(radii_df, zone == "Eyewall (115 mph)"),
+               aes(x = lon, y = lat), fill = "#991b1b", alpha = 0.30, color = "#dc2626") +
+  # Spiral Rainband Arms
+  geom_path(data = spiral_bands, aes(x = lon, y = lat, group = arm),
+            color = "#38bdf8", alpha = 0.40, linewidth = 1.3) +
+  # Wind Direction Vectors (Color-Coded by Intensity)
+  geom_segment(data = grid_pts,
+               aes(x = lon, y = lat, xend = lon + u, yend = lat + v, color = wind_intensity),
+               arrow = arrow(length = unit(0.18, "cm"), type = "closed"),
+               linewidth = 0.55, alpha = 0.85) +
+  scale_color_manual(
+    name = "Wind Field Velocity",
+    values = c(
+      "Hurricane Force (74+ mph)" = "#ef4444",
+      "Tropical Storm Force (39-73 mph)" = "#38bdf8",
+      "Outer Gale (< 39 mph)" = "#64748b"
+    )
+  ) +
+  # Historical Irma Track Line
+  geom_path(data = track_df, aes(x = lon, y = lat),
+            color = "#f8fafc", linewidth = 1.2, linetype = "longdash") +
+  geom_point(data = track_df, aes(x = lon, y = lat),
+             color = "#f8fafc", size = 2) +
+  # Fixed Landfall Marker (Marco Island)
+  geom_point(aes(x = landfall_lon, y = landfall_lat),
+             shape = 21, size = 6, fill = "#dc2626", color = "#ffffff", stroke = 2) +
+  annotate(
+    "label", x = landfall_lon + 0.35, y = landfall_lat - 0.20,
+    label = "MAINLAND LANDFALL\nMarco Island (Cat 3, 115 mph)\nSep 10, 2017 • 3:35 PM EDT",
+    hjust = 0, fill = "#7f1d1d", color = "#ffffff", fontface = "bold", size = 3.2,
+    label.padding = unit(0.3, "lines"), label.r = unit(0.2, "lines")
+  ) +
+  # Cudjoe Key Initial Landfall Marker
+  geom_point(aes(x = cudjoe_lon, y = cudjoe_lat),
+             shape = 21, size = 4, fill = "#e11d48", color = "#ffffff", stroke = 1.2) +
+  annotate(
+    "label", x = cudjoe_lon - 0.20, y = cudjoe_lat - 0.32,
+    label = "1st FL Landfall: Cudjoe Key (Cat 4, 130 mph)",
+    hjust = 0.5, fill = "#1e1b4b", color = "#f43f5e", fontface = "bold", size = 2.8,
+    label.padding = unit(0.2, "lines")
+  ) +
+  # Tampa Bay / KTPA Marker & Offshore Wind Callout
+  geom_point(aes(x = tampa_lon, y = tampa_lat),
+             shape = 21, size = 5.5, fill = "#0284c7", color = "#ffffff", stroke = 1.8) +
+  annotate(
+    "label", x = -83.1, y = 28.5,
+    label = "TAMPA BAY (KTPA)\nOffshore NE Gale Winds\nNegative Surge Drained Bay Bed\nPressure: 28.69 inHg • Gusts: 66 mph",
+    hjust = 0.5, fill = "#082f49", color = "#38bdf8", fontface = "bold", size = 3.2,
+    label.padding = unit(0.3, "lines"), label.r = unit(0.2, "lines")
+  ) +
+  # Counter-Clockwise Rotation Callout
+  annotate(
+    "label", x = -84.3, y = 26.2,
+    label = "COUNTER-CLOCKWISE ROTATION\n• Surface Inflow Angle ~20°\n• Siphoned Water Out of Tampa Bay\n• Drove Onshore Surge in SW Florida",
+    fill = "#030d17", color = "#e2e8f0", fontface = "bold", size = 3.1,
+    label.padding = unit(0.35, "lines"), label.r = unit(0.2, "lines")
+  ) +
+  coord_quickmap(xlim = c(-85.8, -79.2), ylim = c(23.8, 30.4)) +
+  labs(
+    title = "Hurricane Irma Landfall Dynamics & Cyclonic Wind Circulation",
+    subtitle = "Fixed Mainland Landfall (Marco Island, FL) • Cyclonic Spiral Rainbands & Surface Wind Field",
+    caption = "NOAA / NWS / KTPA station records. Vectors denote surface wind direction showing how offshore NE gales siphoned water out of Tampa Bay.",
+    x = "Longitude (°W)",
+    y = "Latitude (°N)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.margin = margin(12, 20, 12, 20),
+    plot.background = element_rect(fill = "#0b1320", color = NA),
+    panel.background = element_rect(fill = "#0f172a", color = "#334155"),
+    panel.grid.major = element_line(color = "#334155", linetype = "dotted"),
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(color = "#ffffff", face = "bold", size = 13, margin = margin(b = 4)),
+    plot.subtitle = element_text(color = "#94a3b8", size = 8.8, margin = margin(b = 8)),
+    plot.caption = element_text(color = "#64748b", size = 7.8, margin = margin(t = 8)),
+    legend.position = "inside",
+    legend.position.inside = c(0.82, 0.78),
+    legend.background = element_rect(fill = "#0f172a", color = "#334155"),
+    legend.title = element_text(color = "#ffffff", size = 8.5, face = "bold"),
+    legend.text = element_text(color = "#cbd5e1", size = 7.8),
+    axis.title = element_text(color = "#94a3b8", size = 9),
+    axis.text = element_text(color = "#64748b", size = 8)
+  )
+```
+
+### Key Takeaways from the Circulation Pattern:
+
+1. **Fixed Landfall Anchor:** Irma struck Florida twice—first at **Cudjoe Key** as a Category 4 storm (130 mph), and second as a Category 3 mainland landfall on **Marco Island** (115 mph).
+2. **Spiral Shape and Rainbands:** The logarithmic spiral bands depict the sprawling radius of the storm's outer rain shield, which extended across both the Gulf of Mexico and the Atlantic Ocean.
+3. **Counter-Clockwise Rotation:** Like all Northern Hemisphere cyclones, winds rotate counter-clockwise around the low-pressure center, with surface friction deflecting winds slightly inward (~20° cross-isobar inflow).
+4. **The Negative Surge Mechanism:** Because Tampa Bay was situated to the northwest of Irma's path, local surface winds blew from the **northeast (offshore)**. Instead of forcing Gulf waters onshore, these violent winds blew water out into the Gulf, exposing the seabed along Bayshore Boulevard.
+
