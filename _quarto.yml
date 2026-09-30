@@ -17,7 +17,7 @@ website:
       - href: recent.qmd
         text: Recent Data
       - href: story.qmd
-        text: Story
+        text: Anatomy of a Storm
       - href: about.qmd
         text: About
 

@@ -1,5 +1,5 @@
 ---
-title: "Story: What Happens When a Hurricane Strikes Tampa?"
+title: "Anatomy of a Storm: What Happens When a Hurricane Strikes Tampa?"
 format:
   html:
     css: styles.css
