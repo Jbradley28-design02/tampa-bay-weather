@@ -1,0 +1,132 @@
+---
+title: "Christmas Arctic Freeze (2022)"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup-freeze
+library(tidyverse)
+library(patchwork)
+
+# Load hourly KTPA observations
+event_data <- read_csv("data/ktpa_2022.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
+  filter(grepl(":53:", DATE)) |>
+  mutate(
+    datetime = as.POSIXct(DATE),
+    temp = parse_number(HourlyDryBulbTemperature),
+    pressure = parse_number(HourlyStationPressure),
+    wind = parse_number(HourlyWindSpeed),
+    precip = replace_na(parse_number(na_if(HourlyPrecipitation, "T")), 0)
+  ) |>
+  filter(datetime >= as.POSIXct("2022-12-23 00:00:00") & datetime <= as.POSIXct("2022-12-26 23:59:59"))
+```
+
+::: {.news-header}
+<span class="news-badge">DECADE POLAR VORTEX OUTBREAK</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Christmas Arctic Freeze (December 2022)</h1>
+<div class="news-station-tag">STATION: KTPA &bull; ALL-TIME 10-YEAR RECORD LOW TEMPERATURE 29.0°F</div>
+:::
+
+::: {.records-grid}
+::: {.record-card}
+<div class="record-icon">❄️</div>
+<div class="record-value">29.0°F</div>
+<div class="record-label">Decade Record Low</div>
+<div class="record-sub">Morning of Dec 24, 2022</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🧊</div>
+<div class="record-value">18.0°F</div>
+<div class="record-label">Wind Chill Minimum</div>
+<div class="record-sub">Gusty north polar gale</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">💨</div>
+<div class="record-value">18.0 mph</div>
+<div class="record-label">Peak Polar Wind</div>
+<div class="record-sub">Sustained arctic advection</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">📈</div>
+<div class="record-value">30.34 inHg</div>
+<div class="record-label">Barometric High</div>
+<div class="record-sub">Dense arctic high pressure</div>
+:::
+:::
+
+```{r}
+#| label: fig-telemetry-freeze
+#| fig-cap: "Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the Christmas Polar Outbreak. Top: Dry Bulb Air Temperature (°F). Bottom: Sustained wind speed (mph)."
+#| fig-width: 9.5
+#| fig-height: 5.6
+#| dpi: 180
+
+# Panel 1: Temperature
+p1 <- ggplot(event_data, aes(x = datetime, y = temp)) +
+  geom_line(color = "#0284c7", linewidth = 1.1) +
+  geom_hline(yintercept = 32, linetype = "dashed", color = "#ef4444", linewidth = 0.8) +
+  geom_point(data = filter(event_data, temp == min(temp, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  annotate("text", x = min(event_data$datetime), y = 33.5, label = "Freezing Line (32°F)", color = "#ef4444", hjust = 0, fontface = "bold", size = 3.2) +
+  labs(
+    title = "Christmas Arctic Freeze (2022): KTPA Telemetry Breakdown",
+    subtitle = "Air Temperature (°F) & Polar Advection Wind Speed (mph)",
+    y = "Temperature (°F)",
+    x = NULL
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#0f172a"),
+    plot.subtitle = element_text(color = "#475569", size = 10, margin = margin(b = 8)),
+    axis.title.y = element_text(face = "bold", color = "#0284c7", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Panel 2: Wind Speed
+p2 <- ggplot(event_data, aes(x = datetime, y = wind)) +
+  geom_line(color = "#0f172a", linewidth = 1.1) +
+  geom_point(data = filter(event_data, wind == max(wind, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    y = "Wind Speed (mph)",
+    x = "Date & Time (EST)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.title.x = element_text(face = "bold", color = "#0f172a", margin = margin(t = 6)),
+    axis.title.y = element_text(face = "bold", color = "#0f172a", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+p1 / p2
+```
+
+
+## Synoptic Evolution: The Christmas Polar Bomb
+
+Just three months after Hurricane Ian, a historic continental polar vortex plunged southeast from the Canadian Arctic across the United States. On December 23, 2022, an intense arctic cold front raced through peninsular Florida, collapsing subtropical warmth in a matter of hours.
+
+Behind the front, dense high pressure (30.34 inHg) locked in place, funneling howling arctic winds directly across Hillsborough and Pinellas counties over Christmas Eve and Christmas Day.
+
+## Meteorological Telemetry at KTPA
+
+KTPA's automated sensors chronicled one of the sharpest non-tropical weather anomalies in modern Tampa history:
+
+- **All-Time Decade Record Low:** On the morning of December 24, the thermometer plummeted to **29.0°F (-1.7°C)**—the coldest temperature recorded in the entire 10-year archive (2015–2024).
+- **Brutal Wind Chills:** Strong north winds averaging **15 to 18 mph** produced dangerous wind chills dipping into the **upper teens (18°F)**, forcing the National Weather Service to issue rare Wind Chill Advisories for the Tampa metropolitan area.
+- **Agricultural Hard Freeze:** Sub-freezing temperatures persisted for over 8 consecutive hours, requiring regional citrus growers and strawberry farmers in Plant City to continuously spray water onto crops to form protective ice shields.
+
+
+---
+
+::: {.callout-note}
+### Explore More Weather Crises
+Return to the [Natural Disasters Overview](disasters.qmd) to view the full 10-year timeline, comparison tables, and summaries of all major storms.
+:::

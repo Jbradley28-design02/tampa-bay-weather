@@ -1,0 +1,130 @@
+---
+title: "Hurricane Milton (2024)"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup-milton
+library(tidyverse)
+library(patchwork)
+
+# Load hourly KTPA observations
+event_data <- read_csv("data/ktpa_2024.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
+  filter(grepl(":53:", DATE)) |>
+  mutate(
+    datetime = as.POSIXct(DATE),
+    temp = parse_number(HourlyDryBulbTemperature),
+    pressure = parse_number(HourlyStationPressure),
+    wind = parse_number(HourlyWindSpeed),
+    precip = replace_na(parse_number(na_if(HourlyPrecipitation, "T")), 0)
+  ) |>
+  filter(datetime >= as.POSIXct("2024-10-08 00:00:00") & datetime <= as.POSIXct("2024-10-11 23:59:59"))
+```
+
+::: {.news-header}
+<span class="news-badge">DIRECT STRIKE CAT 3 LANDFALL</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Hurricane Milton (October 2024)</h1>
+<div class="news-station-tag">STATION: KTPA &bull; DIRECT EYEWALL PASSAGE & 16.03 INCHES RAIN</div>
+:::
+
+::: {.records-grid}
+::: {.record-card}
+<div class="record-icon">🌀</div>
+<div class="record-value">Direct Strike</div>
+<div class="record-label">Landfall Proximity</div>
+<div class="record-sub">Landfall Siesta Key, eyewall over bay</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">📉</div>
+<div class="record-value">29.18 inHg</div>
+<div class="record-label">Lowest Pressure</div>
+<div class="record-sub">988.2 hPa inside eyewall</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌧️</div>
+<div class="record-value">16.03 in</div>
+<div class="record-label">Eyewall Deluge</div>
+<div class="record-sub">Catastrophic 24-hr deluge</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">💨</div>
+<div class="record-value">60 – 100 mph</div>
+<div class="record-label">Hurricane Gusts</div>
+<div class="record-sub">Tore roof off Tropicana Field</div>
+:::
+:::
+
+```{r}
+#| label: fig-telemetry-milton
+#| fig-cap: "Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+#| fig-width: 9.5
+#| fig-height: 5.6
+#| dpi: 180
+
+# Panel 1: Barometric Pressure
+p1 <- ggplot(event_data, aes(x = datetime, y = pressure)) +
+  geom_line(color = "#991b1b", linewidth = 1.1) +
+  geom_point(data = filter(event_data, pressure == min(pressure, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    title = "Hurricane Milton (2024): KTPA Telemetry Breakdown",
+    subtitle = "Station Pressure (inHg) & Sustained Wind Speed (mph)",
+    y = "Pressure (inHg)",
+    x = NULL
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#0f172a"),
+    plot.subtitle = element_text(color = "#475569", size = 10, margin = margin(b = 8)),
+    axis.title.y = element_text(face = "bold", color = "#991b1b", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Panel 2: Wind Speed
+p2 <- ggplot(event_data, aes(x = datetime, y = wind)) +
+  geom_line(color = "#7f1d1d", linewidth = 1.1) +
+  geom_point(data = filter(event_data, wind == max(wind, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    y = "Wind Speed (mph)",
+    x = "Date & Time (EDT)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.title.x = element_text(face = "bold", color = "#0f172a", margin = margin(t = 6)),
+    axis.title.y = element_text(face = "bold", color = "#7f1d1d", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+p1 / p2
+```
+
+
+## Synoptic Evolution: The Direct Hit
+
+Just twelve days after Hurricane Helene devastated Tampa's coastlines, Hurricane Milton formed in the southwestern Gulf and underwent one of the fastest explosive intensifications in world history, dropping to **897 hPa with 180 mph winds** as a Category 5 superstorm.
+
+Milton made landfall on the evening of October 9, 2024 near Siesta Key / Sarasota as a Category 3 hurricane. Because Milton made landfall immediately south of Tampa Bay, its northern eyewall—the most dangerous portion of the storm—slammed directly across St. Petersburg, Clearwater, Tampa, and KTPA.
+
+## Meteorological Telemetry at KTPA
+
+Milton subjected Tampa Bay to simultaneous extreme rainfall and destructive eyewall winds:
+
+- **Historic 16.03-Inch Deluge:** The northern eyewall stalled over northern Pinellas and Hillsborough counties, dumping **16.03 inches of rain** at KTPA in under 24 hours. This caused catastrophic flash flooding that submerged neighborhoods miles inland.
+- **Eyewall Barometric Depression:** Station pressure plummeted to **29.18 inHg (988.2 hPa)** as the eyewall passed directly over the station.
+- **Destructive Wind Force:** Extreme hurricane-force gusts shredded trees, flattened power grids across the entire region, and famously shredded the fiberglass roof of Tropicana Field in downtown St. Petersburg.
+
+
+---
+
+::: {.callout-note}
+### Explore More Weather Crises
+Return to the [Natural Disasters Overview](disasters.qmd) to view the full 10-year timeline, comparison tables, and summaries of all major storms.
+:::

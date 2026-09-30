@@ -1,0 +1,130 @@
+---
+title: "Hurricane Hermine (2016)"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup-hermine
+library(tidyverse)
+library(patchwork)
+
+# Load hourly KTPA observations
+event_data <- read_csv("data/ktpa_2016.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
+  filter(grepl(":53:", DATE)) |>
+  mutate(
+    datetime = as.POSIXct(DATE),
+    temp = parse_number(HourlyDryBulbTemperature),
+    pressure = parse_number(HourlyStationPressure),
+    wind = parse_number(HourlyWindSpeed),
+    precip = replace_na(parse_number(na_if(HourlyPrecipitation, "T")), 0)
+  ) |>
+  filter(datetime >= as.POSIXct("2016-08-31 00:00:00") & datetime <= as.POSIXct("2016-09-03 23:59:59"))
+```
+
+::: {.news-header}
+<span class="news-badge">CATEGORY 1 TROPICAL CYCLONE</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Hurricane Hermine (September 2016)</h1>
+<div class="news-station-tag">STATION: KTPA &bull; END OF FLORIDA'S 11-YEAR HURRICANE DROUGHT</div>
+:::
+
+::: {.records-grid}
+::: {.record-card}
+<div class="record-icon">📉</div>
+<div class="record-value">29.77 inHg</div>
+<div class="record-label">Lowest Pressure</div>
+<div class="record-sub">1008.1 hPa on Sep 1</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">💨</div>
+<div class="record-value">30.0 mph</div>
+<div class="record-label">Peak Sustained Wind</div>
+<div class="record-sub">Outer gale bands (gusts 40+)</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌧️</div>
+<div class="record-value">6.67 in</div>
+<div class="record-label">Storm Rainfall</div>
+<div class="record-sub">72-hour feeder band total</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌊</div>
+<div class="record-value">2.0 – 3.0 ft</div>
+<div class="record-label">Coastal Surge</div>
+<div class="record-sub">Bayshore & Pinellas beaches</div>
+:::
+:::
+
+```{r}
+#| label: fig-telemetry-hermine
+#| fig-cap: "Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+#| fig-width: 9.5
+#| fig-height: 5.6
+#| dpi: 180
+
+# Panel 1: Barometric Pressure
+p1 <- ggplot(event_data, aes(x = datetime, y = pressure)) +
+  geom_line(color = "#1d4ed8", linewidth = 1.1) +
+  geom_point(data = filter(event_data, pressure == min(pressure, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    title = "Hurricane Hermine (2016): KTPA Telemetry Breakdown",
+    subtitle = "Station Pressure (inHg) & Sustained Wind Speed (mph)",
+    y = "Pressure (inHg)",
+    x = NULL
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#0f172a"),
+    plot.subtitle = element_text(color = "#475569", size = 10, margin = margin(b = 8)),
+    axis.title.y = element_text(face = "bold", color = "#1d4ed8", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Panel 2: Wind Speed
+p2 <- ggplot(event_data, aes(x = datetime, y = wind)) +
+  geom_line(color = "#7e22ce", linewidth = 1.1) +
+  geom_point(data = filter(event_data, wind == max(wind, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    y = "Wind Speed (mph)",
+    x = "Date & Time (EDT)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.title.x = element_text(face = "bold", color = "#0f172a", margin = margin(t = 6)),
+    axis.title.y = element_text(face = "bold", color = "#7e22ce", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+p1 / p2
+```
+
+
+## Synoptic Evolution & Storm Track
+
+In late August 2016, Tropical Storm Hermine formed in the south-central Gulf of Mexico after traversing Cuba. As it curled northeast toward Florida's Big Bend, it strengthened into a Category 1 hurricane with 80 mph peak winds. When Hermine made landfall near St. Marks, Florida on September 2, 2016, it officially ended Florida's unprecedented **11-year streak without a hurricane landfall**, stretching back to Hurricane Wilma in October 2005.
+
+Although Hermine's core tracked roughly 175 miles north-northwest of Tampa Bay, the storm's extensive south and east quadrants swept broad spiral feeder bands across Hillsborough and Pinellas counties over three consecutive days.
+
+## Meteorological Telemetry at KTPA
+
+At Tampa International Airport, automated sensors recorded a steady descent in atmospheric pressure beginning on August 31, reaching a minimum of **29.77 inHg** as the cyclone pushed into the northeastern Gulf. As the pressure bottomed out:
+
+- **Persistent Tropical Gales:** Sustained winds held between **20 and 30 mph** for nearly 36 hours, punctuated by squall gusts exceeding 40 mph.
+- **Prolonged Tropical Deluge:** Outer feeder bands repeatedly trained over the Tampa metropolitan area, depositing **6.67 inches of rain** over the 72-hour period.
+- **Onshore Surge Inundation:** Because Hermine's counterclockwise circulation pushed sustained southwesterly and westerly winds across the mouth of Tampa Bay, water piled up into Hillsborough and Old Tampa Bay, producing **2 to 3 feet of storm surge** that flooded coastal roads and submerged portions of Bayshore Boulevard.
+
+
+---
+
+::: {.callout-note}
+### Explore More Weather Crises
+Return to the [Natural Disasters Overview](disasters.qmd) to view the full 10-year timeline, comparison tables, and summaries of all major storms.
+:::

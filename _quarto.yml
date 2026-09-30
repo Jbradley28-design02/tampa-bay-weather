@@ -12,8 +12,28 @@ website:
         text: 10-Year History
       - href: records.qmd
         text: Records
-      - href: disasters.qmd
-        text: Natural Disasters
+      - text: Natural Disasters
+        menu:
+          - href: disasters.qmd
+            text: "All Disasters Overview"
+          - href: disaster-hermine.qmd
+            text: "Hurricane Hermine (2016)"
+          - href: disaster-irma.qmd
+            text: "Hurricane Irma (2017)"
+          - href: disaster-michael.qmd
+            text: "Hurricane Michael (2018)"
+          - href: disaster-ian.qmd
+            text: "Hurricane Ian (2022)"
+          - href: disaster-freeze.qmd
+            text: "Christmas Arctic Freeze (2022)"
+          - href: disaster-idalia.qmd
+            text: "Hurricane Idalia (2023)"
+          - href: disaster-debby.qmd
+            text: "Hurricane Debby (2024)"
+          - href: disaster-helene.qmd
+            text: "Hurricane Helene (2024)"
+          - href: disaster-milton.qmd
+            text: "Hurricane Milton (2024)"
       - href: recent.qmd
         text: Recent Data
       - href: story.qmd

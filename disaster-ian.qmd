@@ -1,0 +1,130 @@
+---
+title: "Hurricane Ian (2022)"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup-ian
+library(tidyverse)
+library(patchwork)
+
+# Load hourly KTPA observations
+event_data <- read_csv("data/ktpa_2022.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
+  filter(grepl(":53:", DATE)) |>
+  mutate(
+    datetime = as.POSIXct(DATE),
+    temp = parse_number(HourlyDryBulbTemperature),
+    pressure = parse_number(HourlyStationPressure),
+    wind = parse_number(HourlyWindSpeed),
+    precip = replace_na(parse_number(na_if(HourlyPrecipitation, "T")), 0)
+  ) |>
+  filter(datetime >= as.POSIXct("2022-09-26 00:00:00") & datetime <= as.POSIXct("2022-09-29 23:59:59"))
+```
+
+::: {.news-header}
+<span class="news-badge">CATEGORY 4/5 NEAR-MISS & NEGATIVE SURGE</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Hurricane Ian (September 2022)</h1>
+<div class="news-station-tag">STATION: KTPA &bull; MASSIVE DRAIN OF TAMPA BAY BED</div>
+:::
+
+::: {.records-grid}
+::: {.record-card}
+<div class="record-icon">📉</div>
+<div class="record-value">29.56 inHg</div>
+<div class="record-label">Lowest Pressure</div>
+<div class="record-sub">1001.0 hPa on Sep 28</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">💨</div>
+<div class="record-value">30.0 mph</div>
+<div class="record-label">Peak Sustained Wind</div>
+<div class="record-sub">Gusts to 50+ mph in squalls</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌧️</div>
+<div class="record-value">1.83 in</div>
+<div class="record-label">Storm Rainfall</div>
+<div class="record-sub">Track shifted south of bay</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌊</div>
+<div class="record-value">-5.5 ft Blowout</div>
+<div class="record-label">Seabed Exposure</div>
+<div class="record-sub">Historic negative surge</div>
+:::
+:::
+
+```{r}
+#| label: fig-telemetry-ian
+#| fig-cap: "Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+#| fig-width: 9.5
+#| fig-height: 5.6
+#| dpi: 180
+
+# Panel 1: Barometric Pressure
+p1 <- ggplot(event_data, aes(x = datetime, y = pressure)) +
+  geom_line(color = "#7e22ce", linewidth = 1.1) +
+  geom_point(data = filter(event_data, pressure == min(pressure, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    title = "Hurricane Ian (2022): KTPA Telemetry Breakdown",
+    subtitle = "Station Pressure (inHg) & Sustained Wind Speed (mph)",
+    y = "Pressure (inHg)",
+    x = NULL
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#0f172a"),
+    plot.subtitle = element_text(color = "#475569", size = 10, margin = margin(b = 8)),
+    axis.title.y = element_text(face = "bold", color = "#7e22ce", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Panel 2: Wind Speed
+p2 <- ggplot(event_data, aes(x = datetime, y = wind)) +
+  geom_line(color = "#6b21a8", linewidth = 1.1) +
+  geom_point(data = filter(event_data, wind == max(wind, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    y = "Wind Speed (mph)",
+    x = "Date & Time (EDT)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.title.x = element_text(face = "bold", color = "#0f172a", margin = margin(t = 6)),
+    axis.title.y = element_text(face = "bold", color = "#6b21a8", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+p1 / p2
+```
+
+
+## Synoptic Evolution & Last-Minute Track Shift
+
+In late September 2022, Hurricane Ian intensified into a monstrous high-end Category 4/5 cyclone over the southeastern Gulf. Initial NHC forecast tracks pointed toward a catastrophic worst-case direct landfall inside Tampa Bay, triggering mandatory evacuations of over 300,000 residents across Hillsborough and Pinellas counties.
+
+On the morning of September 28, Ian executed an eastward turn, making landfall 85 miles south at Cayo Costa / Fort Myers with 150+ mph winds. While Tampa Bay was spared a catastrophic direct surge, the southern landfall track created a historic meteorological phenomenon.
+
+## Meteorological Telemetry at KTPA
+
+Because Ian made landfall to the south, Tampa Bay sat squarely on the cold, offshore northern quadrant of the storm:
+
+- **Extreme Negative Surge:** Northerly and northeasterly winds blowing between **30 and 45 mph** literally siphoned water out of Tampa Bay, lowering water levels to **5.5 feet below normal**. Hillsborough Bay, Bayshore Boulevard, and Davis Island basins became barren mudflats where residents famously walked on the dry bay floor.
+- **Pressure Drop:** Station pressure dropped to **29.56 inHg** at KTPA on the evening of September 28 as Ian crossed the southern peninsula.
+- **Spared Catastrophic Deluge:** Because Ian's core rain shield drifted across central and southern Florida, KTPA received **1.83 inches of rain**, escaping the 15–20 inch deluges recorded just miles to the south in Sarasota and Lee counties.
+
+
+---
+
+::: {.callout-note}
+### Explore More Weather Crises
+Return to the [Natural Disasters Overview](disasters.qmd) to view the full 10-year timeline, comparison tables, and summaries of all major storms.
+:::

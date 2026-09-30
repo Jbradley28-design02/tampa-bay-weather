@@ -1,0 +1,130 @@
+---
+title: "Hurricane Helene (2024)"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup-helene
+library(tidyverse)
+library(patchwork)
+
+# Load hourly KTPA observations
+event_data <- read_csv("data/ktpa_2024.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
+  filter(grepl(":53:", DATE)) |>
+  mutate(
+    datetime = as.POSIXct(DATE),
+    temp = parse_number(HourlyDryBulbTemperature),
+    pressure = parse_number(HourlyStationPressure),
+    wind = parse_number(HourlyWindSpeed),
+    precip = replace_na(parse_number(na_if(HourlyPrecipitation, "T")), 0)
+  ) |>
+  filter(datetime >= as.POSIXct("2024-09-25 00:00:00") & datetime <= as.POSIXct("2024-09-28 23:59:59"))
+```
+
+::: {.news-header}
+<span class="news-badge">CATASTROPHIC HISTORIC SURGE</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Hurricane Helene (September 2024)</h1>
+<div class="news-station-tag">STATION: KTPA &bull; ALL-TIME RECORD COASTAL SURGE 6–7 FEET</div>
+:::
+
+::: {.records-grid}
+::: {.record-card}
+<div class="record-icon">🌊</div>
+<div class="record-value">6.0 – 7.0 ft</div>
+<div class="record-label">All-Time Record Surge</div>
+<div class="record-sub">Highest water levels in modern history</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">📉</div>
+<div class="record-value">29.32 inHg</div>
+<div class="record-label">Lowest Pressure</div>
+<div class="record-sub">992.9 hPa on Sep 26</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">💨</div>
+<div class="record-value">39.0 mph</div>
+<div class="record-label">Peak Sustained Wind</div>
+<div class="record-sub">Squall gusts reached 55+ mph</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌧️</div>
+<div class="record-value">2.70 in</div>
+<div class="record-label">Storm Rainfall</div>
+<div class="record-sub">Surge arrived before eyewall</div>
+:::
+:::
+
+```{r}
+#| label: fig-telemetry-helene
+#| fig-cap: "Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+#| fig-width: 9.5
+#| fig-height: 5.6
+#| dpi: 180
+
+# Panel 1: Barometric Pressure
+p1 <- ggplot(event_data, aes(x = datetime, y = pressure)) +
+  geom_line(color = "#dc2626", linewidth = 1.1) +
+  geom_point(data = filter(event_data, pressure == min(pressure, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    title = "Hurricane Helene (2024): KTPA Telemetry Breakdown",
+    subtitle = "Station Pressure (inHg) & Sustained Wind Speed (mph)",
+    y = "Pressure (inHg)",
+    x = NULL
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#0f172a"),
+    plot.subtitle = element_text(color = "#475569", size = 10, margin = margin(b = 8)),
+    axis.title.y = element_text(face = "bold", color = "#dc2626", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Panel 2: Wind Speed
+p2 <- ggplot(event_data, aes(x = datetime, y = wind)) +
+  geom_line(color = "#b91c1c", linewidth = 1.1) +
+  geom_point(data = filter(event_data, wind == max(wind, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    y = "Wind Speed (mph)",
+    x = "Date & Time (EDT)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.title.x = element_text(face = "bold", color = "#0f172a", margin = margin(t = 6)),
+    axis.title.y = element_text(face = "bold", color = "#b91c1c", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+p1 / p2
+```
+
+
+## Synoptic Evolution: The Giant Wind Machine
+
+On September 26, 2024, Hurricane Helene exploded into a massive Category 4 hurricane with 140 mph peak winds as it accelerated northward through the eastern Gulf. Helene's tropical storm-force wind field spanned an incredible **400+ miles across**, making it one of the largest hurricanes ever observed in the Gulf of Mexico.
+
+Even though Helene's eye tracked over 100 miles west of Tampa Bay, its enormous circulation acted as a colossal atmospheric piston, driving millions of tons of Gulf seawater straight into Tampa Bay.
+
+## Meteorological Telemetry at KTPA
+
+KTPA's sensors documented the most catastrophic coastal surge event in modern Tampa Bay history:
+
+- **Catastrophic 6 to 7 Foot Storm Surge:** Pushed by persistent gale-force southwesterly winds across the wide mouth of Tampa Bay, tide gauges shattered all-time records. The surge reached 6.5 to 7.2 feet above normal high tide, inundating thousands of homes across South Tampa, St. Petersburg, Treasure Island, and Clearwater Beach.
+- **Sharp Barometric Collapse:** Despite the storm's center being over 100 miles away, station pressure at KTPA plummeted to **29.32 inHg (992.9 hPa)** on the evening of September 26.
+- **High Sustained Tropical Gales:** Sustained winds reached **39 mph** with gusts to **55 mph**, knocking down electrical infrastructure throughout the coastal zone.
+
+
+---
+
+::: {.callout-note}
+### Explore More Weather Crises
+Return to the [Natural Disasters Overview](disasters.qmd) to view the full 10-year timeline, comparison tables, and summaries of all major storms.
+:::

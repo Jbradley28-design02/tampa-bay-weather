@@ -1,0 +1,130 @@
+---
+title: "Hurricane Irma (2017)"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup-irma
+library(tidyverse)
+library(patchwork)
+
+# Load hourly KTPA observations
+event_data <- read_csv("data/ktpa_2017.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
+  filter(grepl(":53:", DATE)) |>
+  mutate(
+    datetime = as.POSIXct(DATE),
+    temp = parse_number(HourlyDryBulbTemperature),
+    pressure = parse_number(HourlyStationPressure),
+    wind = parse_number(HourlyWindSpeed),
+    precip = replace_na(parse_number(na_if(HourlyPrecipitation, "T")), 0)
+  ) |>
+  filter(datetime >= as.POSIXct("2017-09-09 12:00:00") & datetime <= as.POSIXct("2017-09-12 12:00:00"))
+```
+
+::: {.news-header}
+<span class="news-badge">MAJOR HURRICANE CASE STUDY</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Hurricane Irma (September 2017)</h1>
+<div class="news-station-tag">STATION: KTPA &bull; DECADE-RECORD LOW PRESSURE 28.69 inHg</div>
+:::
+
+::: {.records-grid}
+::: {.record-card}
+<div class="record-icon">📉</div>
+<div class="record-value">28.69 inHg</div>
+<div class="record-label">Lowest Pressure</div>
+<div class="record-sub">Decade all-time record low</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">💨</div>
+<div class="record-value">41.0 mph</div>
+<div class="record-label">Peak Sustained Wind</div>
+<div class="record-sub">Peak squall gusts to 66 mph</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌧️</div>
+<div class="record-value">4.57 in</div>
+<div class="record-label">Storm Rainfall</div>
+<div class="record-sub">Torrential eyewall squalls</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌊</div>
+<div class="record-value">Negative Surge</div>
+<div class="record-label">Storm Surge Outcome</div>
+<div class="record-sub">Bay completely drained</div>
+:::
+:::
+
+```{r}
+#| label: fig-telemetry-irma
+#| fig-cap: "Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+#| fig-width: 9.5
+#| fig-height: 5.6
+#| dpi: 180
+
+# Panel 1: Barometric Pressure
+p1 <- ggplot(event_data, aes(x = datetime, y = pressure)) +
+  geom_line(color = "#1d4ed8", linewidth = 1.1) +
+  geom_point(data = filter(event_data, pressure == min(pressure, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    title = "Hurricane Irma (2017): KTPA Telemetry Breakdown",
+    subtitle = "Station Pressure (inHg) & Sustained Wind Speed (mph)",
+    y = "Pressure (inHg)",
+    x = NULL
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#0f172a"),
+    plot.subtitle = element_text(color = "#475569", size = 10, margin = margin(b = 8)),
+    axis.title.y = element_text(face = "bold", color = "#1d4ed8", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Panel 2: Wind Speed
+p2 <- ggplot(event_data, aes(x = datetime, y = wind)) +
+  geom_line(color = "#dc2626", linewidth = 1.1) +
+  geom_point(data = filter(event_data, wind == max(wind, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    y = "Wind Speed (mph)",
+    x = "Date & Time (EDT)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.title.x = element_text(face = "bold", color = "#0f172a", margin = margin(t = 6)),
+    axis.title.y = element_text(face = "bold", color = "#dc2626", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+p1 / p2
+```
+
+
+## Synoptic Evolution & Closest Approach
+
+Hurricane Irma was one of the most powerful Atlantic hurricanes on record, maintaining Category 5 intensity for three consecutive days with peak winds of 185 mph across the Caribbean. After making landfall in the Florida Keys as a Category 4 hurricane on September 10, Irma tracked northward up the interior spine of the Florida peninsula, passing just 25 miles east of Tampa during the pre-dawn hours of September 11.
+
+The system's close eastern transit placed Tampa Bay squarely in the storm's powerful northwestern eyewall quadrant, subjecting the region to intense wind forces and an unprecedented barometric collapse.
+
+## Meteorological Telemetry at KTPA
+
+Telemetry recorded at Tampa International Airport captured the single most violent pressure fluctuation in the station's modern digital record:
+
+- **Decade-Record Low Barometer:** Station pressure plummeted from 29.95 inHg down to an astonishing **28.69 inHg (971.5 hPa)** at 2:00 AM on September 11 as the eyewall skirted Polk and eastern Hillsborough counties.
+- **The "Negative Surge" Phenomenon:** Because Irma tracked east of Tampa, its counterclockwise circulation drove strong winds out of the northeast and east. Instead of pushing Gulf water into Tampa Bay, these offshore winds blew water out of Hillsborough Bay and Old Tampa Bay, draining the seabed and exposing mudflats for miles.
+- **High-Velocity Wind Damage:** Sustained winds peaked at **41 to 46 mph** with violent squall gusts recorded up to **66 mph**, snapping mature oak canopies and leaving over 70% of the metropolitan area without electrical power.
+
+
+---
+
+::: {.callout-note}
+### Explore More Weather Crises
+Return to the [Natural Disasters Overview](disasters.qmd) to view the full 10-year timeline, comparison tables, and summaries of all major storms.
+:::

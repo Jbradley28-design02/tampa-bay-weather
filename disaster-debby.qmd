@@ -1,0 +1,130 @@
+---
+title: "Hurricane Debby (2024)"
+format:
+  html:
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup-debby
+library(tidyverse)
+library(patchwork)
+
+# Load hourly KTPA observations
+event_data <- read_csv("data/ktpa_2024.csv", col_types = cols(.default = col_character()), show_col_types = FALSE) |>
+  filter(grepl(":53:", DATE)) |>
+  mutate(
+    datetime = as.POSIXct(DATE),
+    temp = parse_number(HourlyDryBulbTemperature),
+    pressure = parse_number(HourlyStationPressure),
+    wind = parse_number(HourlyWindSpeed),
+    precip = replace_na(parse_number(na_if(HourlyPrecipitation, "T")), 0)
+  ) |>
+  filter(datetime >= as.POSIXct("2024-08-03 00:00:00") & datetime <= as.POSIXct("2024-08-06 23:59:59"))
+```
+
+::: {.news-header}
+<span class="news-badge">DECADE-RECORD 24-HOUR DELUGE</span>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Hurricane Debby (August 2024)</h1>
+<div class="news-station-tag">STATION: KTPA &bull; ALL-TIME 24-HOUR RECORD RAIN: 16.14 INCHES</div>
+:::
+
+::: {.records-grid}
+::: {.record-card}
+<div class="record-icon">🌧️</div>
+<div class="record-value">16.14 in</div>
+<div class="record-label">24-Hr Record Rain</div>
+<div class="record-sub">All-time decade daily record</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">📉</div>
+<div class="record-value">29.70 inHg</div>
+<div class="record-label">Lowest Pressure</div>
+<div class="record-sub">1005.8 hPa on Aug 4</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">💨</div>
+<div class="record-value">29.0 mph</div>
+<div class="record-label">Peak Sustained Wind</div>
+<div class="record-sub">Moisture train squalls</div>
+:::
+
+::: {.record-card}
+<div class="record-icon">🌊</div>
+<div class="record-value">Historic High</div>
+<div class="record-label">River Basin Flooding</div>
+<div class="record-sub">Alafia & Hillsborough Rivers</div>
+:::
+:::
+
+```{r}
+#| label: fig-telemetry-debby
+#| fig-cap: "Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+#| fig-width: 9.5
+#| fig-height: 5.6
+#| dpi: 180
+
+# Panel 1: Barometric Pressure
+p1 <- ggplot(event_data, aes(x = datetime, y = pressure)) +
+  geom_line(color = "#0284c7", linewidth = 1.1) +
+  geom_point(data = filter(event_data, pressure == min(pressure, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    title = "Hurricane Debby (2024): KTPA Telemetry Breakdown",
+    subtitle = "Station Pressure (inHg) & Sustained Wind Speed (mph)",
+    y = "Pressure (inHg)",
+    x = NULL
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#0f172a"),
+    plot.subtitle = element_text(color = "#475569", size = 10, margin = margin(b = 8)),
+    axis.title.y = element_text(face = "bold", color = "#0284c7", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Panel 2: Wind Speed
+p2 <- ggplot(event_data, aes(x = datetime, y = wind)) +
+  geom_line(color = "#0369a1", linewidth = 1.1) +
+  geom_point(data = filter(event_data, wind == max(wind, na.rm = TRUE)), color = "#dc2626", size = 3) +
+  labs(
+    y = "Wind Speed (mph)",
+    x = "Date & Time (EDT)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.title.x = element_text(face = "bold", color = "#0f172a", margin = margin(t = 6)),
+    axis.title.y = element_text(face = "bold", color = "#0369a1", size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+p1 / p2
+```
+
+
+## Synoptic Evolution: The Tropical Moisture Conveyor
+
+On August 4, 2024, Tropical Storm Debby intensified into a Category 1 hurricane in the northeastern Gulf before making landfall near Steinhatchee. Because Debby was a sprawling, slow-moving system, its eastern circulation tapped into an atmospheric river of deep equatorial moisture.
+
+This persistent moisture train stalled directly over west-central Florida, setting up stationary training thunderstorms that poured unprecedented deluges over Hillsborough and Pinellas counties.
+
+## Meteorological Telemetry at KTPA
+
+Debby broke one of the most significant meteorological records in Tampa's 10-year archive:
+
+- **All-Time 10-Year 24-Hour Rainfall Record:** Over a single 24-hour observation window on August 4, KTPA recorded a staggering **16.14 inches of rain**—more than doubling any previous single-day rainfall event in the modern archive.
+- **Extreme Urban and River Flooding:** The torrent overwhelmed stormwater drainage across Tampa, flooding major interstates and driving the Hillsborough, Alafia, and Little Manatee rivers into major flood stages that lasted for over a week.
+- **Pressure and Wind Profile:** Station pressure dipped to **29.70 inHg** with sustained winds reaching **29 mph**, demonstrating that rain devastation can vastly outpace wind hazard in slow-moving tropical systems.
+
+
+---
+
+::: {.callout-note}
+### Explore More Weather Crises
+Return to the [Natural Disasters Overview](disasters.qmd) to view the full 10-year timeline, comparison tables, and summaries of all major storms.
+:::
