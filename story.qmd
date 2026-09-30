@@ -1,5 +1,5 @@
 ---
-title: "Anatomy of a Storm: What Happens When a Hurricane Strikes Tampa?"
+title: "Anatomy of a Storm"
 format:
   html:
     css: styles.css
@@ -40,6 +40,8 @@ irma <- weather |>
 <h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Anatomy of a Hurricane Strike</h1>
 <div class="news-station-tag">STATION: KTPA &bull; 72-HOUR HURRICANE IRMA TELEMETRY BREAKDOWN</div>
 :::
+
+## What Happens When a Hurricane Strikes Tampa?
 
 In our 10-year meteorological record of Tampa International Airport (KTPA), one anomaly stands above all others: the early morning hours of September 11, 2017. As Hurricane Irma tore northward up the Florida peninsula, the airport's automated sensors recorded the violent physical signature of a tropical cyclone passing just miles to the east. By examining hourly barometric pressure, sustained wind speed, and precipitation together across this 72-hour window, we can observe the exact mechanics of what happens when a tropical cyclone strikes Tampa Bay.
 
