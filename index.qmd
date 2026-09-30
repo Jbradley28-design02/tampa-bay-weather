@@ -1,5 +1,5 @@
 ---
-title: "Bay Area Weather Analysis"
+title: "Weather Analysis of the Tampa Bay Area"
 format:
   html:
     css: styles.css
@@ -38,7 +38,7 @@ live_init <- tryCatch({
 
 ::: {.news-header}
 <span class="news-badge">METEOROLOGICAL OBSERVATORY & ARCHIVE</span>
-<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Bay Area Weather Analysis</h1>
+<h1 style="color: #ffffff; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 2.2rem; font-weight: 800;">Weather Analysis of the Tampa Bay Area</h1>
 <div class="news-station-tag">STATION: KTPA &bull; REAL-TIME TELEMETRY & 10-YEAR HISTORICAL CLIMATE ARCHIVE</div>
 :::
 
