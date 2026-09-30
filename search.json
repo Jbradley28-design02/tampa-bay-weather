@@ -2,65 +2,149 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Bay Area Weather Analysis",
+    "title": "Weather Analysis of the Tampa Bay Area",
     "section": "",
-    "text": "Live observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
+    "text": "METEOROLOGICAL OBSERVATORY & ARCHIVE\n\n\nSTATION: KTPA • REAL-TIME TELEMETRY & 10-YEAR HISTORICAL CLIMATE ARCHIVE"
   },
   {
     "objectID": "index.html#real-time-telemetry-feed-ktpa",
     "href": "index.html#real-time-telemetry-feed-ktpa",
-    "title": "Bay Area Weather Analysis",
-    "section": "",
-    "text": "Live observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
+    "title": "Weather Analysis of the Tampa Bay Area",
+    "section": "Real-Time Telemetry Feed (KTPA)",
+    "text": "Real-Time Telemetry Feed (KTPA)\nLive observations streamed directly from the National Weather Service automated sensor network at Tampa International Airport.\n\n  \n    \n       LIVE NWS BROADCAST\n      KTPA — Tampa International Airport Telemetry\n      Observed Live\n    \n    \n      Loading...\n      🔄 Refresh\n    \n  \n\n  \n    \n      🌡️\n      --.-°F\n      Live Temperature\n      Measures ambient air warmth in the shade.\n    \n    \n      💧\n      --.-°F\n      Live Dew Point\n      Measures air moisture; higher values feel muggy.\n    \n    \n      🌪️\n      --.-- inHg\n      Live Pressure\n      Barometric weight; falling pressure signals storms.\n    \n    \n      💨\n      -- mph\n      Live Wind Speed\n      Sustained horizontal airflow across airport runways.\n    \n    \n      🌧️\n      -- in\n      Live Rain (1-Hr)\n      Liquid rainfall accumulated over the past 60 minutes."
   },
   {
     "objectID": "index.html#tampa-bay-regional-weather-station-network",
     "href": "index.html#tampa-bay-regional-weather-station-network",
-    "title": "Bay Area Weather Analysis",
+    "title": "Weather Analysis of the Tampa Bay Area",
     "section": "Tampa Bay Regional Weather Station Network",
     "text": "Tampa Bay Regional Weather Station Network\nClick or hover on any station to view its elevation, telemetry type, and role in monitoring Tampa Bay’s coastal weather extremes. The red marker highlights KTPA, the primary anchor station."
   },
   {
-    "objectID": "story.html",
-    "href": "story.html",
-    "title": "Story: What Happens When a Hurricane Strikes Tampa?",
+    "objectID": "disaster-helene.html",
+    "href": "disaster-helene.html",
+    "title": "Hurricane Helene (2024)",
     "section": "",
-    "text": "In our 10-year meteorological record of Tampa International Airport (KTPA), one anomaly stands above all others: the early morning hours of September 11, 2017. As Hurricane Irma tore northward up the Florida peninsula, the airport’s automated sensors recorded the violent physical signature of a tropical cyclone passing just miles to the east. By examining hourly barometric pressure, sustained wind speed, and precipitation together across this 72-hour window, we can observe the exact mechanics of what happens when a tropical cyclone strikes Tampa Bay.\n\n\n\n\n\n\n\n\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the 72-hour passage of Hurricane Irma (September 9–12, 2017). Top: Station barometric pressure (inHg). Middle: Sustained wind speed (mph). Bottom: Hourly precipitation (inches).\n\n\n\n\n\n\nThe Barometric Engine\nUnder ordinary conditions, atmospheric pressure across Tampa Bay hovers around a stable 30.10 inHg (1,019 hPa). As Irma’s circulation approached the Florida Keys on September 9, KTPA’s barometer began a steady, steep descent. By 2:00 AM on September 11, the barometer plummeted to a decade-low record of 28.69 inHg (971.5 hPa). This precipitous V-shaped drop created a steep pressure gradient across western Florida, essentially turning the skies above Tampa into a giant atmospheric siphon that drew in gale-force winds from hundreds of miles away.\n\n\nWind and Rain in Lockstep\nThe middle and bottom panels reveal how closely winds and rainfall sync with barometric collapse. As the pressure bottomed out during the early hours of September 11, sustained winds surged from calm 5–10 mph sea breezes into tropical storm-force gales of 41 to 46 mph, with violent squall gusts recorded up to 66 mph. Simultaneously, heavy spiral rain bands dumped torrential precipitation over Hillsborough County, dropping over 4.5 inches of rain in just a few concentrated hours before the storm center moved north toward Georgia.\n\n\nThe Broader Lesson: Why Storm Track Dictates Tampa Bay’s Fate\nWhat makes Hurricane Irma’s signature particularly revealing is how track geography dictates Tampa Bay’s vulnerability. Because Irma tracked just inland to the east of Tampa, the storm’s counterclockwise rotation drove surface winds out of the northeast and east. These offshore winds pushed bay water outward into the Gulf of Mexico, causing a dramatic “negative storm surge” that temporarily drained the bay floor instead of flooding coastal neighborhoods.\nBy contrast, when Hurricane Helene (September 2024) passed offshore in the Gulf to the west, and Hurricane Milton (October 2024) made landfall just south near Siesta Key, their counterclockwise winds blew onshore into Tampa Bay. That onshore push, combined with historic rainfall (Milton dumped 16.03 inches at KTPA), transformed that same atmospheric pressure collapse into devastating coastal storm surge. The data confirms that while barometric drop dictates storm intensity, it is the storm’s track relative to Tampa Bay that determines whether water is drained away or driven ashore.\n\n\n\nComparative Cyclone Telemetry at Tampa (KTPA)\n\n\n\n\n\n\n\n\n\n\n\nStorm / Metric\nMinimum Pressure\nPeak Sustained Wind\nPeak Gust\nTotal Storm Deluge\nCoastal Surge Outcome\n\n\n\n\nHurricane Irma (Sep 2017)\n28.69 inHg (10-Yr Record Low)\n46.0 mph\n66.0 mph\n4.57 in\nNegative Surge (Bay drained)\n\n\nHurricane Helene (Sep 2024)\n29.56 inHg\n38.0 mph\n55.0 mph\n2.14 in\nRecord Coastal Surge (6–7 ft flood)\n\n\nHurricane Milton (Oct 2024)\n29.18 inHg\n30.0+ mph\n60.0+ mph\n16.03 in\nSevere Inland Flooding & Eyewall Rain"
+    "text": "CATASTROPHIC HISTORIC SURGE\n\n\nSTATION: KTPA • ALL-TIME RECORD COASTAL SURGE 6–7 FEET\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
   },
   {
-    "objectID": "records.html",
-    "href": "records.html",
-    "title": "Records",
+    "objectID": "disaster-helene.html#synoptic-evolution-the-giant-wind-machine",
+    "href": "disaster-helene.html#synoptic-evolution-the-giant-wind-machine",
+    "title": "Hurricane Helene (2024)",
+    "section": "Synoptic Evolution: The Giant Wind Machine",
+    "text": "Synoptic Evolution: The Giant Wind Machine\nOn September 26, 2024, Hurricane Helene exploded into a massive Category 4 hurricane with 140 mph peak winds as it accelerated northward through the eastern Gulf. Helene’s tropical storm-force wind field spanned an incredible 400+ miles across, making it one of the largest hurricanes ever observed in the Gulf of Mexico.\nEven though Helene’s eye tracked over 100 miles west of Tampa Bay, its enormous circulation acted as a colossal atmospheric piston, driving millions of tons of Gulf seawater straight into Tampa Bay."
+  },
+  {
+    "objectID": "disaster-helene.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-helene.html#meteorological-telemetry-at-ktpa",
+    "title": "Hurricane Helene (2024)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nKTPA’s sensors documented the most catastrophic coastal surge event in modern Tampa Bay history:\n\nCatastrophic 6 to 7 Foot Storm Surge: Pushed by persistent gale-force southwesterly winds across the wide mouth of Tampa Bay, tide gauges shattered all-time records. The surge reached 6.5 to 7.2 feet above normal high tide, inundating thousands of homes across South Tampa, St. Petersburg, Treasure Island, and Clearwater Beach.\nSharp Barometric Collapse: Despite the storm’s center being over 100 miles away, station pressure at KTPA plummeted to 29.32 inHg (992.9 hPa) on the evening of September 26.\nHigh Sustained Tropical Gales: Sustained winds reached 39 mph with gusts to 55 mph, knocking down electrical infrastructure throughout the coastal zone."
+  },
+  {
+    "objectID": "disaster-helene.html#hurricane-helene-landfall-shape-rotation-wind-circulation",
+    "href": "disaster-helene.html#hurricane-helene-landfall-shape-rotation-wind-circulation",
+    "title": "Hurricane Helene (2024)",
+    "section": "Hurricane Helene Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Helene Landfall: Shape, Rotation & Wind Circulation\nThe interactive simulation below reconstructs Hurricane Helene at mainland Florida landfall near Perry / Big Bend (Cat 4, 140 mph). It visualizes the storm’s gargantuan 400-mile wind field, counter-clockwise rotation, and the resulting onshore southwesterly gales that drove a catastrophic, all-time record 6–7 ft storm surge into Tampa Bay.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Helene: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
+  },
+  {
+    "objectID": "disaster-irma.html",
+    "href": "disaster-irma.html",
+    "title": "Hurricane Irma (2017)",
     "section": "",
-    "text": "DECADE RECORD TELEMETRY (2015–2024)\n\n\nSTATION: TAMPA INTERNATIONAL AIRPORT (KTPA) • OFFICIAL NCEI / NOAA ARCHIVE\nExplore the official meteorological all-time high and low records established across 3,651 consecutive days (2015–2024) of continuous hourly observations at Tampa International Airport."
+    "text": "MAJOR HURRICANE CASE STUDY\n\n\nSTATION: KTPA • DECADE-RECORD LOW PRESSURE 28.69 inHg\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
   },
   {
-    "objectID": "records.html#year-record-extremes-reference",
-    "href": "records.html#year-record-extremes-reference",
-    "title": "Records",
-    "section": "10-Year Record Extremes Reference",
-    "text": "10-Year Record Extremes Reference\n\n\n\n\n\n\n\n\n\nMeasurement\nAverage\nAll-Time 10-Year Record\nDate & Significance\n\n\n\n\nTemperature High\n83.2°F\n98.0°F\nAugust 11, 2023 (Summer Heat Dome Peak)\n\n\nTemperature Low\n68.3°F\n29.0°F\nDecember 24, 2022 (Christmas Arctic Freeze)\n\n\nDew Point Peak\n64.2°F\n82.0°F\nAugust 7, 2024 (Extreme Tropical Moisture)\n\n\nBarometric Pressure Low\n30.04 inHg\n28.69 inHg\nSeptember 10, 2017 (Eye of Hurricane Irma)\n\n\nMax Sustained Wind\n13.5 mph\n47.0 mph\nSeptember 10, 2017 (Hurricane Irma Tropical Gale; gusts to 66 mph)\n\n\nWettest Single Day\n0.36 in\n16.14 in\nAugust 4, 2024 (Hurricane Debby Deluge)\n\n\n\nNote: Averages are calculated across all 3,651 observational days from 2015 through 2024 at Tampa International Airport (KTPA)."
+    "objectID": "disaster-irma.html#synoptic-evolution-closest-approach",
+    "href": "disaster-irma.html#synoptic-evolution-closest-approach",
+    "title": "Hurricane Irma (2017)",
+    "section": "Synoptic Evolution & Closest Approach",
+    "text": "Synoptic Evolution & Closest Approach\nHurricane Irma was one of the most powerful Atlantic hurricanes on record, maintaining Category 5 intensity for three consecutive days with peak winds of 185 mph across the Caribbean. After making landfall in the Florida Keys as a Category 4 hurricane on September 10, Irma tracked northward up the interior spine of the Florida peninsula, passing just 25 miles east of Tampa during the pre-dawn hours of September 11.\nThe system’s close eastern transit placed Tampa Bay squarely in the storm’s powerful northwestern eyewall quadrant, subjecting the region to intense wind forces and an unprecedented barometric collapse."
   },
   {
-    "objectID": "records.html#detailed-profiles-of-each-record-extreme",
-    "href": "records.html#detailed-profiles-of-each-record-extreme",
-    "title": "Records",
-    "section": "Detailed Profiles of Each Record Extreme",
-    "text": "Detailed Profiles of Each Record Extreme\n\n\n\n\n\n🌡️ All-Time High Temperature: 98.0°F\n\n\nAugust 11, 2023 • 10-Year Average High: 83.2°F\n\n\nDuring the peak of the 2023 persistent subtropical ridge, temperatures at Tampa International Airport climbed to 98.0°F—nearly 15°F above the 10-year average daily high (83.2°F) and marking the hottest single reading across the entire 10-year observational period. Combined with a dew point near 80°F, heat index values exceeded 115°F.\n\n\n\n\n\n\n\n\n❄️ All-Time Low Temperature: 29.0°F\n\n\nDecember 24, 2022 • 10-Year Average Low: 68.3°F\n\n\nA historic arctic outbreak drove sub-freezing polar air deep into peninsular Florida on Christmas Eve 2022. KTPA bottomed out at 29.0°F—almost 40°F colder than the typical 10-year average low (68.3°F), recording a hard freeze and setting the coldest temperature of the 2015–2024 decade.\n\n\n\n\n\n\n\n\n💧 Peak Atmospheric Dew Point: 82.0°F\n\n\nAugust 7, 2024 • 10-Year Average Dew Point: 64.2°F\n\n\nDew points exceeding 75°F are considered oppressive; on August 7, 2024, deep tropical moisture over Tampa Bay surged the dew point to 82.0°F, nearly 18°F above the 10-year baseline average (64.2°F). This saturated atmosphere trapped heat at ground level and delivered record atmospheric moisture content.\n\n\n\n\n\n\n\n\n🌪️ Lowest Barometric Pressure: 28.69 inHg\n\n\nSeptember 10, 2017 • 10-Year Average Pressure: 30.04 inHg\n\n\nAs Hurricane Irma tracked northward through the Florida peninsula, its central core induced a dramatic atmospheric pressure collapse. KTPA’s barometer plummeted from its typical 30.04 inHg baseline down to 28.69 inHg (971.5 hPa), the lowest barometric pressure recorded in the 10-year period.\n\n\n\n\n\n\n\n\n💨 Peak Sustained Wind: 47.0 mph\n\n\nSeptember 10, 2017 • 10-Year Average Peak Wind: 13.5 mph\n\n\nThe strongest 2-minute sustained wind speed recorded across the 10-year period reached 47.0 mph during Hurricane Irma’s closest approach—more than triple the typical daily peak sustained wind (13.5 mph), accompanied by peak instantaneous wind gusts of 66 mph at airport anemometers.\n\n\n\n\n\n\n\n\n🌧️ All-Time Wettest Day: 16.14 Inches\n\n\nAugust 4, 2024 • 10-Year Average Daily Rain: 0.36 in\n\n\nSlow-moving tropical moisture feeder bands associated with Hurricane Debby dropped an astounding 16.14 inches of rain in a single 24-hour observational cycle at KTPA—nearly 45 times the typical daily rainfall (0.36 in), shattering all previous 10-year daily rainfall records."
+    "objectID": "disaster-irma.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-irma.html#meteorological-telemetry-at-ktpa",
+    "title": "Hurricane Irma (2017)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nTelemetry recorded at Tampa International Airport captured the single most violent pressure fluctuation in the station’s modern digital record:\n\nDecade-Record Low Barometer: Station pressure plummeted from 29.95 inHg down to an astonishing 28.69 inHg (971.5 hPa) at 2:00 AM on September 11 as the eyewall skirted Polk and eastern Hillsborough counties.\nThe “Negative Surge” Phenomenon: Because Irma tracked east of Tampa, its counterclockwise circulation drove strong winds out of the northeast and east. Instead of pushing Gulf water into Tampa Bay, these offshore winds blew water out of Hillsborough Bay and Old Tampa Bay, draining the seabed and exposing mudflats for miles.\nHigh-Velocity Wind Damage: Sustained winds peaked at 41 to 46 mph with violent squall gusts recorded up to 66 mph, snapping mature oak canopies and leaving over 70% of the metropolitan area without electrical power."
   },
   {
-    "objectID": "exploration.html",
-    "href": "exploration.html",
-    "title": "10-Year Weather History",
+    "objectID": "disaster-irma.html#hurricane-irma-landfall-shape-rotation-wind-circulation",
+    "href": "disaster-irma.html#hurricane-irma-landfall-shape-rotation-wind-circulation",
+    "title": "Hurricane Irma (2017)",
+    "section": "Hurricane Irma Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Irma Landfall: Shape, Rotation & Wind Circulation\nThe interactive simulation below reconstructs Hurricane Irma at mainland Florida landfall at Marco Island (Cat 3, 115 mph). It visualizes the storm’s cyclonic rainbands, counter-clockwise rotation, and the resulting offshore surface winds that drained Tampa Bay.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Irma: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
+  },
+  {
+    "objectID": "disaster-freeze.html",
+    "href": "disaster-freeze.html",
+    "title": "Christmas Arctic Freeze (2022)",
     "section": "",
-    "text": "Explore all five core meteorological measurements across the full 10-year observational record (2015–2024) at Tampa International Airport (KTPA). Use the dropdown menu in the upper-right corner of the graph to transition between each measurement, and use the range selector or bottom slider to zoom into any time period:\n\nRed Diamond Markers (♦) and dashed vertical guidelines: Mark when major hurricanes and tropical natural disasters struck.\nGold Star Markers (⭐): Highlight all-time 10-year record highs and record lows.\n\n\n\n\n\n\n\n\n\nFigure 1"
+    "text": "DECADE POLAR VORTEX OUTBREAK\n\n\nSTATION: KTPA • ALL-TIME 10-YEAR RECORD LOW TEMPERATURE 29.0°F\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the Christmas Polar Outbreak. Top: Dry Bulb Air Temperature (°F). Bottom: Sustained wind speed (mph)."
   },
   {
-    "objectID": "exploration.html#year-weather-telemetry-20152024",
-    "href": "exploration.html#year-weather-telemetry-20152024",
-    "title": "10-Year Weather History",
+    "objectID": "disaster-freeze.html#synoptic-evolution-the-christmas-polar-bomb",
+    "href": "disaster-freeze.html#synoptic-evolution-the-christmas-polar-bomb",
+    "title": "Christmas Arctic Freeze (2022)",
+    "section": "Synoptic Evolution: The Christmas Polar Bomb",
+    "text": "Synoptic Evolution: The Christmas Polar Bomb\nJust three months after Hurricane Ian, a historic continental polar vortex plunged southeast from the Canadian Arctic across the United States. On December 23, 2022, an intense arctic cold front raced through peninsular Florida, collapsing subtropical warmth in a matter of hours.\nBehind the front, dense high pressure (30.34 inHg) locked in place, funneling howling arctic winds directly across Hillsborough and Pinellas counties over Christmas Eve and Christmas Day."
+  },
+  {
+    "objectID": "disaster-freeze.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-freeze.html#meteorological-telemetry-at-ktpa",
+    "title": "Christmas Arctic Freeze (2022)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nKTPA’s automated sensors chronicled one of the sharpest non-tropical weather anomalies in modern Tampa history:\n\nAll-Time Decade Record Low: On the morning of December 24, the thermometer plummeted to 29.0°F (-1.7°C)—the coldest temperature recorded in the entire 10-year archive (2015–2024).\nBrutal Wind Chills: Strong north winds averaging 15 to 18 mph produced dangerous wind chills dipping into the upper teens (18°F), forcing the National Weather Service to issue rare Wind Chill Advisories for the Tampa metropolitan area.\nAgricultural Hard Freeze: Sub-freezing temperatures persisted for over 8 consecutive hours, requiring regional citrus growers and strawberry farmers in Plant City to continuously spray water onto crops to form protective ice shields.\n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About the Project & Author",
     "section": "",
-    "text": "Explore all five core meteorological measurements across the full 10-year observational record (2015–2024) at Tampa International Airport (KTPA). Use the dropdown menu in the upper-right corner of the graph to transition between each measurement, and use the range selector or bottom slider to zoom into any time period:\n\nRed Diamond Markers (♦) and dashed vertical guidelines: Mark when major hurricanes and tropical natural disasters struck.\nGold Star Markers (⭐): Highlight all-time 10-year record highs and record lows.\n\n\n\n\n\n\n\n\n\nFigure 1"
+    "text": "PROJECT BACKGROUND & AUTHOR\n\n\nAUTHOR: BRADLEY BLOXSOM • JUNIOR AT NEW COLLEGE OF FLORIDA • STATION: KTPA ARCHIVE (2015–2024)\n\n\n🎓 Student: Junior at New College of Florida ✉️ Contact: j.bloxsom28@ncf.edu 💻 Repository: Behind-the-Scenes Data & Code"
+  },
+  {
+    "objectID": "about.html#the-spark-a-lifelong-fascination-with-weather",
+    "href": "about.html#the-spark-a-lifelong-fascination-with-weather",
+    "title": "About the Project & Author",
+    "section": "The Spark: A Lifelong Fascination with Weather",
+    "text": "The Spark: A Lifelong Fascination with Weather\nEver since I was little, my parents would constantly find me sitting in front of the TV, completely captivated by weather reports. While other kids were watching cartoons, I was drawn to the radar loops, the satellite views, and the meteorologists tracking cold fronts, squall lines, and tropical systems.\nThat fascination naturally followed me into the classroom. Throughout science classes in late elementary and early middle school, I was always asking why—trying to understand what drove high and low pressure, what created thunderstorms, and how the atmosphere operated. Outside of class, I dove into independent research and study, reading whatever I could find about atmospheric science and meteorology.\nWhen the opportunity came to build this final project as a Junior at New College of Florida, choosing Tampa Bay’s weather was a natural extension of a lifelong passion that started in my childhood living room."
+  },
+  {
+    "objectID": "about.html#data-methods",
+    "href": "about.html#data-methods",
+    "title": "About the Project & Author",
+    "section": "Data & Methods",
+    "text": "Data & Methods\n\nPrimary Historical Dataset: 10 years (2015–2024) of hourly surface meteorological records from the automated station at Tampa International Airport (KTPA), sourced via NOAA’s National Centers for Environmental Information (NCEI) Local Climatological Data (LCD).\nReal-Time Data: Live telemetry fetched dynamically from the National Weather Service (NWS) API.\nTechnology Stack: Built using R, Quarto, and the tidyverse (dplyr, ggplot2, patchwork, plotly, leaflet)."
+  },
+  {
+    "objectID": "disaster-milton.html",
+    "href": "disaster-milton.html",
+    "title": "Hurricane Milton (2024)",
+    "section": "",
+    "text": "DIRECT STRIKE CAT 3 LANDFALL\n\n\nSTATION: KTPA • DIRECT EYEWALL PASSAGE & 16.03 INCHES RAIN\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+  },
+  {
+    "objectID": "disaster-milton.html#synoptic-evolution-the-direct-hit",
+    "href": "disaster-milton.html#synoptic-evolution-the-direct-hit",
+    "title": "Hurricane Milton (2024)",
+    "section": "Synoptic Evolution: The Direct Hit",
+    "text": "Synoptic Evolution: The Direct Hit\nJust twelve days after Hurricane Helene devastated Tampa’s coastlines, Hurricane Milton formed in the southwestern Gulf and underwent one of the fastest explosive intensifications in world history, dropping to 897 hPa with 180 mph winds as a Category 5 superstorm.\nMilton made landfall on the evening of October 9, 2024 near Siesta Key / Sarasota as a Category 3 hurricane. Because Milton made landfall immediately south of Tampa Bay, its northern eyewall—the most dangerous portion of the storm—slammed directly across St. Petersburg, Clearwater, Tampa, and KTPA."
+  },
+  {
+    "objectID": "disaster-milton.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-milton.html#meteorological-telemetry-at-ktpa",
+    "title": "Hurricane Milton (2024)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nMilton subjected Tampa Bay to simultaneous extreme rainfall and destructive eyewall winds:\n\nHistoric 16.03-Inch Deluge: The northern eyewall stalled over northern Pinellas and Hillsborough counties, dumping 16.03 inches of rain at KTPA in under 24 hours. This caused catastrophic flash flooding that submerged neighborhoods miles inland.\nEyewall Barometric Depression: Station pressure plummeted to 29.18 inHg (988.2 hPa) as the eyewall passed directly over the station.\nDestructive Wind Force: Extreme hurricane-force gusts shredded trees, flattened power grids across the entire region, and famously shredded the fiberglass roof of Tropicana Field in downtown St. Petersburg."
+  },
+  {
+    "objectID": "disaster-milton.html#hurricane-milton-landfall-shape-rotation-wind-circulation",
+    "href": "disaster-milton.html#hurricane-milton-landfall-shape-rotation-wind-circulation",
+    "title": "Hurricane Milton (2024)",
+    "section": "Hurricane Milton Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Milton Landfall: Shape, Rotation & Wind Circulation\nThe interactive simulation below reconstructs Hurricane Milton at mainland Florida landfall near Siesta Key / Sarasota (Cat 3, 120 mph). It visualizes the storm’s intense cyclonic rainbands, counter-clockwise rotation, and the resulting eyewall wind field that unleashed 100+ mph gusts and a 16.03-inch deluge directly across Tampa Bay.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Milton: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
   },
   {
     "objectID": "recent.html",
@@ -84,25 +168,200 @@
     "text": "Continuous KTPA Telemetry & Trend Stream (2025 – Present)\nThis unified graph tracks all 5 meteorological measurements for KTPA from January 1, 2025 to the present. Use the dropdown menu below to switch between measurements, and the range selector (24h, 7d, 1m, 6m, 1y, All) or bottom slider to zoom into any time window."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About the Project & Author",
+    "objectID": "disaster-michael.html",
+    "href": "disaster-michael.html",
+    "title": "Hurricane Michael (2018)",
     "section": "",
-    "text": "PROJECT BACKGROUND & AUTHOR\n\n\nAUTHOR: BRADLEY BLOXSOM • STATION: KTPA ARCHIVE (2015–2024)\n\n\n✉️ Contact: j.bloxsom28@ncf.edu 💻 Repository: Behind-the-Scenes Data & Code"
+    "text": "CATEGORY 5 SYSTEM PASSAGE\n\n\nSTATION: KTPA • GULF TRANSIT & REVERSE NEGATIVE SURGE\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
   },
   {
-    "objectID": "about.html#the-spark-a-lifelong-fascination-with-weather",
-    "href": "about.html#the-spark-a-lifelong-fascination-with-weather",
-    "title": "About the Project & Author",
-    "section": "The Spark: A Lifelong Fascination with Weather",
-    "text": "The Spark: A Lifelong Fascination with Weather\nEver since I was little, my parents would constantly find me sitting in front of the TV, completely captivated by weather reports. While other kids were watching cartoons, I was drawn to the radar loops, the satellite views, and the meteorologists tracking cold fronts, squall lines, and tropical systems.\nThat fascination naturally followed me into the classroom. Throughout science classes in late elementary and early middle school, I was always asking why—trying to understand what drove high and low pressure, what created thunderstorms, and how the atmosphere operated. Outside of class, I dove into independent research and study, reading whatever I could find about atmospheric science and meteorology.\nWhen the opportunity came to build this final project, choosing Tampa Bay’s weather was a natural extension of a lifelong passion that started in my childhood living room."
+    "objectID": "disaster-michael.html#synoptic-evolution-gulf-transit",
+    "href": "disaster-michael.html#synoptic-evolution-gulf-transit",
+    "title": "Hurricane Michael (2018)",
+    "section": "Synoptic Evolution & Gulf Transit",
+    "text": "Synoptic Evolution & Gulf Transit\nIn early October 2018, Hurricane Michael underwent explosive rapid intensification over the warm waters of the eastern Gulf of Mexico, deepening into an historic Category 5 hurricane with 160 mph sustained winds before devastating Mexico Beach and the Florida Panhandle.\nWhile Michael’s center remained 200 miles west of Tampa as it rocketed north toward the Panhandle, its enormous wind field and intense low pressure exerted a profound hydrodynamic impact on Tampa Bay’s coastal waters."
   },
   {
-    "objectID": "about.html#data-methods",
-    "href": "about.html#data-methods",
-    "title": "About the Project & Author",
-    "section": "Data & Methods",
-    "text": "Data & Methods\n\nPrimary Historical Dataset: 10 years (2015–2024) of hourly surface meteorological records from the automated station at Tampa International Airport (KTPA), sourced via NOAA’s National Centers for Environmental Information (NCEI) Local Climatological Data (LCD).\nReal-Time Data: Live telemetry fetched dynamically from the National Weather Service (NWS) API.\nTechnology Stack: Built using R, Quarto, and the tidyverse (dplyr, ggplot2, patchwork, plotly, leaflet)."
+    "objectID": "disaster-michael.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-michael.html#meteorological-telemetry-at-ktpa",
+    "title": "Hurricane Michael (2018)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nDespite Michael’s core remaining far offshore, KTPA’s automated sensors clearly chronicled the cyclone’s passage:\n\nBroad Pressure Deficit: Station pressure dipped to 29.75 inHg on October 10 as Michael reached peak Category 5 intensity off the Florida coast.\nReverse Negative Storm Surge: As Michael churned to the west, its counterclockwise winds drove steady northeasterly and easterly breezes across Tampa Bay. This continuous offshore gale pushed bay water toward the Gulf, lowering water levels across Hillsborough Bay by 2 to 2.5 feet below normal astronomical tide.\nDry Slotting: Unlike Hermine or Debby, Tampa Bay found itself in a continental dry slot behind Michael’s eastern rainbands, holding storm rainfall to just 0.50 inches at KTPA."
+  },
+  {
+    "objectID": "disaster-michael.html#hurricane-michael-landfall-shape-rotation-wind-circulation",
+    "href": "disaster-michael.html#hurricane-michael-landfall-shape-rotation-wind-circulation",
+    "title": "Hurricane Michael (2018)",
+    "section": "Hurricane Michael Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Michael Landfall: Shape, Rotation & Wind Circulation\nThe interactive simulation below reconstructs Hurricane Michael at mainland Florida landfall near Mexico Beach (Cat 5, 160 mph). It visualizes the storm’s intense cyclonic rainbands, counter-clockwise rotation, and the resulting offshore easterly gales that created a reverse negative surge in Tampa Bay.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Michael: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
+  },
+  {
+    "objectID": "exploration.html",
+    "href": "exploration.html",
+    "title": "10-Year Weather History",
+    "section": "",
+    "text": "10-YEAR HISTORICAL ARCHIVE (2015–2024)\n\n\nSTATION: TAMPA INTERNATIONAL AIRPORT (KTPA) • NOAA / NCEI LOCAL CLIMATOLOGICAL DATA"
+  },
+  {
+    "objectID": "exploration.html#year-weather-telemetry-20152024",
+    "href": "exploration.html#year-weather-telemetry-20152024",
+    "title": "10-Year Weather History",
+    "section": "10-Year Weather Telemetry (2015–2024)",
+    "text": "10-Year Weather Telemetry (2015–2024)\nExplore all five core meteorological measurements across the full 10-year observational record (2015–2024) at Tampa International Airport (KTPA). Use the dropdown menu in the upper-right corner of the graph to transition between each measurement, and use the range selector or bottom slider to zoom into any time period:\n\nRed Diamond Markers (♦) and dashed vertical guidelines: Mark when major hurricanes and tropical natural disasters struck.\nGold Star Markers (⭐): Highlight all-time 10-year record highs and record lows.\n\n\n\n\n\n\n\n\n\nFigure 1"
+  },
+  {
+    "objectID": "disaster-ian.html",
+    "href": "disaster-ian.html",
+    "title": "Hurricane Ian (2022)",
+    "section": "",
+    "text": "CATEGORY 4/5 NEAR-MISS & NEGATIVE SURGE\n\n\nSTATION: KTPA • MASSIVE DRAIN OF TAMPA BAY BED\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+  },
+  {
+    "objectID": "disaster-ian.html#synoptic-evolution-last-minute-track-shift",
+    "href": "disaster-ian.html#synoptic-evolution-last-minute-track-shift",
+    "title": "Hurricane Ian (2022)",
+    "section": "Synoptic Evolution & Last-Minute Track Shift",
+    "text": "Synoptic Evolution & Last-Minute Track Shift\nIn late September 2022, Hurricane Ian intensified into a monstrous high-end Category 4/5 cyclone over the southeastern Gulf. Initial NHC forecast tracks pointed toward a catastrophic worst-case direct landfall inside Tampa Bay, triggering mandatory evacuations of over 300,000 residents across Hillsborough and Pinellas counties.\nOn the morning of September 28, Ian executed an eastward turn, making landfall 85 miles south at Cayo Costa / Fort Myers with 150+ mph winds. While Tampa Bay was spared a catastrophic direct surge, the southern landfall track created a historic meteorological phenomenon."
+  },
+  {
+    "objectID": "disaster-ian.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-ian.html#meteorological-telemetry-at-ktpa",
+    "title": "Hurricane Ian (2022)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nBecause Ian made landfall to the south, Tampa Bay sat squarely on the cold, offshore northern quadrant of the storm:\n\nExtreme Negative Surge: Northerly and northeasterly winds blowing between 30 and 45 mph literally siphoned water out of Tampa Bay, lowering water levels to 5.5 feet below normal. Hillsborough Bay, Bayshore Boulevard, and Davis Island basins became barren mudflats where residents famously walked on the dry bay floor.\nPressure Drop: Station pressure dropped to 29.56 inHg at KTPA on the evening of September 28 as Ian crossed the southern peninsula.\nSpared Catastrophic Deluge: Because Ian’s core rain shield drifted across central and southern Florida, KTPA received 1.83 inches of rain, escaping the 15–20 inch deluges recorded just miles to the south in Sarasota and Lee counties."
+  },
+  {
+    "objectID": "disaster-ian.html#hurricane-ian-landfall-shape-rotation-wind-circulation",
+    "href": "disaster-ian.html#hurricane-ian-landfall-shape-rotation-wind-circulation",
+    "title": "Hurricane Ian (2022)",
+    "section": "Hurricane Ian Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Ian Landfall: Shape, Rotation & Wind Circulation\nThe interactive simulation below reconstructs Hurricane Ian at mainland Florida landfall near Cayo Costa / Punta Gorda (Cat 4/5, 150 mph). It visualizes the storm’s massive cyclonic rainbands, counter-clockwise rotation, and the resulting powerful offshore northeasterly winds that famously drained Tampa Bay’s seabed.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Ian: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
+  },
+  {
+    "objectID": "disaster-hermine.html",
+    "href": "disaster-hermine.html",
+    "title": "Hurricane Hermine (2016)",
+    "section": "",
+    "text": "CATEGORY 1 TROPICAL CYCLONE\n\n\nSTATION: KTPA • END OF FLORIDA’S 11-YEAR HURRICANE DROUGHT\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+  },
+  {
+    "objectID": "disaster-hermine.html#synoptic-evolution-storm-track",
+    "href": "disaster-hermine.html#synoptic-evolution-storm-track",
+    "title": "Hurricane Hermine (2016)",
+    "section": "Synoptic Evolution & Storm Track",
+    "text": "Synoptic Evolution & Storm Track\nIn late August 2016, Tropical Storm Hermine formed in the south-central Gulf of Mexico after traversing Cuba. As it curled northeast toward Florida’s Big Bend, it strengthened into a Category 1 hurricane with 80 mph peak winds. When Hermine made landfall near St. Marks, Florida on September 2, 2016, it officially ended Florida’s unprecedented 11-year streak without a hurricane landfall, stretching back to Hurricane Wilma in October 2005.\nAlthough Hermine’s core tracked roughly 175 miles north-northwest of Tampa Bay, the storm’s extensive south and east quadrants swept broad spiral feeder bands across Hillsborough and Pinellas counties over three consecutive days."
+  },
+  {
+    "objectID": "disaster-hermine.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-hermine.html#meteorological-telemetry-at-ktpa",
+    "title": "Hurricane Hermine (2016)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nAt Tampa International Airport, automated sensors recorded a steady descent in atmospheric pressure beginning on August 31, reaching a minimum of 29.77 inHg as the cyclone pushed into the northeastern Gulf. As the pressure bottomed out:\n\nPersistent Tropical Gales: Sustained winds held between 20 and 30 mph for nearly 36 hours, punctuated by squall gusts exceeding 40 mph.\nProlonged Tropical Deluge: Outer feeder bands repeatedly trained over the Tampa metropolitan area, depositing 6.67 inches of rain over the 72-hour period.\nOnshore Surge Inundation: Because Hermine’s counterclockwise circulation pushed sustained southwesterly and westerly winds across the mouth of Tampa Bay, water piled up into Hillsborough and Old Tampa Bay, producing 2 to 3 feet of storm surge that flooded coastal roads and submerged portions of Bayshore Boulevard."
+  },
+  {
+    "objectID": "disaster-hermine.html#hurricane-hermine-landfall-shape-rotation-wind-circulation",
+    "href": "disaster-hermine.html#hurricane-hermine-landfall-shape-rotation-wind-circulation",
+    "title": "Hurricane Hermine (2016)",
+    "section": "Hurricane Hermine Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Hermine Landfall: Shape, Rotation & Wind Circulation\nThe interactive simulation below reconstructs Hurricane Hermine at mainland Florida landfall near St. Marks (Cat 1, 80 mph). It visualizes the storm’s cyclonic rainbands, counter-clockwise rotation, and the resulting onshore southwesterly gales that drove coastal surge into Tampa Bay.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Hermine: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
+  },
+  {
+    "objectID": "records.html",
+    "href": "records.html",
+    "title": "Records",
+    "section": "",
+    "text": "DECADE RECORD TELEMETRY (2015–2024)\n\n\nSTATION: TAMPA INTERNATIONAL AIRPORT (KTPA) • OFFICIAL NCEI / NOAA ARCHIVE\nExplore the official meteorological all-time high and low records established across 3,651 consecutive days (2015–2024) of continuous hourly observations at Tampa International Airport."
+  },
+  {
+    "objectID": "records.html#year-record-extremes-reference",
+    "href": "records.html#year-record-extremes-reference",
+    "title": "Records",
+    "section": "10-Year Record Extremes Reference",
+    "text": "10-Year Record Extremes Reference\n\n\n\n\n\n\n\n\n\nMeasurement\nAverage\nAll-Time 10-Year Record\nDate & Significance\n\n\n\n\nTemperature High\n83.2°F\n98.0°F\nAugust 11, 2023 (Summer Heat Dome Peak)\n\n\nTemperature Low\n68.3°F\n29.0°F\nDecember 24, 2022 (Christmas Arctic Freeze)\n\n\nDew Point Peak\n64.2°F\n82.0°F\nAugust 7, 2024 (Extreme Tropical Moisture)\n\n\nBarometric Pressure Low\n30.04 inHg\n28.69 inHg\nSeptember 10, 2017 (Eye of Hurricane Irma)\n\n\nMax Sustained Wind\n13.5 mph\n47.0 mph\nSeptember 10, 2017 (Hurricane Irma Tropical Gale; gusts to 66 mph)\n\n\nWettest Single Day\n0.36 in\n16.14 in\nAugust 4, 2024 (Hurricane Debby Deluge)\n\n\n\nNote: Averages are calculated across all 3,651 observational days from 2015 through 2024 at Tampa International Airport (KTPA)."
+  },
+  {
+    "objectID": "records.html#detailed-profiles-of-each-record-extreme",
+    "href": "records.html#detailed-profiles-of-each-record-extreme",
+    "title": "Records",
+    "section": "Detailed Profiles of Each Record Extreme",
+    "text": "Detailed Profiles of Each Record Extreme\n\n\n\n\n\n🌡️ All-Time High Temperature: 98.0°F\n\n\nAugust 11, 2023 • 10-Year Average High: 83.2°F\n\n\nDuring the peak of the 2023 persistent subtropical ridge, temperatures at Tampa International Airport climbed to 98.0°F—nearly 15°F above the 10-year average daily high (83.2°F) and marking the hottest single reading across the entire 10-year observational period. Combined with a dew point near 80°F, heat index values exceeded 115°F.\n\n\n\n\n\n\n\n\n❄️ All-Time Low Temperature: 29.0°F\n\n\nDecember 24, 2022 • 10-Year Average Low: 68.3°F\n\n\nA historic arctic outbreak drove sub-freezing polar air deep into peninsular Florida on Christmas Eve 2022. KTPA bottomed out at 29.0°F—almost 40°F colder than the typical 10-year average low (68.3°F), recording a hard freeze and setting the coldest temperature of the 2015–2024 decade.\n\n\n\n\n\n\n\n\n💧 Peak Atmospheric Dew Point: 82.0°F\n\n\nAugust 7, 2024 • 10-Year Average Dew Point: 64.2°F\n\n\nDew points exceeding 75°F are considered oppressive; on August 7, 2024, deep tropical moisture over Tampa Bay surged the dew point to 82.0°F, nearly 18°F above the 10-year baseline average (64.2°F). This saturated atmosphere trapped heat at ground level and delivered record atmospheric moisture content.\n\n\n\n\n\n\n\n\n🌪️ Lowest Barometric Pressure: 28.69 inHg\n\n\nSeptember 10, 2017 • 10-Year Average Pressure: 30.04 inHg\n\n\nAs Hurricane Irma tracked northward through the Florida peninsula, its central core induced a dramatic atmospheric pressure collapse. KTPA’s barometer plummeted from its typical 30.04 inHg baseline down to 28.69 inHg (971.5 hPa), the lowest barometric pressure recorded in the 10-year period.\n\n\n\n\n\n\n\n\n💨 Peak Sustained Wind: 47.0 mph\n\n\nSeptember 10, 2017 • 10-Year Average Peak Wind: 13.5 mph\n\n\nThe strongest 2-minute sustained wind speed recorded across the 10-year period reached 47.0 mph during Hurricane Irma’s closest approach—more than triple the typical daily peak sustained wind (13.5 mph), accompanied by peak instantaneous wind gusts of 66 mph at airport anemometers.\n\n\n\n\n\n\n\n\n🌧️ All-Time Wettest Day: 16.14 Inches\n\n\nAugust 4, 2024 • 10-Year Average Daily Rain: 0.36 in\n\n\nSlow-moving tropical moisture feeder bands associated with Hurricane Debby dropped an astounding 16.14 inches of rain in a single 24-hour observational cycle at KTPA—nearly 45 times the typical daily rainfall (0.36 in), shattering all previous 10-year daily rainfall records."
+  },
+  {
+    "objectID": "disaster-idalia.html",
+    "href": "disaster-idalia.html",
+    "title": "Hurricane Idalia (2023)",
+    "section": "",
+    "text": "HIGH-TIDE SURGE INUNDATION\n\n\nSTATION: KTPA • KING TIDE SURGE & RECORD BAYSHORE INUNDATION\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+  },
+  {
+    "objectID": "disaster-idalia.html#synoptic-evolution-gulf-acceleration",
+    "href": "disaster-idalia.html#synoptic-evolution-gulf-acceleration",
+    "title": "Hurricane Idalia (2023)",
+    "section": "Synoptic Evolution & Gulf Acceleration",
+    "text": "Synoptic Evolution & Gulf Acceleration\nIn late August 2023, Hurricane Idalia rapidly intensified over exceptionally warm eastern Gulf waters, ballooning into a Category 4 major hurricane before making landfall in Florida’s Big Bend as a Category 3 storm on August 30.\nAlthough Idalia tracked roughly 120 miles west of Tampa Bay, its eastern flank unleashed persistent southerly and southwesterly gales that pushed Gulf water directly into the mouth of Tampa Bay. Crucially, the surge arrived precisely during an astronomical King Tide (supermoon peak)."
+  },
+  {
+    "objectID": "disaster-idalia.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-idalia.html#meteorological-telemetry-at-ktpa",
+    "title": "Hurricane Idalia (2023)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nKTPA’s telemetry documented the dynamics of a high-tide surge disaster:\n\nPressure & Wind Signature: Station pressure fell to 29.55 inHg on August 30, with sustained onshore winds of 33 mph and squall gusts over 50 mph driving ocean water inland.\nUnprecedented Coastal Inundation: The combined astronomical King Tide and 4 to 5 foot surge pushed Tampa Bay to its highest water level since 1993 at the time. Water completely submerged Bayshore Boulevard, flowed through ground-floor condominiums on Davis Islands, and cut off access to Gulf beach communities in St. Petersburg and Clearwater.\nRainfall Total: Outer bands dropped 2.68 inches of rain at KTPA, while the primary damage was caused by saltwater flooding."
+  },
+  {
+    "objectID": "disaster-idalia.html#hurricane-idalia-landfall-shape-rotation-wind-circulation",
+    "href": "disaster-idalia.html#hurricane-idalia-landfall-shape-rotation-wind-circulation",
+    "title": "Hurricane Idalia (2023)",
+    "section": "Hurricane Idalia Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Idalia Landfall: Shape, Rotation & Wind Circulation\nThe interactive simulation below reconstructs Hurricane Idalia at mainland Florida landfall near Keaton Beach (Cat 3, 125 mph). It visualizes the storm’s cyclonic rainbands, counter-clockwise rotation, and the resulting onshore southwesterly winds that triggered historic high-tide coastal surge across Bayshore Boulevard.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Idalia: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
+  },
+  {
+    "objectID": "disaster-debby.html",
+    "href": "disaster-debby.html",
+    "title": "Hurricane Debby (2024)",
+    "section": "",
+    "text": "DECADE-RECORD 24-HOUR DELUGE\n\n\nSTATION: KTPA • ALL-TIME 24-HOUR RECORD RAIN: 16.14 INCHES\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the event window. Top: Barometric pressure (inHg). Bottom: Sustained wind speed (mph)."
+  },
+  {
+    "objectID": "disaster-debby.html#synoptic-evolution-the-tropical-moisture-conveyor",
+    "href": "disaster-debby.html#synoptic-evolution-the-tropical-moisture-conveyor",
+    "title": "Hurricane Debby (2024)",
+    "section": "Synoptic Evolution: The Tropical Moisture Conveyor",
+    "text": "Synoptic Evolution: The Tropical Moisture Conveyor\nOn August 4, 2024, Tropical Storm Debby intensified into a Category 1 hurricane in the northeastern Gulf before making landfall near Steinhatchee. Because Debby was a sprawling, slow-moving system, its eastern circulation tapped into an atmospheric river of deep equatorial moisture.\nThis persistent moisture train stalled directly over west-central Florida, setting up stationary training thunderstorms that poured unprecedented deluges over Hillsborough and Pinellas counties."
+  },
+  {
+    "objectID": "disaster-debby.html#meteorological-telemetry-at-ktpa",
+    "href": "disaster-debby.html#meteorological-telemetry-at-ktpa",
+    "title": "Hurricane Debby (2024)",
+    "section": "Meteorological Telemetry at KTPA",
+    "text": "Meteorological Telemetry at KTPA\nDebby broke one of the most significant meteorological records in Tampa’s 10-year archive:\n\nAll-Time 10-Year 24-Hour Rainfall Record: Over a single 24-hour observation window on August 4, KTPA recorded a staggering 16.14 inches of rain—more than doubling any previous single-day rainfall event in the modern archive.\nExtreme Urban and River Flooding: The torrent overwhelmed stormwater drainage across Tampa, flooding major interstates and driving the Hillsborough, Alafia, and Little Manatee rivers into major flood stages that lasted for over a week.\nPressure and Wind Profile: Station pressure dipped to 29.70 inHg with sustained winds reaching 29 mph, demonstrating that rain devastation can vastly outpace wind hazard in slow-moving tropical systems."
+  },
+  {
+    "objectID": "disaster-debby.html#hurricane-debby-landfall-shape-rotation-wind-circulation",
+    "href": "disaster-debby.html#hurricane-debby-landfall-shape-rotation-wind-circulation",
+    "title": "Hurricane Debby (2024)",
+    "section": "Hurricane Debby Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Debby Landfall: Shape, Rotation & Wind Circulation\nThe interactive simulation below reconstructs Hurricane Debby at mainland Florida landfall near Steinhatchee (Cat 1, 80 mph). It visualizes the storm’s extensive spiral rainband conveyor, counter-clockwise rotation, and the resulting tropical moisture plume that dumped a record 16.14 inches of rain on Tampa.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Debby: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\nNoteExplore More Weather Crises\n\n\n\nReturn to the Natural Disasters Overview to view the full 10-year timeline, comparison tables, and summaries of all major storms."
+  },
+  {
+    "objectID": "story.html",
+    "href": "story.html",
+    "title": "Anatomy of a Storm",
+    "section": "",
+    "text": "METEOROLOGICAL CASE STUDY\n\n\nSTATION: KTPA • 72-HOUR HURRICANE IRMA TELEMETRY BREAKDOWN"
+  },
+  {
+    "objectID": "story.html#what-happens-when-a-hurricane-strikes-tampa",
+    "href": "story.html#what-happens-when-a-hurricane-strikes-tampa",
+    "title": "Anatomy of a Storm",
+    "section": "What Happens When a Hurricane Strikes Tampa?",
+    "text": "What Happens When a Hurricane Strikes Tampa?\nIn our 10-year meteorological record of Tampa International Airport (KTPA), one anomaly stands above all others: the early morning hours of September 11, 2017. As Hurricane Irma tore northward up the Florida peninsula, the airport’s automated sensors recorded the violent physical signature of a tropical cyclone passing just miles to the east. By examining hourly barometric pressure, sustained wind speed, and precipitation together across this 72-hour window, we can observe the exact mechanics of what happens when a tropical cyclone strikes Tampa Bay.\n\n\n\n\n\n\n\n\nFigure 1: Hourly meteorological telemetry recorded at Tampa International Airport (KTPA) during the 72-hour passage of Hurricane Irma (September 9–12, 2017). Top: Station barometric pressure (inHg). Middle: Sustained wind speed (mph). Bottom: Hourly precipitation (inches).\n\n\n\n\n\n\nThe Barometric Engine\nUnder ordinary conditions, atmospheric pressure across Tampa Bay hovers around a stable 30.10 inHg (1,019 hPa). As Irma’s circulation approached the Florida Keys on September 9, KTPA’s barometer began a steady, steep descent. By 2:00 AM on September 11, the barometer plummeted to a decade-low record of 28.69 inHg (971.5 hPa). This precipitous V-shaped drop created a steep pressure gradient across western Florida, essentially turning the skies above Tampa into a giant atmospheric siphon that drew in gale-force winds from hundreds of miles away.\n\n\nWind and Rain in Lockstep\nThe middle and bottom panels reveal how closely winds and rainfall sync with barometric collapse. As the pressure bottomed out during the early hours of September 11, sustained winds surged from calm 5–10 mph sea breezes into tropical storm-force gales of 41 to 46 mph, with violent squall gusts recorded up to 66 mph. Simultaneously, heavy spiral rain bands dumped torrential precipitation over Hillsborough County, dropping over 4.5 inches of rain in just a few concentrated hours before the storm center moved north toward Georgia.\n\n\nThe Broader Lesson: Why Storm Track Dictates Tampa Bay’s Fate\nWhat makes Hurricane Irma’s signature particularly revealing is how track geography dictates Tampa Bay’s vulnerability. Because Irma tracked just inland to the east of Tampa, the storm’s counterclockwise rotation drove surface winds out of the northeast and east. These offshore winds pushed bay water outward into the Gulf of Mexico, causing a dramatic “negative storm surge” that temporarily drained the bay floor instead of flooding coastal neighborhoods.\nBy contrast, when Hurricane Helene (September 2024) passed offshore in the Gulf to the west, and Hurricane Milton (October 2024) made landfall just south near Siesta Key, their counterclockwise winds blew onshore into Tampa Bay. That onshore push, combined with historic rainfall (Milton dumped 16.03 inches at KTPA), transformed that same atmospheric pressure collapse into devastating coastal storm surge. The data confirms that while barometric drop dictates storm intensity, it is the storm’s track relative to Tampa Bay that determines whether water is drained away or driven ashore.\n\n\n\nComparative Cyclone Telemetry at Tampa (KTPA)\n\n\n\n\n\n\n\n\n\n\n\nStorm / Metric\nMinimum Pressure\nPeak Sustained Wind\nPeak Gust\nTotal Storm Deluge\nCoastal Surge Outcome\n\n\n\n\nHurricane Irma (Sep 2017)\n28.69 inHg (10-Yr Record Low)\n46.0 mph\n66.0 mph\n4.57 in\nNegative Surge (Bay drained)\n\n\nHurricane Helene (Sep 2024)\n29.56 inHg\n38.0 mph\n55.0 mph\n2.14 in\nRecord Coastal Surge (6–7 ft flood)\n\n\nHurricane Milton (Oct 2024)\n29.18 inHg\n30.0+ mph\n60.0+ mph\n16.03 in\nSevere Inland Flooding & Eyewall Rain"
+  },
+  {
+    "objectID": "story.html#hurricane-irma-landfall-shape-rotation-wind-circulation",
+    "href": "story.html#hurricane-irma-landfall-shape-rotation-wind-circulation",
+    "title": "Anatomy of a Storm",
+    "section": "Hurricane Irma Landfall: Shape, Rotation & Wind Circulation",
+    "text": "Hurricane Irma Landfall: Shape, Rotation & Wind Circulation\nThe visualization below illustrates Hurricane Irma at the precise moment of its mainland Florida landfall at Marco Island (September 10, 2017 at 3:35 PM EDT as a Category 3 hurricane with 115 mph winds). It reveals the storm’s characteristic cyclonic shape, counter-clockwise rotation, and the resulting surface wind directions that siphoned water away from Tampa Bay.\n\n  \n    \n       REAL-TIME ROTATION SIMULATOR\n      Hurricane Irma: Animated Cloud Formation & Cyclonic Wind Field\n      Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.\n    \n    \n      ⏸ Pause\n      ⚡ 2x Speed\n    \n  \n  \n    \n  \n\n\n\n\n\n\n\n\n\nFigure 2: Meteorological reconstruction of Hurricane Irma at mainland landfall (Marco Island, FL). Vectors illustrate the counter-clockwise surface wind field (with a ~20° inward inflow angle), highlighting how offshore northeasterly gales over Tampa Bay generated an historic negative surge while driving severe onshore flooding into Southwest Florida.\n\n\n\n\n\n\nKey Takeaways from the Circulation Pattern:\n\nFixed Landfall Anchor: Irma struck Florida twice—first at Cudjoe Key as a Category 4 storm (130 mph), and second as a Category 3 mainland landfall on Marco Island (115 mph).\nSpiral Shape and Rainbands: The logarithmic spiral bands depict the sprawling radius of the storm’s outer rain shield, which extended across both the Gulf of Mexico and the Atlantic Ocean.\nCounter-Clockwise Rotation: Like all Northern Hemisphere cyclones, winds rotate counter-clockwise around the low-pressure center, with surface friction deflecting winds slightly inward (~20° cross-isobar inflow).\nThe Negative Surge Mechanism: Because Tampa Bay was situated to the northwest of Irma’s path, local surface winds blew from the northeast (offshore). Instead of forcing Gulf waters onshore, these violent winds blew water out into the Gulf, exposing the seabed along Bayshore Boulevard."
   },
   {
     "objectID": "disasters.html",
@@ -116,13 +375,13 @@
     "href": "disasters.html#tracked-natural-disasters-reference",
     "title": "Natural Disasters",
     "section": "Tracked Natural Disasters Reference",
-    "text": "Tracked Natural Disasters Reference\n\n\n\n\n\n\n\n\nDate\nStorm / Event\nObserved Impact at KTPA\n\n\n\n\nSep 2, 2016\nHurricane Hermine\nTropical gale gusts and coastal surge across Tampa Bay\n\n\nSep 10, 2017\nHurricane Irma\nPressure collapsed to decade-low 28.69 inHg; 46 mph winds and 11.7 in rain\n\n\nOct 10, 2018\nHurricane Michael\nCategory 5 Gulf transit drained Hillsborough Bay through negative surge\n\n\nSep 28, 2022\nHurricane Ian\nCategory 4/5 system caused massive negative surge followed by gale winds\n\n\nDec 24, 2022\nChristmas Arctic Freeze\nSevere hard freeze; temperature plunged to decade-low 29.0°F\n\n\nAug 30, 2023\nHurricane Idalia\nRecord high-tide coastal surge inundated Bayshore Boulevard\n\n\nAug 4, 2024\nHurricane Debby\nWettest single day in modern record: 16.14 inches of rain in 24 hours\n\n\nSep 26, 2024\nHurricane Helene\nMassive storm generated catastrophic 6–7 ft storm surge along the coast\n\n\nOct 9, 2024\nHurricane Milton\nDirect strike on Tampa Bay: 16.03 inches of deluge and eyewall pressure dip"
+    "text": "Tracked Natural Disasters Reference\n\n\n\nDate\nStorm / Event\nObserved Impact at KTPA\nIn-Depth Report\n\n\n\n\nSep 2, 2016\nHurricane Hermine\nTropical gale gusts and coastal surge across Tampa Bay\nView Telemetry →\n\n\nSep 10, 2017\nHurricane Irma\nPressure collapsed to decade-low 28.69 inHg; 46 mph winds and 11.7 in rain\nView Telemetry →\n\n\nOct 10, 2018\nHurricane Michael\nCategory 5 Gulf transit drained Hillsborough Bay through negative surge\nView Telemetry →\n\n\nSep 28, 2022\nHurricane Ian\nCategory 4/5 system caused massive negative surge followed by gale winds\nView Telemetry →\n\n\nDec 24, 2022\nChristmas Arctic Freeze\nSevere hard freeze; temperature plunged to decade-low 29.0°F\nView Telemetry →\n\n\nAug 30, 2023\nHurricane Idalia\nRecord high-tide coastal surge inundated Bayshore Boulevard\nView Telemetry →\n\n\nAug 4, 2024\nHurricane Debby\nWettest single day in modern record: 16.14 inches of rain in 24 hours\nView Telemetry →\n\n\nSep 26, 2024\nHurricane Helene\nMassive storm generated catastrophic 6–7 ft storm surge along the coast\nView Telemetry →\n\n\nOct 9, 2024\nHurricane Milton\nDirect strike on Tampa Bay: 16.03 inches of deluge and eyewall pressure dip\nView Telemetry →"
   },
   {
     "objectID": "disasters.html#chronological-disaster-profiles",
     "href": "disasters.html#chronological-disaster-profiles",
     "title": "Natural Disasters",
     "section": "Chronological Disaster Profiles",
-    "text": "Chronological Disaster Profiles\n\n\n\n\n\n🌀 Hurricane Hermine\n\n\nSeptember 2, 2016 • Category 1 Hurricane\n\n\nHermine ended an 11-year hurricane landfall drought in Florida. Its outer circulation drove persistent tropical gale gusts and significant coastal inundation across southern Tampa Bay and coastal Pinellas County.\n\n\n\n\n\n\n\n\n🌪️ Hurricane Irma\n\n\nSeptember 10, 2017 • Category 4 Hurricane\n\n\nIrma tracked directly up the spine of the Florida peninsula, triggering the lowest barometric pressure reading of the entire 10-year period (28.69 inHg), sustained winds of 47 mph with gusts to 66 mph, and 11.7 inches of rain.\n\n\n\n\n\n\n\n\n🌊 Hurricane Michael\n\n\nOctober 10, 2018 • Category 5 Hurricane\n\n\nWhile Michael made landfall in the Florida Panhandle as a monstrous Category 5 storm, its massive counter-clockwise wind field pulled water straight out of Tampa Bay and Hillsborough Bay, creating a rare “reverse negative storm surge.”\n\n\n\n\n\n\n\n\n💨 Hurricane Ian\n\n\nSeptember 28, 2022 • Category 4/5 Hurricane\n\n\nIan initially headed toward Tampa before turning into Cayo Costa. Powerful offshore winds completely drained Tampa Bay’s seabed hours before shifting winds brought dangerous tropical storm-force gusts across the bay area.\n\n\n\n\n\n\n\n\n❄️ Christmas Arctic Freeze\n\n\nDecember 24, 2022 • Historic Polar Outbreak\n\n\nA historic continent-wide polar blast surged sub-freezing arctic air across peninsular Florida on Christmas Eve. KTPA recorded a decade-record low of 29.0°F, bringing a prolonged hard freeze to agricultural and coastal zones.\n\n\n\n\n\n\n\n\n🌊 Hurricane Idalia\n\n\nAugust 30, 2023 • Category 3 Hurricane\n\n\nPassing offshore through the eastern Gulf, Idalia’s storm surge coincided precisely with astronomical high tide, driving unprecedented coastal flooding along Bayshore Boulevard, Davis Islands, and Gulf beaches.\n\n\n\n\n\n\n\n\n🌧️ Hurricane Debby\n\n\nAugust 4, 2024 • Category 1 / Tropical Deluge\n\n\nDebby produced the wettest 24 hours in modern Tampa history. Slow-moving moisture conveyor bands dumped 16.14 inches of rain at KTPA in a single day, causing extensive metropolitan and river basin flooding.\n\n\n\n\n\n\n\n\n🌊 Hurricane Helene\n\n\nSeptember 26, 2024 • Category 4 Hurricane\n\n\nDespite tracking over 100 miles offshore, Helene’s immense wind field produced a historic, catastrophic 6–7 ft storm surge that submerged coastal Tampa Bay barrier islands and low-lying coastal neighborhoods.\n\n\n\n\n\n\n\n\n🌀 Hurricane Milton\n\n\nOctober 9, 2024 • Category 3 Direct Strike\n\n\nJust two weeks after Helene, Hurricane Milton made direct landfall near Siesta Key/Tampa Bay. It delivered a 16.03-inch extreme rainfall deluge, an eyewall barometric pressure dip, and hurricane-force wind gusts that tore the roof off Tropicana Field."
+    "text": "Chronological Disaster Profiles\n\n\n\n\n\n🌀 Hurricane Hermine\n\n\nSeptember 2, 2016 • Category 1 Hurricane\n\n\nHermine ended an 11-year hurricane landfall drought in Florida. Its outer circulation drove persistent tropical gale gusts and significant coastal inundation across southern Tampa Bay and coastal Pinellas County.\n\nExplore Full Case Study →\n\n\n\n\n\n\n\n🌪️ Hurricane Irma\n\n\nSeptember 10, 2017 • Category 4 Hurricane\n\n\nIrma tracked directly up the spine of the Florida peninsula, triggering the lowest barometric pressure reading of the entire 10-year period (28.69 inHg), sustained winds of 47 mph with gusts to 66 mph, and 11.7 inches of rain.\n\nExplore Full Case Study →\n\n\n\n\n\n\n\n🌊 Hurricane Michael\n\n\nOctober 10, 2018 • Category 5 Hurricane\n\n\nWhile Michael made landfall in the Florida Panhandle as a monstrous Category 5 storm, its massive counter-clockwise wind field pulled water straight out of Tampa Bay and Hillsborough Bay, creating a rare “reverse negative storm surge.”\n\nExplore Full Case Study →\n\n\n\n\n\n\n\n💨 Hurricane Ian\n\n\nSeptember 28, 2022 • Category 4/5 Hurricane\n\n\nIan initially headed toward Tampa before turning into Cayo Costa. Powerful offshore winds completely drained Tampa Bay’s seabed hours before shifting winds brought dangerous tropical storm-force gusts across the bay area.\n\nExplore Full Case Study →\n\n\n\n\n\n\n\n❄️ Christmas Arctic Freeze\n\n\nDecember 24, 2022 • Historic Polar Outbreak\n\n\nA historic continent-wide polar blast surged sub-freezing arctic air across peninsular Florida on Christmas Eve. KTPA recorded a decade-record low of 29.0°F, bringing a prolonged hard freeze to agricultural and coastal zones.\n\nExplore Full Case Study →\n\n\n\n\n\n\n\n🌊 Hurricane Idalia\n\n\nAugust 30, 2023 • Category 3 Hurricane\n\n\nPassing offshore through the eastern Gulf, Idalia’s storm surge coincided precisely with astronomical high tide, driving unprecedented coastal flooding along Bayshore Boulevard, Davis Islands, and Gulf beaches.\n\nExplore Full Case Study →\n\n\n\n\n\n\n\n🌧️ Hurricane Debby\n\n\nAugust 4, 2024 • Category 1 / Tropical Deluge\n\n\nDebby produced the wettest 24 hours in modern Tampa history. Slow-moving moisture conveyor bands dumped 16.14 inches of rain at KTPA in a single day, causing extensive metropolitan and river basin flooding.\n\nExplore Full Case Study →\n\n\n\n\n\n\n\n🌊 Hurricane Helene\n\n\nSeptember 26, 2024 • Category 4 Hurricane\n\n\nDespite tracking over 100 miles offshore, Helene’s immense wind field produced a historic, catastrophic 6–7 ft storm surge that submerged coastal Tampa Bay barrier islands and low-lying coastal neighborhoods.\n\nExplore Full Case Study →\n\n\n\n\n\n\n\n🌀 Hurricane Milton\n\n\nOctober 9, 2024 • Category 3 Direct Strike\n\n\nJust two weeks after Helene, Hurricane Milton made direct landfall near Siesta Key/Tampa Bay. It delivered a 16.03-inch extreme rainfall deluge, an eyewall barometric pressure dip, and hurricane-force wind gusts that tore the roof off Tropicana Field.\n\nExplore Full Case Study →"
   }
 ]
