@@ -294,6 +294,26 @@ Figure&nbsp;1: Hourly meteorological telemetry recorded at Tampa International A
 <li><strong>Pressure Drop:</strong> Station pressure dropped to <strong>29.56 inHg</strong> at KTPA on the evening of September 28 as Ian crossed the southern peninsula.</li>
 <li><strong>Spared Catastrophic Deluge:</strong> Because Ian’s core rain shield drifted across central and southern Florida, KTPA received <strong>1.83 inches of rain</strong>, escaping the 15–20 inch deluges recorded just miles to the south in Sarasota and Lee counties.</li>
 </ul>
+</section>
+<section id="hurricane-ian-landfall-shape-rotation-wind-circulation" class="level2">
+<h2 class="anchored" data-anchor-id="hurricane-ian-landfall-shape-rotation-wind-circulation">Hurricane Ian Landfall: Shape, Rotation &amp; Wind Circulation</h2>
+<p>The interactive simulation below reconstructs Hurricane Ian at mainland Florida landfall near Cayo Costa / Punta Gorda (Cat 4/5, 150 mph). It visualizes the storm’s massive cyclonic rainbands, counter-clockwise rotation, and the resulting powerful offshore northeasterly winds that famously drained Tampa Bay’s seabed.</p>
+<div class="news-chart-card" style="margin-bottom: 2rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 8px;">
+    <div>
+      <span class="live-pill" style="background: rgba(220, 38, 38, 0.2); color: #f87171; border: 1px solid #ef4444;"><span class="live-pulse-dot" style="background-color: #ef4444;"></span> REAL-TIME ROTATION SIMULATOR</span>
+      <h3 style="color: #ffffff; margin: 0.35rem 0 0 0; font-size: 1.25rem; font-weight: 700;" class="anchored">Hurricane Ian: Animated Cloud Formation &amp; Cyclonic Wind Field</h3>
+      <p style="color: #94a3b8; font-size: 0.85rem; margin: 2px 0 0 0;">Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.</p>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <button id="ian-toggle-spin" class="live-refresh-btn" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;">⏸ Pause</button>
+      <button id="ian-speed-spin" class="live-refresh-btn" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;">⚡ 2x Speed</button>
+    </div>
+  </div>
+  <div style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; background: #0b1320; border: 1px solid #334155;">
+    <canvas id="ian-cyclone-canvas" class="cyclone-simulator-canvas" data-storm="ian" style="width: 100%; height: 560px; display: block;"></canvas>
+  </div>
+</div>
 <hr>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

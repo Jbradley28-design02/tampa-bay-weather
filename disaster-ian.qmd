@@ -122,6 +122,29 @@ Because Ian made landfall to the south, Tampa Bay sat squarely on the cold, offs
 - **Spared Catastrophic Deluge:** Because Ian's core rain shield drifted across central and southern Florida, KTPA received **1.83 inches of rain**, escaping the 15–20 inch deluges recorded just miles to the south in Sarasota and Lee counties.
 
 
+## Hurricane Ian Landfall: Shape, Rotation & Wind Circulation
+
+The interactive simulation below reconstructs Hurricane Ian at mainland Florida landfall near Cayo Costa / Punta Gorda (Cat 4/5, 150 mph). It visualizes the storm's massive cyclonic rainbands, counter-clockwise rotation, and the resulting powerful offshore northeasterly winds that famously drained Tampa Bay's seabed.
+
+```{=html}
+<div class="news-chart-card" style="margin-bottom: 2rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 8px;">
+    <div>
+      <span class="live-pill" style="background: rgba(220, 38, 38, 0.2); color: #f87171; border: 1px solid #ef4444;"><span class="live-pulse-dot" style="background-color: #ef4444;"></span> REAL-TIME ROTATION SIMULATOR</span>
+      <h3 style="color: #ffffff; margin: 0.35rem 0 0 0; font-size: 1.25rem; font-weight: 700;">Hurricane Ian: Animated Cloud Formation & Cyclonic Wind Field</h3>
+      <p style="color: #94a3b8; font-size: 0.85rem; margin: 2px 0 0 0;">Interactive 60fps canvas simulation: counter-clockwise cyclonic spin of convective cloud bands and wind field points with inward surface inflow deflection.</p>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <button id="ian-toggle-spin" class="live-refresh-btn" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;">⏸ Pause</button>
+      <button id="ian-speed-spin" class="live-refresh-btn" style="padding: 0.35rem 0.75rem; font-size: 0.82rem;">⚡ 2x Speed</button>
+    </div>
+  </div>
+  <div style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; background: #0b1320; border: 1px solid #334155;">
+    <canvas id="ian-cyclone-canvas" class="cyclone-simulator-canvas" data-storm="ian" style="width: 100%; height: 560px; display: block;"></canvas>
+  </div>
+</div>
+```
+
 ---
 
 ::: {.callout-note}
